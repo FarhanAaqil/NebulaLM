@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Model checkpoints and training runs (tracked outside git)
+checkpoints/
+runs/
+*.pt
+*.bin
+*.safetensors
+
+# Data and tokenized shards (large files tracked via manifests)
+data/
+shards/
+raw/
+processed/
+
+#plan 
+NebulaLM-documentation
