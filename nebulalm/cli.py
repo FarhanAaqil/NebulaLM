@@ -71,7 +71,72 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_show.set_defaults(func=cmd_show_config)
 
+    # train-tokenizer subcommand
+    p_train = sub.add_parser(
+        "train-tokenizer",
+        help="Train a byte-level BPE tokenizer on a text corpus.",
+    )
+    p_train.add_argument(
+        "--corpus",
+        required=True,
+        help="Path to plain-text corpus file.",
+    )
+    p_train.add_argument(
+        "--vocab-size",
+        type=int,
+        required=True,
+        help="Target vocabulary size.",
+    )
+    p_train.add_argument(
+        "--out",
+        required=True,
+        help="Directory to save the trained tokenizer.",
+    )
+    p_train.set_defaults(func=cmd_train_tokenizer)
+
+    # tokenizer-metrics subcommand
+    p_metrics = sub.add_parser(
+        "tokenizer-metrics",
+        help="Compute and report quality metrics for trained tokenizers.",
+    )
+    p_metrics.add_argument(
+        "--tokenizer",
+        required=True,
+        nargs="+",
+        help="Path(s) to trained tokenizer directory(ies).",
+    )
+    p_metrics.add_argument(
+        "--eval-corpus",
+        required=True,
+        help="Path to evaluation corpus file.",
+    )
+    p_metrics.set_defaults(func=cmd_tokenizer_metrics)
+
     return parser
+
+
+def cmd_train_tokenizer(args: argparse.Namespace) -> None:
+    from nebulalm.tokenizer.train import train_tokenizer
+
+    artifact = train_tokenizer(
+        corpus_path=args.corpus,
+        vocab_size=args.vocab_size,
+        output_dir=args.out,
+    )
+    print(f"Tokenizer successfully trained and saved to: {artifact.output_dir}")
+    print(f"Actual vocabulary size: {artifact.vocab_size}")
+
+
+def cmd_tokenizer_metrics(args: argparse.Namespace) -> None:
+    from nebulalm.tokenizer.metrics import compute_metrics, print_report
+
+    tok_paths = args.tokenizer if isinstance(args.tokenizer, list) else [args.tokenizer]
+    metrics_list = []
+    for tp in tok_paths:
+        m = compute_metrics(tokenizer_path=tp, eval_corpus_path=args.eval_corpus)
+        metrics_list.append(m)
+
+    print_report(metrics_list)
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -82,3 +147,4 @@ def main(argv: list[str] | None = None) -> None:
 
 if __name__ == "__main__":
     main()
+

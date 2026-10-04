@@ -229,7 +229,7 @@ def print_report(
         return f"{name} (vocab={m.vocab_size_actual})"
 
     headers = [header(m) for m in metrics_list]
-    sep = "─" * (col_w + len(headers) * (col_w + 3))
+    sep = "-" * (col_w + len(headers) * (col_w + 3))
 
     print()
     print("NebulaLM Tokenizer Comparison Report")
@@ -257,5 +257,6 @@ def print_report(
     print(sep)
     print()
     print("NOTE: 4k vs 8k vocabulary selection is DEFERRED.")
-    print("      Decision requires Member 1's real corpus — see DATASET.md.")
+    print("      Decision requires Member 1's real corpus - see DATASET.md.")
     print()
+
