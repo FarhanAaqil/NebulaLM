@@ -1,0 +1,116 @@
+The Milky Way galaxy contains an estimated two hundred billion to four hundred billion stars, spread across a disc roughly 100,000 light-years in diameter and about 1,000 light-years thick at the solar neighbourhood.
+Our Sun resides approximately 26,000 light-years from the galactic centre, completing one orbit every 225 million years — a period astronomers call the cosmic year or galactic year.
+The galactic centre harbours a supermassive black hole designated Sagittarius A*, with a mass of roughly 4 × 10⁶ solar masses, surrounded by a dense cluster of stars and gas clouds.
+
+The nearest star system to the Sun is Alpha Centauri, situated 4.37 light-years away. It is a triple system consisting of Alpha Centauri A, Alpha Centauri B, and the red dwarf Proxima Centauri, which at 4.24 light-years is the single nearest stellar neighbour.
+Light from Proxima Centauri takes about 4.24 years to reach Earth, meaning we observe it as it was more than four years in the past.
+Proxima Centauri hosts at least one confirmed exoplanet, Proxima b, in the habitable zone, at a semi-major axis of approximately 0.0485 AU and an orbital period of 11.2 Earth days.
+
+A parsec (pc) is defined as the distance at which one astronomical unit (AU) subtends an angle of one arcsecond. Numerically, 1 pc ≈ 3.086 × 10¹³ km ≈ 3.26 light-years.
+Stellar distances are commonly expressed in parsecs, kiloparsecs (kpc), and megaparsecs (Mpc) depending on scale.
+The Andromeda Galaxy (M31) lies approximately 0.78 Mpc — about 2.537 million light-years — from the Milky Way, making it the most distant object visible to the naked eye under dark skies.
+
+Sirius, the brightest star in the night sky, belongs to the constellation Canis Major and lies 8.6 light-years from Earth. It has an apparent visual magnitude of −1.46 and an absolute magnitude of 1.42.
+Sirius is a binary system: Sirius A is a main-sequence A-type star with a mass of 2.02 M☉, while Sirius B is a white dwarf with a mass of 0.978 M☉ and a radius roughly equal to Earth's.
+The surface temperature of Sirius A is approximately 9,940 K, compared to roughly 25,200 K for the much denser Sirius B.
+
+Betelgeuse (α Orionis) is a red supergiant with an estimated mass of 16–19 M☉ and a radius between 700 and 1,000 R☉, making it one of the largest known stars by diameter.
+Were Betelgeuse placed at the centre of the Solar System, its photosphere would extend beyond the orbit of Jupiter.
+Astronomers classify Betelgeuse as a semi-regular variable star; its great dimming event of 2019–2020 was later attributed to a surface mass ejection and subsequent dust condensation.
+
+Neutron stars are the collapsed remnants of massive stars that have undergone supernova explosions. They pack roughly 1–2 solar masses into a sphere only 10–13 km in radius.
+The density at the core of a neutron star can exceed 10¹⁴ g/cm³ — denser than an atomic nucleus.
+A pulsar is a rapidly rotating neutron star that emits beams of electromagnetic radiation from its magnetic poles; as it spins, the beam sweeps across Earth like a lighthouse, producing regular pulses.
+The first pulsar, PSR B1919+21, was discovered in 1967 by Jocelyn Bell Burnell and Antony Hewish, with a period of approximately 1.337 seconds.
+
+Black holes are regions of spacetime where gravity is so strong that no particle or electromagnetic radiation, including light, can escape the event horizon.
+The event horizon radius for a non-rotating (Schwarzschild) black hole is r_s = 2GM/c², where G is Newton's gravitational constant, M is the mass, and c is the speed of light.
+Stellar-mass black holes typically range from 3 to 20 M☉ and form from the collapse of massive stars; intermediate-mass black holes span ~10²–10⁵ M☉; supermassive black holes exceed 10⁶ M☉.
+The first image of a black hole shadow — the supermassive black hole at the centre of galaxy M87, with a mass of 6.5 × 10⁹ M☉ — was published by the Event Horizon Telescope collaboration in April 2019.
+
+The Solar System contains eight recognised planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.
+The inner four (Mercury, Venus, Earth, Mars) are terrestrial planets composed primarily of silicate rock and metal.
+The outer four are divided into gas giants (Jupiter and Saturn, composed mainly of hydrogen and helium) and ice giants (Uranus and Neptune, with a higher fraction of water, ammonia, and methane ices).
+Jupiter, the largest planet, has a mass of 1.898 × 10²⁷ kg — about 318 Earth masses — and a mean radius of 69,911 km.
+Saturn's ring system, extending up to 282,000 km from the planet's centre, is composed of ice particles and rocky debris ranging in size from dust grains to boulders several metres across.
+
+The distance from Earth to the Sun (1 AU) is approximately 1.496 × 10⁸ km or 8.317 light-minutes. It is the fundamental unit of distance measurement within planetary science.
+Neptune orbits at a mean distance of 30.07 AU from the Sun, with an orbital period of 164.8 Earth years and an equatorial radius of 24,622 km.
+Beyond Neptune lies the Kuiper Belt, a region spanning roughly 30–50 AU containing small icy bodies, including the dwarf planets Pluto, Eris, Makemake, and Haumea.
+
+Pluto, reclassified as a dwarf planet by the International Astronomical Union in 2006, has a mean radius of 1,188.3 km and orbits the Sun at a mean distance of 39.48 AU with a period of 247.9 years.
+NASA's New Horizons spacecraft conducted the first close flyby of Pluto in July 2015, revealing nitrogen glaciers, a heart-shaped nitrogen-ice plain (Tombaugh Regio), and a thin haze-filled atmosphere.
+
+The cosmic microwave background (CMB) radiation is the thermal radiation left over from the epoch of recombination, approximately 380,000 years after the Big Bang, when the universe cooled enough for protons and electrons to combine into neutral hydrogen.
+The CMB has a near-perfect blackbody spectrum corresponding to a temperature of 2.725 K with tiny anisotropies — temperature fluctuations of order 10⁻⁵ — that encode the seeds of large-scale structure.
+Planck satellite measurements published in 2018 constrained the age of the universe to 13.787 ± 0.020 billion years and the Hubble constant to H₀ = 67.4 ± 0.5 km/s/Mpc.
+
+Dark matter accounts for approximately 27% of the total energy content of the observable universe, compared to about 5% for ordinary (baryonic) matter and 68% for dark energy.
+Dark matter does not interact with electromagnetic radiation and has never been directly detected; its existence is inferred from gravitational effects — galaxy rotation curves, gravitational lensing, and large-scale structure formation.
+The rotation curve of NGC 3198, a spiral galaxy in Ursa Major, provided one of the earliest and most convincing lines of evidence for dark matter: stars at large radii orbit at speeds far exceeding those predicted by visible mass alone.
+
+Dark energy, parameterised by the cosmological constant Λ in Einstein's field equations, is the leading explanation for the observed accelerating expansion of the universe, first reported in 1998 through studies of Type Ia supernovae.
+The equation of state for dark energy is characterised by w = p/(ρc²) ≈ −1, consistent with a vacuum energy density that remains constant as the universe expands.
+
+The Hertzsprung-Russell (H-R) diagram plots stellar luminosity against effective surface temperature and reveals that most stars, including the Sun, fall along a diagonal band called the main sequence.
+Stars on the main sequence are in hydrostatic equilibrium, fusing hydrogen to helium in their cores. The Sun (G2V spectral type) will remain on the main sequence for a total lifetime of approximately 10 billion years.
+High-mass O- and B-type stars burn through their hydrogen fuel in millions of years, ending as supernovae; low-mass M-type stars can persist for tens to hundreds of billions of years.
+
+A stellar spectral classification (Morgan-Keenan system) orders stars by temperature: O B A F G K M (hot to cool), with subtype numbers 0–9 and luminosity class I–V appended.
+The surface temperature range for each class: O > 30,000 K; B: 10,000–30,000 K; A: 7,500–10,000 K; F: 6,000–7,500 K; G: 5,200–6,000 K; K: 3,700–5,200 K; M < 3,700 K.
+The Sun (G2V) has an effective surface temperature of 5,778 K and a luminosity of 3.828 × 10²⁶ W, defined as 1 L☉.
+
+Hubble's Law states that galaxies recede from us with a velocity proportional to their distance: v = H₀ × d, where H₀ is the Hubble constant.
+The observable universe spans a comoving radius of approximately 46.5 billion light-years, even though the universe itself is only 13.8 billion years old, because space has expanded during the time light has been travelling.
+Galaxy redshift z is defined as z = (λ_obs − λ_em) / λ_em; a galaxy at z = 1 has its light stretched to twice the emitted wavelength, indicating it was emitted when the universe was roughly half its current size.
+
+Active galactic nuclei (AGN) are extremely luminous central regions of galaxies powered by accretion onto supermassive black holes. They include quasars, Seyfert galaxies, blazars, and radio galaxies.
+The most luminous quasars can outshine their entire host galaxy by factors of thousands, emitting more than 10⁴⁰ W across the electromagnetic spectrum from radio to X-ray wavelengths.
+Quasar 3C 273, at a redshift of z ≈ 0.158 (about 2.4 billion light-years), was the first quasar identified, in 1963, with an apparent magnitude of 12.9 — bright enough to appear in amateur telescopes.
+
+Gravitational waves are ripples in the curvature of spacetime, produced by accelerating masses, that propagate at the speed of light. Their existence was predicted by Einstein in 1916 as a consequence of general relativity.
+The first direct detection of gravitational waves was made by LIGO on 14 September 2015 (GW150914), originating from the merger of two black holes with masses of approximately 36 M☉ and 29 M☉ at a distance of 1.3 billion light-years.
+Strain amplitude h = ΔL/L for GW150914 was approximately 10⁻²¹, meaning LIGO's 4 km arm length changed by about 10⁻¹⁸ m — one-thousandth the diameter of a proton.
+
+The Drake Equation estimates the number of communicative civilisations in our galaxy as N = R* × fp × ne × fl × fi × fc × L, where R* is the star-formation rate, fp the fraction of stars with planets, and so on.
+Current estimates place the star-formation rate in the Milky Way at roughly 1–3 solar masses per year, producing approximately one to two new stars per year when averaged over the stellar initial mass function.
+The Fermi Paradox asks: if intelligent life is common, why have we not detected any signs of it? Proposed resolutions range from the Great Filter hypothesis to communication channel mismatch and the rarity of technological civilisations.
+
+The James Webb Space Telescope (JWST), launched in December 2021, operates primarily in the near- and mid-infrared (0.6–28 μm), enabling observation of the first galaxies formed after the Big Bang, detailed atmospheric studies of exoplanets, and high-resolution imaging of star-forming regions obscured by dust.
+JWST's primary mirror consists of 18 hexagonal gold-coated beryllium segments with a total collecting area of 25.4 m², compared to Hubble's 4.5 m² mirror.
+First science images released in July 2022 included the deepest infrared image of the universe to date, showing galaxy cluster SMACS 0723 as it appeared 4.6 billion years ago.
+
+Exoplanet detection methods include the transit method (Kepler, TESS), radial velocity or Doppler spectroscopy, direct imaging, gravitational microlensing, and astrometry.
+As of 2024, over 5,600 confirmed exoplanets are catalogued, spanning a wide range from hot Jupiters and super-Earths to sub-Neptunes and Earth-sized worlds in habitable zones.
+The habitable zone (HZ) around a star is broadly defined as the range of orbital distances at which liquid water could exist on a planetary surface, given sufficient atmospheric pressure.
+
+Stellar nucleosynthesis describes how elements are formed inside stars. Hydrogen fuses to helium in main-sequence stars; helium burns to carbon and oxygen in red giants; massive stars generate elements up to iron through successive fusion stages.
+Elements heavier than iron (e.g. gold, platinum, uranium) are synthesised through neutron capture processes: the slow s-process in AGB stars and the rapid r-process in neutron star mergers (kilonovae) and core-collapse supernovae.
+The kilonova associated with gravitational-wave event GW170817 provided the first direct observational evidence that neutron star mergers are a primary site of r-process nucleosynthesis.
+
+The Chandrasekhar limit (~1.4 M☉) is the maximum mass for a stable white dwarf supported by electron degeneracy pressure. A white dwarf exceeding this limit undergoes runaway thermonuclear fusion, producing a Type Ia supernova.
+Type Ia supernovae serve as standard candles in cosmology because their peak absolute magnitude is nearly uniform (M_B ≈ −19.3), allowing distance measurements to billions of light-years.
+
+Radio astronomy observes electromagnetic radiation in the radio portion of the spectrum (wavelengths from ~1 mm to ~100 km). The first cosmic radio source was detected by Karl Jansky in 1932, opening an entirely new window on the universe.
+The Square Kilometre Array (SKA), under construction in South Africa and Australia, will be the world's largest radio telescope, with a total collecting area of one square kilometre (10⁶ m²) and the ability to survey the sky thousands of times faster than any existing facility.
+Neutral hydrogen emits at the 21 cm hyperfine transition line (frequency 1420.405 MHz), making it a key tracer of the distribution and kinematics of gas in galaxies across cosmic time.
+
+The Voyager 1 spacecraft, launched in September 1977, crossed the heliopause — the boundary between the solar wind and interstellar space — in August 2012, making it the first human-made object to enter interstellar space.
+As of 2024, Voyager 1 is approximately 160 AU from the Sun, travelling at about 17 km/s relative to the Sun. At this rate, it would take about 40,000 years to reach the vicinity of any other star.
+The golden record aboard Voyager 1 and 2 contains sounds and images selected to portray life and culture on Earth, encoded for playback by any sufficiently advanced civilisation that might recover it.
+
+The zodiacal light is a faint, diffuse glow caused by sunlight scattering off interplanetary dust particles (IDPs) concentrated in the plane of the ecliptic. It is best observed from dark sites shortly after twilight or before dawn.
+The asteroid belt between Mars and Jupiter contains millions of rocky and metallic bodies ranging in size from dust grains to the dwarf planet Ceres (radius ≈ 476 km). Its total mass is roughly 4% that of the Moon.
+Near-Earth objects (NEOs) include asteroids and comets whose orbits bring them within 1.3 AU of the Sun. Planetary defence initiatives catalogue them to assess impact risk and develop mitigation strategies.
+
+Io, one of Jupiter's four Galilean moons, is the most volcanically active body in the Solar System, with hundreds of volcanoes and lava flows driven by tidal heating from gravitational interactions with Jupiter, Europa, and Ganymede.
+Europa, another Galilean moon, is thought to harbour a subsurface liquid water ocean beneath its icy crust, making it one of the most promising sites in the Solar System for astrobiological investigation.
+Enceladus, a moon of Saturn, actively vents water-rich plumes from its south polar region — confirmed by the Cassini spacecraft — providing direct access to its subsurface ocean chemistry without the need to drill through ice.
+
+Spectroscopy, the analysis of light dispersed by wavelength, reveals the chemical composition, temperature, density, velocity, and magnetic field strength of celestial objects.
+The Fraunhofer absorption lines in the solar spectrum correspond to specific elements — the dark D-lines at 589 nm are caused by sodium; the Hα line at 656.3 nm by hydrogen.
+Doppler broadening of spectral lines encodes temperature (thermal motion), while pressure broadening and Zeeman splitting reveal gas density and magnetic fields respectively.
+
+Atmospheric refraction bends starlight as it passes through Earth's atmosphere, causing stars near the horizon to appear slightly higher than their geometric positions. Total refraction at the horizon is approximately 34 arcminutes — slightly more than the angular diameter of the Sun or Moon.
+Seeing, in observational astronomy, describes the blurring and twinkling of stars caused by atmospheric turbulence; it is quantified in arcseconds and is a critical factor in ground-based telescope site selection.
+Adaptive optics systems correct in real time for atmospheric distortions by using a deformable mirror driven by wavefront sensor measurements, enabling ground-based telescopes to approach diffraction-limited performance at near-infrared wavelengths.
