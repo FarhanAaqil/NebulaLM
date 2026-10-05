@@ -156,9 +156,12 @@ def load_shard(path: str) -> Tuple[np.ndarray, np.ndarray, Dict[str, Any]]:
         windows = data["windows"]
         masks = data["masks"]
     except Exception as e:
-        if isinstance(e, (FileNotFoundError, ValueError)):
+        if isinstance(e, FileNotFoundError):
             raise
-        raise ValueError(f"Failed to load corrupted shard file {shard_path!r}: {e}") from e
+        if "Corrupted shard file" in str(e):
+            raise
+        raise ValueError(f"Corrupted or invalid shard file {shard_path!r}: {e}") from e
+
 
     if not os.path.isfile(manifest_path):
         raise FileNotFoundError(f"Shard manifest not found: {manifest_path!r}")

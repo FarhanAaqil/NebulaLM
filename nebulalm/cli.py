@@ -112,7 +112,122 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_metrics.set_defaults(func=cmd_tokenizer_metrics)
 
+    # pack-sequences subcommand
+    p_pack = sub.add_parser(
+        "pack-sequences",
+        help="Pack tokenized documents into fixed-length windows with loss masking.",
+    )
+    p_pack.add_argument(
+        "--tokenized",
+        required=True,
+        help="Path to tokenized documents file (JSON or JSONL).",
+    )
+    p_pack.add_argument(
+        "--block-size",
+        type=int,
+        default=256,
+        help="Target window block size (default: 256).",
+    )
+    p_pack.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Random seed for deterministic document shuffling (default: 42).",
+    )
+    p_pack.add_argument(
+        "--out",
+        required=True,
+        help="Output path for the packed shard (.npz) or directory.",
+    )
+    p_pack.add_argument(
+        "--tokenizer",
+        default=None,
+        help="Optional path to tokenizer directory (to link source tokenizer hash).",
+    )
+    p_pack.add_argument(
+        "--eos-id",
+        type=int,
+        default=2,
+        help="Token ID for <eos> boundary delimiter (default: 2).",
+    )
+    p_pack.add_argument(
+        "--pad-id",
+        type=int,
+        default=0,
+        help="Token ID for <pad> padding (default: 0).",
+    )
+    p_pack.set_defaults(func=cmd_pack_sequences)
+
     return parser
+
+
+def cmd_pack_sequences(args: argparse.Namespace) -> None:
+    import json
+    import os
+    from nebulalm.packing.pack import pack_sequences
+    from nebulalm.packing.mask import pad_last_window, build_loss_mask, packing_stats
+    from nebulalm.packing.shard_io import save_shard
+
+    tokenized_path = os.path.abspath(args.tokenized)
+    if not os.path.isfile(tokenized_path):
+        print(f"Error: Tokenized input file not found: {tokenized_path}", file=sys.stderr)
+        sys.exit(1)
+
+    with open(tokenized_path, "r", encoding="utf-8") as f:
+        try:
+            tokenized_docs = json.load(f)
+        except json.JSONDecodeError:
+            f.seek(0)
+            tokenized_docs = [json.loads(line) for line in f if line.strip()]
+
+    eos_id = args.eos_id
+    pad_id = args.pad_id
+    source_tokenizer_hash = "unspecified"
+
+    if args.tokenizer:
+        tok_dir = os.path.abspath(args.tokenizer)
+        lock_file = os.path.join(tok_dir, "tokenizer.lock.json")
+        if os.path.isfile(lock_file):
+            with open(lock_file, "r", encoding="utf-8") as f:
+                lock_data = json.load(f)
+                source_tokenizer_hash = lock_data.get("hash", "unspecified")
+
+    windows = pack_sequences(
+        tokenized_docs=tokenized_docs,
+        block_size=args.block_size,
+        eos_id=eos_id,
+        seed=args.seed,
+    )
+
+    if windows and len(windows[-1]) < args.block_size:
+        windows[-1] = pad_last_window(windows[-1], block_size=args.block_size, pad_id=pad_id)
+
+    masks = [build_loss_mask(w, pad_id=pad_id) for w in windows]
+    stats = packing_stats(windows, pad_id=pad_id)
+
+    metadata = {
+        "source_tokenizer_hash": source_tokenizer_hash,
+        "block_size": args.block_size,
+        "seed": args.seed,
+        "num_windows": len(windows),
+        "pad_ratio": stats["pad_ratio"],
+    }
+
+    shard_hash = save_shard(
+        windows=windows,
+        masks=masks,
+        output_path=args.out,
+        metadata=metadata,
+    )
+
+    print(
+        f"Packed {len(tokenized_docs)} documents into {len(windows)} windows (block_size={args.block_size})"
+    )
+    print(
+        f"Total tokens: {stats['total_tokens']}, PAD tokens: {stats['pad_tokens']} (pad_ratio: {stats['pad_ratio']:.4f})"
+    )
+    print(f"Shard saved to: {args.out} (hash: {shard_hash})")
+
 
 
 def cmd_train_tokenizer(args: argparse.Namespace) -> None:
