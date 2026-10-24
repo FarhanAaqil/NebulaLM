@@ -1,0 +1,25 @@
+{
+  "algorithm": "hmac-sha256-v1",
+  "by_split": {
+    "excluded": {
+      "documents": 52,
+      "utf8_bytes": 35699,
+      "words": 5768
+    },
+    "test": {
+      "documents": 21,
+      "utf8_bytes": 17171,
+      "words": 2924
+    },
+    "train": {
+      "documents": 663,
+      "utf8_bytes": 540430,
+      "words": 91956
+    },
+    "validation": {
+      "documents": 23,
+      "utf8_bytes": 18815,
+      "words": 3202
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "changed_variables": {
+    "vocab_size": [
+      4000,
+      8000
+    ]
+  },
+  "code_commit": "1c1b5f7cbff6e6e9c22b4d15a16015e97b72365e",
+  "controlled_variables": {
+    "normalizer": "NFC",
+    "seed": 17013,
+    "training_split": "train"
+  },
+  "dataset_manifest_sha256": "dead6fd035ffef0b4f13a9c8b1e735af6bcd3bc48f69b0e59bc6823bc0c5ee6e",
+  "decision_informed": "Which vocabulary the Phase 1 trace packs. Production selection is a later experiment.",
+  "environment_id": "see-reports/environment.json",
+  "evaluation_bundle_sha256": "not-frozen-until-phase-3",
+  "evaluation_intervals": null,
+  "experiment_id": "EXP-TOK",
+  "hypothesis": "On this sample, one of the 4k or 8k byte-level BPE candidates is on the Pareto frontier and can be used for the slice.",
+  "known_deviations": [
+    "Corpus is authored fixture text, not the production OpenStax and Wikipedia collection.",
+    "Validation text evaluates a finished tokenizer and is not used to learn merges."
+  ],
+  "planned_runs": [
+    {
+      "name": "slice-4k"
+    },
+    {
+      "name": "slice-8k"
+    }
+  ],
+  "primary_metric": "validation tokens per UTF-8 byte",
+  "registered_at": "2026-10-25T00:00:00Z",
+  "secondary_metrics": [
+    "fragmentation_tokens_per_term",
+    "embedding_parameter_count",
+    "round_trip_rate"
+  ],
+  "seeds": [
+    {
+      "name": "tokenizer_train",
+      "value": 17013
+    }
+  ],
+  "split_manifest_sha256": "dead6fd035ffef0b4f13a9c8b1e735af6bcd3bc48f69b0e59bc6823bc0c5ee6e",
+  "status": "completed",
+  "stop_rule": "No training run. Tokenizer selection uses the Pareto rule in TOKENIZER.md.",
+  "tie_rule": "Smallest vocabulary among non-dominated candidates.",
+  "tokenizer_sha256": "db5155f42d358b3394c741c307ff20b7da27f72d5cc1cd9dd700877edc2015c7",
+  "valid_token_budget": null,
+  "wall_clock_cap": null
+}

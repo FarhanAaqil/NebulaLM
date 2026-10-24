@@ -1,0 +1,23 @@
+{
+  "cluster_overlaps": {
+    "train|test": [],
+    "train|validation": [],
+    "validation|test": []
+  },
+  "counts": {
+    "test": 21,
+    "train": 663,
+    "validation": 23
+  },
+  "leaked": false,
+  "paragraph_overlap_counts": {
+    "train|test": 0,
+    "train|validation": 0,
+    "validation|test": 0
+  },
+  "paragraph_overlaps": {
+    "train|test": [],
+    "train|validation": [],
+    "validation|test": []
+  }
+}

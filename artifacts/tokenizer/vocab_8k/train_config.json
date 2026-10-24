@@ -1,0 +1,16 @@
+{
+  "actual_vocab_size": 8000,
+  "add_prefix_space": false,
+  "document_count": 663,
+  "normalizer": "NFC",
+  "pre_tokenizer": "ByteLevel",
+  "requested_vocab_size": 8000,
+  "seed": 17013,
+  "special_tokens": [
+    "<pad>",
+    "<eos>"
+  ],
+  "train_manifest_sha256": "dead6fd035ffef0b4f13a9c8b1e735af6bcd3bc48f69b0e59bc6823bc0c5ee6e",
+  "training_text_sha256": "9f0e4be84cdbfac25349f42e91190813d5ba2277cbd2476bc50bdb7f16f4f086",
+  "unk_token": null
+}

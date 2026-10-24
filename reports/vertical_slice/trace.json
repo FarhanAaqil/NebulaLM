@@ -1,0 +1,43 @@
+{
+  "clean_sha256": "0e74e137a0f66292cd7693c032b42d40388e777848aacfa5545989717ae9a10a",
+  "clean_sha256_recomputed": "0e74e137a0f66292cd7693c032b42d40388e777848aacfa5545989717ae9a10a",
+  "dedup_cluster_id": "cluster_b93be4a5a68a2b5a",
+  "document_id": "doc_openstax_astronomy_2e_alpha-centauri",
+  "document_utf8_bytes": 666,
+  "eos_id_in_window": true,
+  "hashes_match": true,
+  "ngram5": {
+    "bits_per_byte": 2.0450877359135955,
+    "mean_nll": 5.303854873962863,
+    "perplexity": 201.11057354971535,
+    "sum_nll_nats": 944.0861675653897,
+    "utf8_bytes": 666,
+    "valid_tokens": 178
+  },
+  "note": "Probe losses are a Phase 1 sample measurement, not the 29M NebulaLM result.",
+  "pad_loss_weight_sum": 0,
+  "probe_after_steps": {
+    "bits_per_byte": 0.5546759086895141,
+    "mean_nll": 1.438530225432321,
+    "perplexity": 4.214496902246372,
+    "sum_nll_nats": 256.0583801269531,
+    "utf8_bytes": 666,
+    "valid_tokens": 178
+  },
+  "probe_initial": {
+    "bits_per_byte": 3.2047815933708925,
+    "mean_nll": 8.311475432320927,
+    "perplexity": 4070.3140284231467,
+    "sum_nll_nats": 1479.442626953125,
+    "utf8_bytes": 666,
+    "valid_tokens": 178
+  },
+  "probe_parameter_count": 339456,
+  "probe_steps": 30,
+  "raw_sha256": "0e74e137a0f66292cd7693c032b42d40388e777848aacfa5545989717ae9a10a",
+  "source": "openstax_astronomy_2e",
+  "split": "train",
+  "tokenizer_sha256": "db5155f42d358b3394c741c307ff20b7da27f72d5cc1cd9dd700877edc2015c7",
+  "train_manifest_sha256": "dead6fd035ffef0b4f13a9c8b1e735af6bcd3bc48f69b0e59bc6823bc0c5ee6e",
+  "window_byte_count": 666
+}

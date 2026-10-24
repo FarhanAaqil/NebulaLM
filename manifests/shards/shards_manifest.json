@@ -1,0 +1,23 @@
+{
+  "context": 256,
+  "cross_document_attention": false,
+  "shards": [
+    {
+      "content_tokens": 128955,
+      "path": "shards/train_000.bin",
+      "sha256": "01cc8acc85aa20b1c3921cb5601d45b8614a64423982136c8f8b5da67ae97ace",
+      "split": "train",
+      "utf8_bytes": 540430,
+      "windows": 504
+    },
+    {
+      "content_tokens": 4613,
+      "path": "shards/val_000.bin",
+      "sha256": "9635642ca963b0c1df7b14514de400ee8d596daca006a98ba6c2b1b250a8ec54",
+      "split": "validation",
+      "utf8_bytes": 18815,
+      "windows": 19
+    }
+  ],
+  "tokenizer_sha256": "db5155f42d358b3394c741c307ff20b7da27f72d5cc1cd9dd700877edc2015c7"
+}

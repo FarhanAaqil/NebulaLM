@@ -1,0 +1,27 @@
+{
+  "false_rejects_on_labeled_accept": [],
+  "labeled_accept": 50,
+  "labeled_reject": 50,
+  "missed_rejects_on_labeled_reject": [],
+  "note": "Labels are authored fixtures, not a 50/50 audit of OpenStax or Wikipedia.",
+  "rejection_reason_counts": {
+    "low_alpha_ratio": 10,
+    "low_language_score": 50,
+    "markup_contamination": 10,
+    "post_cutoff": 1,
+    "repeated_lines": 30,
+    "source_not_approved": 1,
+    "too_few_paragraphs": 10,
+    "too_short": 10
+  },
+  "thresholds": {
+    "language_function_word_denominator": 0.35,
+    "max_markup_ratio": 0.02,
+    "max_repeated_line_ratio": 0.35,
+    "min_alpha_ratio": 0.65,
+    "min_chars": 200,
+    "min_language_score": 0.9,
+    "min_language_words": 20,
+    "min_paragraphs": 2
+  }
+}

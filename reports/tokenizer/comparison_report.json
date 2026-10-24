@@ -1,0 +1,45 @@
+{
+  "candidates": [
+    {
+      "actual_vocab_size": 4000,
+      "embedding_parameter_count": 2048000,
+      "encode_seconds": 0.01002449996303767,
+      "fragmentation_tokens_per_term": 3.5555555555555554,
+      "path": "G:\\My Drive\\EDU\\Projects\\NebulaLM\\artifacts\\tokenizer\\vocab_4k",
+      "planned_model_parameter_count": 27399168,
+      "requested_vocab_size": 4000,
+      "round_trip_rate": 1.0,
+      "tokenizer_sha256": "db5155f42d358b3394c741c307ff20b7da27f72d5cc1cd9dd700877edc2015c7",
+      "tokens": 4590,
+      "tokens_per_second": 457878.2001021742,
+      "tokens_per_utf8_byte": 0.24395429178846664,
+      "tokens_per_word_mean": 1.4334956879217122,
+      "tokens_per_word_median": 1.4244604316546763,
+      "tokens_per_word_p95": 1.460431654676259,
+      "tokens_per_word_p99": 1.4676258992805755,
+      "unknown_rate": 0.0,
+      "utf8_bytes": 18815
+    },
+    {
+      "actual_vocab_size": 8000,
+      "embedding_parameter_count": 4096000,
+      "encode_seconds": 0.010993000003509223,
+      "fragmentation_tokens_per_term": 3.4444444444444446,
+      "path": "G:\\My Drive\\EDU\\Projects\\NebulaLM\\artifacts\\tokenizer\\vocab_8k",
+      "planned_model_parameter_count": 29447168,
+      "requested_vocab_size": 8000,
+      "round_trip_rate": 1.0,
+      "tokenizer_sha256": "274110719a62a567bad931d177d8edb45016e4ca7a5a346025daddd43658f4f8",
+      "tokens": 4550,
+      "tokens_per_second": 413899.7542570302,
+      "tokens_per_utf8_byte": 0.24182832846133404,
+      "tokens_per_word_mean": 1.4210040663121677,
+      "tokens_per_word_median": 1.4172661870503598,
+      "tokens_per_word_p95": 1.4532374100719425,
+      "tokens_per_word_p99": 1.4532374100719425,
+      "unknown_rate": 0.0,
+      "utf8_bytes": 18815
+    }
+  ],
+  "selected_vocab": 4000
+}

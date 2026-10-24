@@ -1,0 +1,14 @@
+{
+  "phase": 1,
+  "date": "2026-10-25",
+  "trace_document_id": "doc_openstax_astronomy_2e_alpha-centauri",
+  "split": "train",
+  "clean_sha256": "0e74e137a0f66292cd7693c032b42d40388e777848aacfa5545989717ae9a10a",
+  "tokenizer_sha256": "db5155f42d358b3394c741c307ff20b7da27f72d5cc1cd9dd700877edc2015c7",
+  "selected_vocab": 4000,
+  "leakage": false,
+  "probe_initial_bits_per_byte": 3.2047815933708925,
+  "probe_after_30_steps_bits_per_byte": 0.5546759086895141,
+  "ngram5_bits_per_byte": 2.0450877359135955,
+  "note": "Probe and n-gram figures are sample measurements. They are not the 29M research result."
+}
