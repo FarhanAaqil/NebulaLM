@@ -1,0 +1,23 @@
+model_family: decoder-only-transformer
+name: nebulalm
+n_layer: 8
+n_head: 8
+d_model: 512
+d_mlp: 2048
+context_length: 256
+vocab_size: 8000
+norm: pre-layernorm
+activation: gelu-exact
+position: learned-absolute
+weight_tying: true
+dropout: 0.10
+dropout_pilot: 0.20
+bias:
+  qkv: true
+  attention_out: true
+  mlp: true
+  lm_head: false
+count_policy: >
+  The formula in src/nebulalm/model/config.py counts the tied token embedding
+  once. An instantiated module count replaces this formula once the full
+  model exists. 29M is the planned label, not a measured training result.

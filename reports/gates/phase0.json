@@ -1,0 +1,15 @@
+{
+  "phase": 0,
+  "date": "2026-10-25",
+  "cutoff": "2024-01-01T00:00:00Z",
+  "research_question_locked": true,
+  "schemas": [
+    "schemas/document.schema.json",
+    "schemas/experiment.schema.json"
+  ],
+  "protocol": "configs/eval/protocol.yaml",
+  "environment_report": "reports/environment.json",
+  "torch_cuda_available": false,
+  "gpu_memory": "4096 MiB",
+  "note": "Phase 0 freezes rules. It does not report a training result."
+}

@@ -1,0 +1,10 @@
+# Named seeds. A change here changes artifact identity.
+data_split: 17011
+dedup_sample: 17012
+tokenizer_train: 17013
+model_init: 17014
+data_shuffle: 17015
+evaluation: 17016
+shard_packing: 17017
+generation: 17018
+bootstrap: 17019

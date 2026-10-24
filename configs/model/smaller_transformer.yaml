@@ -1,0 +1,16 @@
+model_family: decoder-only-transformer
+name: smaller-transformer
+n_layer: 4
+n_head: 6
+d_model: 384
+d_mlp: 1536
+context_length: 256
+vocab_size: 8000
+norm: pre-layernorm
+activation: gelu-exact
+position: learned-absolute
+weight_tying: true
+dropout: 0.10
+notes: >
+  MLP width is four times d_model, matching the NebulaLM ratio.
+  The parameter count is computed by code. "Approximately 10M" is a label.

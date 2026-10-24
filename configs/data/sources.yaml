@@ -1,0 +1,47 @@
+temporal_cutoff: "2024-01-01T00:00:00Z"
+cutoff_rule: >
+  Exclude a record from train, validation, test, and tokenizer training when
+  published_at or the source revision timestamp is later than the cutoff.
+  A null published_at is allowed only for an edition that was frozen before
+  the cutoff and is named in this file. Later revisions may be stored only
+  in a labeled post-cutoff challenge set.
+license_audit:
+  unresolved_policy: exclude
+  steps:
+    - Record the SPDX or project license id and the license URL.
+    - Record the attribution the license requires.
+    - Reject a record when third-party text, figure captions, or quotations have no compatible rights note.
+    - Keep conditional sources out of every baseline split until a decision record approves specific records.
+    - Never treat public availability as a license.
+sources:
+  openstax_astronomy_2e:
+    status: approved
+    license_id: CC-BY-4.0
+    license_url: https://creativecommons.org/licenses/by/4.0/
+    edition: "2e"
+    canonical_book_url: https://openstax.org/books/astronomy-2e
+    author_attribution:
+      - Andrew Fraknoi
+      - David Morrison
+      - Sidney Wolff
+    notes: Preserve edition, attribution, canonical URL, and section identity.
+  wikipedia_en_astronomy:
+    status: approved
+    license_id: CC-BY-SA-4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0/
+    notes: Use a dated revision at or before the cutoff. Keep page id, revision id, and title.
+  nasa_apod:
+    status: conditional
+    license_id: null
+    license_url: null
+    notes: Out of the baseline until each record's text rights are audited. Not collected in Phase 1.
+  esa_outreach:
+    status: excluded
+    license_id: null
+    license_url: null
+    notes: Excluded from the baseline corpus.
+  astronomy_stackexchange:
+    status: excluded
+    license_id: null
+    license_url: null
+    notes: Excluded from the baseline corpus.

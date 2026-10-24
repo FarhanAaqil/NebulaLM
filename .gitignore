@@ -20,18 +20,24 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
+# Secrets
+.env
+.env.*
+*.pem
+
 # Model checkpoints and training runs (tracked outside git)
-checkpoints/
-runs/
+/checkpoints/
+/runs/
 *.pt
 *.bin
 *.safetensors
 
-# Data and tokenized shards (large files tracked via manifests)
-data/
-shards/
-raw/
-processed/
+# Raw data and tokenized shards. Manifests stay in git; payloads do not.
+# Patterns are rooted so src/nebulalm/data is not ignored.
+/data/
+/shards/
+/raw/
+/processed/
 
-#plan 
-NebulaLM-documentation 
+# Local specification drafts
+/NebulaLM-documentation/

@@ -1,0 +1,24 @@
+{
+  "gpu": {
+    "available_to_nvidia_smi": true,
+    "driver_cuda_version": "13.3",
+    "driver_version": "610.88",
+    "memory_total": "4096 MiB",
+    "name": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "machine": {
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "manufacturer": "ASUSTeK COMPUTER INC.",
+    "model": "ASUS TUF Gaming F15 FX507ZC4",
+    "ram_bytes": 16779653120
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "python": "3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)]",
+  "torch": {
+    "cuda_available": false,
+    "cuda_compiled": null,
+    "cudnn": null,
+    "version": "2.10.0+cpu"
+  }
+}

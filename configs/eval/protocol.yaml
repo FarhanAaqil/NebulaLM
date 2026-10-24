@@ -1,0 +1,50 @@
+version: phase1-protocol
+metrics:
+  aggregation: token_weighted_mean_nll
+  nll_definition: >
+    Sum per-token cross-entropy in nats over positions whose loss weight is 1,
+    then divide by the valid-token count. Do not average batch means.
+  perplexity: exp(token_weighted_mean_nll) for one frozen tokenizer. Do not compare perplexity across vocabularies.
+  bits_per_byte: (sum_nll_nats / ln(2)) / utf8_byte_count
+  byte_accounting:
+    eos_text_bytes: 0
+    pad_text_bytes: 0
+    pad_loss_weight: 0
+    convention: >
+      UTF-8 bytes belong to the original document text. The eos token adds
+      no text bytes. Pad positions add no text bytes and no loss.
+  source_weighting: document-uniform within the evaluated split, then reported per source and overall
+  bootstrap:
+    unit: dedup_cluster
+    resamples: 1000
+    confidence: 0.95
+    seed_name: bootstrap
+stopping:
+  rule: Stop when validation NLL worsens on two consecutive checks while training loss decreases.
+tie_break:
+  rule: >
+    When validation bits-per-byte intervals overlap, keep the earlier checkpoint
+    with the lower valid-token count.
+tolerances:
+  fp32_atol: 1.0e-5
+  fp32_rtol: 1.0e-4
+  fp16_atol: 1.0e-2
+  fp16_rtol: 1.0e-2
+  note: Phase 1 probe measurements are FP32. FP16 bounds apply only after an AMP run is measured.
+baselines:
+  - id: ngram-5
+    role: registered classical baseline
+    phase1_status: skeleton-scored-on-sample
+  - id: smaller-transformer
+    role: registered neural baseline
+    phase1_status: config-only
+  - id: unigram
+    role: sanity reference
+    phase1_status: not-a-primary-baseline
+test_access:
+  validation_flag: allow_eval
+  test_flag: allow_final_eval
+  rule: The training iterator refuses validation and test text. Test text also requires the final-evaluation flag.
+checkpoint_selection:
+  metric: token_weighted_validation_bpb
+  test_set_selects_checkpoint: false

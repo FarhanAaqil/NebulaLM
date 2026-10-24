@@ -1,0 +1,8 @@
+# Direct dependencies pinned from the environment that produced reports/environment.json.
+# torch 2.10.0+cpu is the installed build. CUDA is not linked into this interpreter.
+# GPU presence is probed separately and is not implied by this lock file.
+torch==2.10.0
+tokenizers==0.22.2
+jsonschema==4.26.0
+PyYAML==6.0.3
+pytest==9.1.1

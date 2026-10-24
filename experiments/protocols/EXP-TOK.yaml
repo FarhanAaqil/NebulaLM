@@ -1,0 +1,42 @@
+experiment_id: EXP-TOK
+registered_at: "2026-10-25T00:00:00Z"
+hypothesis: >
+  On the authored Phase 1 sample, a 4000-token and an 8000-token byte-level BPE
+  can both be trained from the train split alone and compared without using
+  validation text to learn merges.
+decision_informed: Which vocabulary the sample trace uses. Production selection remains Phase 3.
+primary_metric: validation tokens per UTF-8 byte
+secondary_metrics:
+  - fragmentation_tokens_per_term
+  - embedding_parameter_count
+  - round_trip_rate
+changed_variables:
+  vocab_size:
+    - 4000
+    - 8000
+controlled_variables:
+  training_split: train
+  normalizer: NFC
+  pre_tokenizer: ByteLevel
+  add_prefix_space: false
+dataset_manifest_sha256: pending-slice-build
+split_manifest_sha256: pending-slice-build
+tokenizer_sha256: pending-slice-build
+evaluation_bundle_sha256: not-frozen-until-phase-3
+code_commit: pending-slice-build
+environment_id: see-reports/environment.json
+seeds:
+  - name: tokenizer_train
+    value: 17013
+valid_token_budget: null
+wall_clock_cap: null
+evaluation_intervals: null
+stop_rule: No language-model training. Selection uses the Pareto rule.
+tie_rule: Smallest vocabulary among non-dominated candidates.
+planned_runs:
+  - name: slice-4k
+  - name: slice-8k
+known_deviations:
+  - Corpus is authored fixture text, not the production collection.
+  - Validation text scores a finished tokenizer and does not change its merges.
+status: registered
