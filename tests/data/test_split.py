@@ -21,7 +21,7 @@ def test_assignment_is_deterministic_and_roughly_stratified():
 
 
 def test_clusters_do_not_cross_splits():
-    sources = read_yaml(ROOT / "configs" / "data" / "sources.yaml")
+    sources = read_yaml(ROOT / "configs" / "data" / "slice_sources.yaml")
     thresholds = read_yaml(ROOT / "configs" / "data" / "quality.yaml")
     prepared = prepare_corpus(
         hand_written_documents() + volume_documents(30),

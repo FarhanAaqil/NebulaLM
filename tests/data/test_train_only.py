@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def _reader():
-    sources = read_yaml(ROOT / "configs" / "data" / "sources.yaml")
+    sources = read_yaml(ROOT / "configs" / "data" / "slice_sources.yaml")
     thresholds = read_yaml(ROOT / "configs" / "data" / "quality.yaml")
     prepared = prepare_corpus(
         hand_written_documents() + volume_documents(40),

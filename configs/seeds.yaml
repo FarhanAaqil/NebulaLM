@@ -8,3 +8,6 @@ evaluation: 17016
 shard_packing: 17017
 generation: 17018
 bootstrap: 17019
+probe_assignment: 17020
+probe_edits: 17021
+canaries: 17022

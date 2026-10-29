@@ -1,43 +1,26 @@
-temporal_cutoff: "2024-01-01T00:00:00Z"
+temporal_cutoff: "2023-11-01T00:00:00Z"
 cutoff_rule: >
-  Exclude a record from train, validation, test, and tokenizer training when
-  published_at or the source revision timestamp is later than the cutoff.
-  A null published_at is allowed only for an edition that was frozen before
-  the cutoff and is named in this file. Later revisions may be stored only
-  in a labeled post-cutoff challenge set.
+  Exclude a record from train, validation, test, probe, cloze, and tokenizer
+  training when its source revision timestamp is later than the cutoff. The
+  cutoff matches the wikimedia/wikipedia 20231101 dump date. Later revisions
+  may be stored only in a labeled post-cutoff challenge set. Decision 004
+  moved the cutoff from 2024-01-01.
 license_audit:
   unresolved_policy: exclude
   steps:
     - Record the SPDX or project license id and the license URL.
     - Record the attribution the license requires.
-    - Reject a record when third-party text, figure captions, or quotations have no compatible rights note.
+    - Reject a source whose terms restrict use for model training, even when a CC license is also displayed.
     - Keep conditional sources out of every baseline split until a decision record approves specific records.
     - Never treat public availability as a license.
 sources:
-  openstax_astronomy_2e:
-    status: approved
-    license_id: CC-BY-4.0
-    license_url: https://creativecommons.org/licenses/by/4.0/
-    edition: "2e"
-    canonical_book_url: https://openstax.org/books/astronomy-2e
-    archive_version: "20231109.173216"
-    book_id: "4c29f9e5-a53d-42c0-bdb5-091990527d79"
-    content_version: "a52f4ee"
-    content_revised_at: "2023-07-07T20:20:33Z"
-    author_attribution:
-      - Andrew Fraknoi
-      - David Morrison
-      - Sidney Wolff
-    notes: >
-      Only archive 20231109.173216 is approved. That snapshot's license is
-      CC BY 4.0 and its book revision is 2023-07-07. The live web preface
-      checked on 2026-10-25 states CC BY-NC-SA and the web edition was updated
-      after the cutoff, so live HTML is not baseline text.
   wikipedia_en_astronomy:
     status: approved
     license_id: CC-BY-SA-4.0
     license_url: https://creativecommons.org/licenses/by-sa/4.0/
-    notes: Use a dated revision at or before the cutoff. Keep page id, revision id, and title.
+    notes: >
+      Latest revision at or before the cutoff. Keep page id, revision id, and
+      title. Manifests carry ids and hashes; article text is not committed.
     categories:
       - Category:Astronomy
       - Category:Solar_System
@@ -49,11 +32,88 @@ sources:
       - Category:Telescopes
       - Category:Moons
       - Category:Exoplanets
+    category_tree:
+      # Roots are depth 0. A subcategory at depth max_depth is listed but not opened.
+      max_depth: 2
+      # Matched case-insensitively against the category name without the "Category:" prefix.
+      # These branches are culture, people, organizations, media, or off-domain.
+      exclude_category:
+        - '\bimages?\b'
+        - '\bflags?\b'
+        - 'coats? of arms'
+        - '\bsymbols?\b'
+        - 'fiction'
+        - '\bin (popular )?culture\b'
+        - 'cultural depictions'
+        - 'astrology'
+        - 'religio'
+        - '\bmyths?\b|mytholog'
+        - '\bpeople\b'
+        - 'astronomers'
+        - 'astronauts|cosmonauts|taikonauts'
+        - 'discoverers'
+        - 'scientists|engineers|physicists'
+        - '\bby (country|location|nationality|continent|city)\b'
+        - 'organi[sz]ations'
+        - '\bprizes?\b|\bawards?\b'
+        - '\beducation\b'
+        - '\bworks about\b'
+        - '\bart\b'
+        - '\blists?\b'
+        - 'wikipedia categories named'
+        - '\badvocacy\b'
+        - '\bcelebrations?\b'
+        - '\baircraft\b'
+        - '^atmosphere$'
+        - 'manufacturers|companies|businesses'
+        - '\bfilms?\b|television|\bsongs?\b|albums|video games|novels|\bbooks?\b|comics|\bmusic\b'
+        - '\bpublications\b|journals|magazines|websites|software'
+        - 'museums|planetari'
+        - 'stamps|philately|memorials|monuments'
+      # Matched against article titles.
+      exclude_page:
+        - '^Lists? of '
+        - '^Timeline of '
+        - '^Index of '
+        - '^Outline of '
+        - '^Glossary of '
+        - '\(disambiguation\)$'
+  wikipedia_simple_siblings:
+    status: approved
+    use: probe_siblings_only
+    license_id: CC-BY-SA-4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0/
+    notes: >
+      Simple English Wikipedia pages with the same title as an English probe
+      document. Used only as paraphrase siblings for probe group A in the M1
+      training set. Never in M0, the tokenizer, validation, or test.
+  openstax_astronomy_2e:
+    status: excluded
+    license_id: CC-BY-NC-SA-4.0
+    license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    notes: >
+      Decision 004. The OpenStax terms state the book may not be used in the
+      training of large language models or otherwise be ingested without
+      written permission. Excluded from training, tokenizer, validation, test,
+      and cloze items. The 2023 archive snapshot frozen in decision 003 is
+      superseded and kept only as a historical record.
+  arxiv_abstracts:
+    status: excluded
+    license_id: null
+    license_url: null
+    notes: Decision 004. arXiv grants no blanket license; most papers carry the default arXiv license.
+  project_gutenberg_astronomy:
+    status: deferred
+    license_id: public-domain-us
+    license_url: https://www.gutenberg.org/policy/permission.html
+    notes: >
+      Era-shift challenge set only, never training. Deferred under the first
+      blueprint cut-line until per-title public-domain status is checked.
   nasa_apod:
     status: conditional
     license_id: null
     license_url: null
-    notes: Out of the baseline until each record's text rights are audited. Not collected in Phase 1.
+    notes: Out of the baseline until each record's text rights are audited.
   esa_outreach:
     status: excluded
     license_id: null

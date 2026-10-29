@@ -13,7 +13,7 @@ SCHEMA = json.loads((ROOT / "schemas" / "document.schema.json").read_text(encodi
 
 
 def _prepared():
-    sources = read_yaml(ROOT / "configs" / "data" / "sources.yaml")
+    sources = read_yaml(ROOT / "configs" / "data" / "slice_sources.yaml")
     thresholds = read_yaml(ROOT / "configs" / "data" / "quality.yaml")
     seeds = read_yaml(ROOT / "configs" / "seeds.yaml")
     records = hand_written_documents() + volume_documents(count=40, seed=17013)
