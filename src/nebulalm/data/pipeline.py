@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 
 from nebulalm.data.acquire import raw_checksum, within_cutoff
-from nebulalm.data.dedup import choose_representative, cluster_documents
+from nebulalm.data.dedup import choose_representative, cluster_documents, lead_entity_links
 from nebulalm.data.normalize import normalize
 from nebulalm.data.parse import parse_html, parse_wikitext
 from nebulalm.data.quality import assess
@@ -99,11 +100,18 @@ def prepare_corpus(
     dedup_seed: int,
     pipeline_version: str = PIPELINE_VERSION,
     drop_shared_paragraphs: bool = False,
+    assign: Callable[[str, int], str] = assign_cluster,
+    link_lead_entities: bool = False,
 ) -> dict:
     cutoff = sources_config["temporal_cutoff"]
     source_rows = sources_config["sources"]
     prepared: list[dict] = []
     texts: dict[str, str] = {}
+    counts = {
+        "input": {"documents": 0, "utf8_bytes": 0},
+        "extracted": {"documents": 0, "utf8_bytes": 0},
+        "normalized": {"documents": 0, "utf8_bytes": 0},
+    }
     for incoming in records:
         source_meta = source_rows[incoming["source"]]
         raw_text = incoming["raw_text"]
@@ -114,6 +122,9 @@ def prepare_corpus(
         else:
             extracted = incoming.get("text") or raw_text
         clean = normalize(extracted)
+        for stage, value in (("input", raw_text), ("extracted", extracted), ("normalized", clean)):
+            counts[stage]["documents"] += 1
+            counts[stage]["utf8_bytes"] += len(value.encode("utf-8"))
         assessment = assess(clean, thresholds)
         reasons = list(assessment["rejection_reasons"])
         approved = source_meta["status"] == "approved"
@@ -139,21 +150,34 @@ def prepare_corpus(
         texts[row["document_id"]] = clean
         prepared.append(row)
 
+    def accepted_count(stage: str) -> None:
+        kept = [row for row in prepared if not row["rejection_reasons"]]
+        counts[stage] = {
+            "documents": len(kept),
+            "utf8_bytes": sum(len(row["clean_text"].encode("utf-8")) for row in kept),
+        }
+
+    accepted_count("quality_and_cutoff")
     removed_paragraphs = 0
     if drop_shared_paragraphs:
         removed_paragraphs = _keep_one_shared_copy(prepared, int(thresholds["min_chars"]))
+        accepted_count("shared_paragraphs")
 
     eligible = [row for row in prepared if not row["rejection_reasons"]]
+    links = None
+    if link_lead_entities:
+        links = lead_entity_links({row["document_id"]: row["title"] for row in eligible})
     clusters = cluster_documents(
         [{"document_id": row["document_id"], "clean_text": row["clean_text"]} for row in eligible],
         seed=dedup_seed,
+        links=links,
     )
     by_id = {row["document_id"]: row for row in prepared}
     cluster_manifest = []
     for cluster in clusters:
         members = [by_id[member_id] for member_id in cluster["member_ids"]]
         representative = choose_representative(members)
-        split = assign_cluster(cluster["dedup_cluster_id"], split_seed)
+        split = assign(cluster["dedup_cluster_id"], split_seed)
         attributions = []
         for member in members:
             member["dedup_cluster_id"] = cluster["dedup_cluster_id"]
@@ -184,4 +208,6 @@ def prepare_corpus(
         "texts": clean_texts,
         "clusters": cluster_manifest,
         "shared_paragraphs_removed": removed_paragraphs,
+        "lead_entity_links": len(links or []),
+        "counts": counts,
     }

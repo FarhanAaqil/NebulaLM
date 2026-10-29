@@ -14,6 +14,18 @@ _TABLE_LINE = re.compile(r"^\s*(?:\{\||\|\}|\|\-|\|\+|!|\|)")
 _EXTERNAL = re.compile(r"\[https?://[^\s\]]+\s+([^\]]+)\]")
 _EXTERNAL_BARE = re.compile(r"\[https?://[^\]\s]+\]")
 _TAG = re.compile(r"</?[a-zA-Z][^>]*>")
+_BLOCK_TAGS = re.compile(
+    r"<(gallery|imagemap|timeline|mapframe|graph|syntaxhighlight)\b[^>]*>.*?</\1>", re.IGNORECASE | re.DOTALL
+)
+# Trailing apparatus. A heading with one of these names is dropped with its body.
+DROPPED_SECTIONS = frozenset(
+    {
+        "see also", "references", "notes", "external links", "external link", "further reading",
+        "bibliography", "sources", "citations", "footnotes", "gallery", "notes and references",
+        "references and notes", "works cited", "explanatory notes", "general references",
+        "cited sources", "literature", "bibliographies",
+    }
+)
 _SKIP_HTML = {"script", "style", "nav", "footer", "noscript", "table", "figure", "aside"}
 
 
@@ -90,9 +102,30 @@ def _drop_table_lines(text: str) -> str:
     return "\n".join(kept)
 
 
+def _drop_sections(text: str) -> str:
+    kept: list[str] = []
+    dropping_level = 0
+    for line in text.splitlines():
+        heading = _HEADING.match(line)
+        if heading:
+            level = len(heading.group(1))
+            if dropping_level and level > dropping_level:
+                continue
+            dropping_level = 0
+            if heading.group(2).strip().lower() in DROPPED_SECTIONS:
+                dropping_level = level
+                continue
+        elif dropping_level:
+            continue
+        kept.append(line)
+    return "\n".join(kept)
+
+
 def parse_wikitext(text: str) -> str:
     cleaned = _REF.sub("", text)
     cleaned = _COMMENT.sub("", cleaned)
+    cleaned = _BLOCK_TAGS.sub("", cleaned)
+    cleaned = _drop_sections(cleaned)
     cleaned = _strip_templates(cleaned)
     cleaned = _EXTERNAL.sub(r"\1", cleaned)
     cleaned = _EXTERNAL_BARE.sub("", cleaned)

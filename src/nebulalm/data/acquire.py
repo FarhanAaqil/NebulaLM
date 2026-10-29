@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 
 from nebulalm.utils.hashing import sha256_text
 
-USER_AGENT = "NebulaLM/0.1 (astronomy research slice; local)"
+USER_AGENT = "NebulaLM/0.2 (https://github.com/FarhanAaqil/NebulaLM; astronomy research corpus)"
 _ID_SAFE = re.compile(r"[^A-Za-z0-9._-]+")
 
 
