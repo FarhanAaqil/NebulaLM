@@ -1,0 +1,72 @@
+{
+  "by_split": {
+    "excluded": {
+      "by_source": {
+        "openstax_astronomy_2e": {
+          "documents": 37,
+          "utf8_bytes": 193831
+        },
+        "wikipedia_en_astronomy": {
+          "documents": 20,
+          "utf8_bytes": 60297
+        }
+      },
+      "documents": 57,
+      "utf8_bytes": 254128,
+      "words": 35168
+    },
+    "test": {
+      "by_source": {
+        "openstax_astronomy_2e": {
+          "documents": 8,
+          "utf8_bytes": 71970
+        },
+        "wikipedia_en_astronomy": {
+          "documents": 5,
+          "utf8_bytes": 85532
+        }
+      },
+      "documents": 13,
+      "utf8_bytes": 157502,
+      "words": 25481
+    },
+    "train": {
+      "by_source": {
+        "openstax_astronomy_2e": {
+          "documents": 344,
+          "utf8_bytes": 2584138
+        },
+        "wikipedia_en_astronomy": {
+          "documents": 181,
+          "utf8_bytes": 3118473
+        }
+      },
+      "documents": 525,
+      "utf8_bytes": 5702611,
+      "words": 928957
+    },
+    "validation": {
+      "by_source": {
+        "openstax_astronomy_2e": {
+          "documents": 15,
+          "utf8_bytes": 125641
+        },
+        "wikipedia_en_astronomy": {
+          "documents": 4,
+          "utf8_bytes": 51312
+        }
+      },
+      "documents": 19,
+      "utf8_bytes": 176953,
+      "words": 29263
+    }
+  },
+  "input_by_source": {
+    "openstax_astronomy_2e": 404,
+    "wikipedia_en_astronomy": 210
+  },
+  "input_documents": 614,
+  "pipeline_version": "phase2-v1",
+  "shared_paragraphs_removed": 20,
+  "wikipedia_collection": "Category listing on 2026-10-25 found 629 unique direct members. Collection stopped before that list was exhausted. The freeze contains only Wikipedia pages already stored in data/production/records.jsonl."
+}

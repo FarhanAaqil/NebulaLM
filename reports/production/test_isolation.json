@@ -1,0 +1,6 @@
+{
+  "test_documents": 13,
+  "test_ids_in_training_iterator": 0,
+  "train_documents": 525,
+  "train_utf8_bytes": 5702611
+}

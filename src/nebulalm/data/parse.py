@@ -6,9 +6,11 @@ import re
 from html.parser import HTMLParser
 
 _REF = re.compile(r"<ref\b[^>]*/>|<ref\b[^>]*>.*?</ref>", re.IGNORECASE | re.DOTALL)
+_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 _CITE = re.compile(r"\[(\d{1,3})\]")
 _HEADING = re.compile(r"^(={2,6})\s*(.*?)\s*\1\s*$", re.MULTILINE)
-_LINK = re.compile(r"\[\[([^\[\]]+)\]\]")
+_BOLD = re.compile(r"'{2,}")
+_TABLE_LINE = re.compile(r"^\s*(?:\{\||\|\}|\|\-|\|\+|!|\|)")
 _EXTERNAL = re.compile(r"\[https?://[^\s\]]+\s+([^\]]+)\]")
 _EXTERNAL_BARE = re.compile(r"\[https?://[^\]\s]+\]")
 _TAG = re.compile(r"</?[a-zA-Z][^>]*>")
@@ -38,25 +40,65 @@ def _strip_templates(text: str) -> str:
     return "".join(out)
 
 
-def _replace_links(text: str) -> str:
-    def replacer(match: re.Match[str]) -> str:
-        inner = match.group(1)
-        prefix = inner.split("|", 1)[0]
-        if prefix.startswith(("File:", "Image:", "Category:", "media:")):
-            return ""
-        if "|" in inner:
-            return inner.split("|")[-1]
-        return inner.split("#", 1)[0]
+def _link_label(inner: str) -> str:
+    prefix = inner.split("|", 1)[0].strip()
+    if prefix.startswith(("File:", "Image:", "Category:", "media:")):
+        return ""
+    if "|" in inner:
+        return inner.split("|")[-1]
+    return inner.split("#", 1)[0]
 
-    return _LINK.sub(replacer, text)
+
+def _replace_links(text: str) -> str:
+    """Replace wiki links, including captions that contain other links."""
+    out: list[str] = []
+    index = 0
+    length = len(text)
+    while index < length:
+        if text.startswith("[[", index):
+            depth = 2
+            start = index + 2
+            index += 2
+            while index < length and depth:
+                if text.startswith("[[", index):
+                    depth += 2
+                    index += 2
+                elif text.startswith("]]", index):
+                    depth -= 2
+                    index += 2
+                else:
+                    index += 1
+            if depth:
+                out.append(text[start - 2 : index])
+                continue
+            inner = _replace_links(text[start : index - 2])
+            out.append(_link_label(inner))
+            continue
+        out.append(text[index])
+        index += 1
+    return "".join(out)
+
+
+def _drop_table_lines(text: str) -> str:
+    kept = []
+    for line in text.splitlines():
+        if _TABLE_LINE.match(line):
+            continue
+        if line.strip() and set(line.strip()) <= set("*#|:;-"):
+            continue
+        kept.append(line)
+    return "\n".join(kept)
 
 
 def parse_wikitext(text: str) -> str:
     cleaned = _REF.sub("", text)
+    cleaned = _COMMENT.sub("", cleaned)
     cleaned = _strip_templates(cleaned)
     cleaned = _EXTERNAL.sub(r"\1", cleaned)
     cleaned = _EXTERNAL_BARE.sub("", cleaned)
     cleaned = _replace_links(cleaned)
+    cleaned = _BOLD.sub("", cleaned)
+    cleaned = _drop_table_lines(cleaned)
     cleaned = _HEADING.sub(r"\2", cleaned)
     cleaned = cleaned.replace("<sub>", "_").replace("</sub>", "")
     cleaned = cleaned.replace("<sup>", "^").replace("</sup>", "")
@@ -77,7 +119,7 @@ class _HTMLProse(HTMLParser):
             return
         if self._skip:
             return
-        if tag in {"p", "li", "h1", "h2", "h3", "h4", "br"}:
+        if tag == "br":
             self.parts.append("\n")
         elif tag == "sub":
             self.parts.append("_")
@@ -90,8 +132,10 @@ class _HTMLProse(HTMLParser):
             return
         if self._skip:
             return
-        if tag in {"p", "li", "h1", "h2", "h3", "h4"}:
+        if tag == "li":
             self.parts.append("\n")
+        elif tag in {"p", "h1", "h2", "h3", "h4"}:
+            self.parts.append("\n\n")
 
     def handle_data(self, data: str) -> None:
         if self._skip:

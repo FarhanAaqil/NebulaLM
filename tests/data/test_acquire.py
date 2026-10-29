@@ -59,6 +59,22 @@ def test_openstax_html_keeps_notation():
     assert record["license_id"] == "CC-BY-4.0"
 
 
+def test_wikitext_parser_drops_table_chrome():
+    from nebulalm.data.parse import parse_wikitext
+
+    raw = (
+        "A '''natural satellite''' orbits a planet.\n"
+        "{| class=\"wikitable\"\n|-\n<!--Earth-->\n| Moon || Earth\n|}\n"
+        "[[File:Moon.jpg|thumb|the Moon]]\n"
+    )
+    text = parse_wikitext(raw)
+    assert "natural satellite" in text
+    assert "|-" not in text
+    assert "<!--" not in text
+    assert "File:" not in text
+    assert "'''" not in text
+
+
 def test_wikipedia_payload_uses_old_revision():
     payload = {
         "query": {

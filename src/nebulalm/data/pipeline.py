@@ -2,14 +2,61 @@
 
 from __future__ import annotations
 
+import re
+
 from nebulalm.data.acquire import raw_checksum, within_cutoff
 from nebulalm.data.dedup import choose_representative, cluster_documents
 from nebulalm.data.normalize import normalize
+from nebulalm.data.parse import parse_html, parse_wikitext
 from nebulalm.data.quality import assess
 from nebulalm.data.split import assign_cluster
 from nebulalm.utils.hashing import sha256_text
 
-PIPELINE_VERSION = "phase1-slice"
+_BLOCKS = re.compile(r"\n\s*\n")
+SHARED_PARAGRAPH_CHARS = 80
+
+
+def _blocks(text: str) -> list[str]:
+    return [part.strip() for part in _BLOCKS.split(text) if part.strip()]
+
+
+def _keep_one_shared_copy(prepared: list[dict], min_chars: int) -> int:
+    """Keep one copy of a long paragraph that occurs in more than one eligible document."""
+    frequency: dict[str, int] = {}
+    for row in prepared:
+        if row["rejection_reasons"]:
+            continue
+        for part in set(_blocks(row["clean_text"])):
+            if len(part) >= SHARED_PARAGRAPH_CHARS:
+                frequency[part] = frequency.get(part, 0) + 1
+    owner: dict[str, str] = {}
+    for row in sorted(prepared, key=lambda item: item["document_id"]):
+        if row["rejection_reasons"]:
+            continue
+        for part in _blocks(row["clean_text"]):
+            if frequency.get(part, 0) > 1 and part not in owner:
+                owner[part] = row["document_id"]
+    removed = 0
+    for row in prepared:
+        if row["rejection_reasons"]:
+            continue
+        kept = []
+        changed = False
+        for part in _blocks(row["clean_text"]):
+            if frequency.get(part, 0) > 1 and owner.get(part) != row["document_id"]:
+                removed += 1
+                changed = True
+                continue
+            kept.append(part)
+        if not changed:
+            continue
+        text = "\n\n".join(kept)
+        row["clean_text"] = text
+        row["clean_sha256"] = sha256_text(text)
+        if len(text) < min_chars and "collapsed_after_shared_paragraph_removal" not in row["rejection_reasons"]:
+            row["rejection_reasons"].append("collapsed_after_shared_paragraph_removal")
+            row["quality_flags"] = list(row["rejection_reasons"])
+    return removed
 
 
 def manifest_view(record: dict) -> dict:
@@ -41,12 +88,17 @@ def manifest_view(record: dict) -> dict:
     return kept
 
 
+PIPELINE_VERSION = "phase1-slice"
+
+
 def prepare_corpus(
     records: list[dict],
     sources_config: dict,
     thresholds: dict,
     split_seed: int,
     dedup_seed: int,
+    pipeline_version: str = PIPELINE_VERSION,
+    drop_shared_paragraphs: bool = False,
 ) -> dict:
     cutoff = sources_config["temporal_cutoff"]
     source_rows = sources_config["sources"]
@@ -55,7 +107,13 @@ def prepare_corpus(
     for incoming in records:
         source_meta = source_rows[incoming["source"]]
         raw_text = incoming["raw_text"]
-        clean = normalize(incoming.get("text") or raw_text)
+        if incoming["source"] == "wikipedia_en_astronomy":
+            extracted = parse_wikitext(raw_text)
+        elif incoming["source"] == "openstax_astronomy_2e" and "<" in raw_text:
+            extracted = parse_html(raw_text)
+        else:
+            extracted = incoming.get("text") or raw_text
+        clean = normalize(extracted)
         assessment = assess(clean, thresholds)
         reasons = list(assessment["rejection_reasons"])
         approved = source_meta["status"] == "approved"
@@ -68,7 +126,7 @@ def prepare_corpus(
             **{key: value for key, value in incoming.items() if key not in {"raw_text", "text"}},
             "raw_sha256": raw_checksum(raw_text),
             "clean_sha256": sha256_text(clean),
-            "pipeline_version": PIPELINE_VERSION,
+            "pipeline_version": pipeline_version,
             "language_score": assessment["language_score"],
             "quality_score": assessment["quality_score"],
             "quality_flags": reasons,
@@ -80,6 +138,10 @@ def prepare_corpus(
         }
         texts[row["document_id"]] = clean
         prepared.append(row)
+
+    removed_paragraphs = 0
+    if drop_shared_paragraphs:
+        removed_paragraphs = _keep_one_shared_copy(prepared, int(thresholds["min_chars"]))
 
     eligible = [row for row in prepared if not row["rejection_reasons"]]
     clusters = cluster_documents(
@@ -121,4 +183,5 @@ def prepare_corpus(
         "manifests": manifests,
         "texts": clean_texts,
         "clusters": cluster_manifest,
+        "shared_paragraphs_removed": removed_paragraphs,
     }

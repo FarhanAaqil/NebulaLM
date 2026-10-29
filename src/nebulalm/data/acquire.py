@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
@@ -63,14 +64,34 @@ class RateLimiter:
         self._last = now
 
 
+def _read_url(url: str, timeout: float, accept: str | None = None) -> tuple[bytes, str | None]:
+    headers = {"User-Agent": USER_AGENT}
+    if accept:
+        headers["Accept"] = accept
+    delay = 1.0
+    last_error: Exception | None = None
+    for _attempt in range(6):
+        request = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                charset = response.headers.get_content_charset()
+                return response.read(), charset
+        except urllib.error.HTTPError as exc:
+            last_error = exc
+            if exc.code not in {429, 500, 502, 503, 504}:
+                raise
+            time.sleep(delay)
+            delay = min(delay * 2, 30.0)
+    if last_error:
+        raise last_error
+    raise RuntimeError(f"failed to fetch {url}")
+
+
 def fetch_json(url: str, timeout: float = 30.0) -> dict:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return json.loads(response.read().decode("utf-8"))
+    payload, _charset = _read_url(url, timeout, accept="application/json")
+    return json.loads(payload.decode("utf-8"))
 
 
 def fetch_text(url: str, timeout: float = 30.0) -> str:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        charset = response.headers.get_content_charset() or "utf-8"
-        return response.read().decode(charset, errors="replace")
+    payload, charset = _read_url(url, timeout)
+    return payload.decode(charset or "utf-8", errors="replace")

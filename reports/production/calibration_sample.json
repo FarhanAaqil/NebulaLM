@@ -1,0 +1,1403 @@
+{
+  "by_source": {
+    "openstax_astronomy_2e": {
+      "accepted": 367,
+      "rejected": 37
+    },
+    "wikipedia_en_astronomy": {
+      "accepted": 190,
+      "rejected": 20
+    }
+  },
+  "note": "Labels are the quality-filter decision on the frozen thresholds. Excerpt review is recorded separately.",
+  "records": [
+    {
+      "auto_label": "accepted",
+      "characters": 4138,
+      "document_id": "doc_openstax_astronomy_2e_1-4-numbers-in-astronomy",
+      "paragraphs": 26,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3183,
+      "document_id": "doc_openstax_astronomy_2e_1-for-further-exploration",
+      "paragraphs": 18,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2878,
+      "document_id": "doc_openstax_astronomy_2e_10-thought-questions",
+      "paragraphs": 31,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1901,
+      "document_id": "doc_openstax_astronomy_2e_11-collaborative-group-activities",
+      "paragraphs": 6,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 21743,
+      "document_id": "doc_openstax_astronomy_2e_12-2-the-galilean-moons-of-jupiter",
+      "paragraphs": 76,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 19119,
+      "document_id": "doc_openstax_astronomy_2e_12-4-pluto-and-charon",
+      "paragraphs": 64,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 20073,
+      "document_id": "doc_openstax_astronomy_2e_12-5-planetary-rings-and-enceladus",
+      "paragraphs": 83,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2777,
+      "document_id": "doc_openstax_astronomy_2e_13-collaborative-group-activities",
+      "paragraphs": 8,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 13958,
+      "document_id": "doc_openstax_astronomy_2e_14-5-planetary-evolution",
+      "paragraphs": 42,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2253,
+      "document_id": "doc_openstax_astronomy_2e_15-thinking-ahead",
+      "paragraphs": 15,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1629,
+      "document_id": "doc_openstax_astronomy_2e_15-thought-questions",
+      "paragraphs": 19,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2151,
+      "document_id": "doc_openstax_astronomy_2e_17-collaborative-group-activities",
+      "paragraphs": 6,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 4664,
+      "document_id": "doc_openstax_astronomy_2e_17-thought-questions",
+      "paragraphs": 45,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 9416,
+      "document_id": "doc_openstax_astronomy_2e_18-1-a-stellar-census",
+      "paragraphs": 29,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1504,
+      "document_id": "doc_openstax_astronomy_2e_18-key-terms",
+      "paragraphs": 11,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1489,
+      "document_id": "doc_openstax_astronomy_2e_18-review-questions",
+      "paragraphs": 23,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2540,
+      "document_id": "doc_openstax_astronomy_2e_19-summary",
+      "paragraphs": 13,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 22417,
+      "document_id": "doc_openstax_astronomy_2e_2-1-the-sky-above",
+      "paragraphs": 78,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1659,
+      "document_id": "doc_openstax_astronomy_2e_2-thinking-ahead",
+      "paragraphs": 15,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 19784,
+      "document_id": "doc_openstax_astronomy_2e_20-3-cosmic-dust",
+      "paragraphs": 61,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3180,
+      "document_id": "doc_openstax_astronomy_2e_20-collaborative-group-activities",
+      "paragraphs": 9,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 9888,
+      "document_id": "doc_openstax_astronomy_2e_21-6-new-perspectives-on-planet-formation",
+      "paragraphs": 27,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3747,
+      "document_id": "doc_openstax_astronomy_2e_21-collaborative-group-activities",
+      "paragraphs": 9,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1002,
+      "document_id": "doc_openstax_astronomy_2e_21-key-terms",
+      "paragraphs": 9,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 9394,
+      "document_id": "doc_openstax_astronomy_2e_22-3-checking-out-the-theory",
+      "paragraphs": 49,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 26721,
+      "document_id": "doc_openstax_astronomy_2e_22-4-further-evolution-of-stars",
+      "paragraphs": 61,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 9802,
+      "document_id": "doc_openstax_astronomy_2e_22-5-the-evolution-of-more-massive-stars",
+      "paragraphs": 29,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3295,
+      "document_id": "doc_openstax_astronomy_2e_22-collaborative-group-activities",
+      "paragraphs": 8,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 9153,
+      "document_id": "doc_openstax_astronomy_2e_24-2-spacetime-and-gravity",
+      "paragraphs": 31,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1477,
+      "document_id": "doc_openstax_astronomy_2e_24-key-terms",
+      "paragraphs": 10,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 11138,
+      "document_id": "doc_openstax_astronomy_2e_25-3-the-mass-of-the-galaxy",
+      "paragraphs": 30,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2600,
+      "document_id": "doc_openstax_astronomy_2e_25-collaborative-group-activities",
+      "paragraphs": 7,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 4015,
+      "document_id": "doc_openstax_astronomy_2e_25-figuring-for-yourself",
+      "paragraphs": 23,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 20091,
+      "document_id": "doc_openstax_astronomy_2e_27-1-quasars",
+      "paragraphs": 67,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 16585,
+      "document_id": "doc_openstax_astronomy_2e_29-3-the-beginning-of-the-universe",
+      "paragraphs": 48,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3397,
+      "document_id": "doc_openstax_astronomy_2e_29-figuring-for-yourself",
+      "paragraphs": 17,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1641,
+      "document_id": "doc_openstax_astronomy_2e_29-review-questions",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 28009,
+      "document_id": "doc_openstax_astronomy_2e_30-3-searching-for-life-beyond-earth",
+      "paragraphs": 71,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1986,
+      "document_id": "doc_openstax_astronomy_2e_30-thought-questions",
+      "paragraphs": 31,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2831,
+      "document_id": "doc_openstax_astronomy_2e_4-review-questions",
+      "paragraphs": 47,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 20204,
+      "document_id": "doc_openstax_astronomy_2e_5-1-the-behavior-of-light",
+      "paragraphs": 78,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 19200,
+      "document_id": "doc_openstax_astronomy_2e_5-2-the-electromagnetic-spectrum",
+      "paragraphs": 73,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 11146,
+      "document_id": "doc_openstax_astronomy_2e_5-6-the-doppler-effect",
+      "paragraphs": 39,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 906,
+      "document_id": "doc_openstax_astronomy_2e_5-figuring-for-yourself",
+      "paragraphs": 13,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 14555,
+      "document_id": "doc_openstax_astronomy_2e_6-5-observations-outside-earths-atmosphere",
+      "paragraphs": 47,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2981,
+      "document_id": "doc_openstax_astronomy_2e_7-review-questions",
+      "paragraphs": 52,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1744,
+      "document_id": "doc_openstax_astronomy_2e_7-thinking-ahead",
+      "paragraphs": 15,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 13408,
+      "document_id": "doc_openstax_astronomy_2e_9-3-impact-craters",
+      "paragraphs": 54,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 4551,
+      "document_id": "doc_openstax_astronomy_2e_9-4-the-origin-of-the-moon",
+      "paragraphs": 19,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3103,
+      "document_id": "doc_openstax_astronomy_2e_d-units-used-in-science",
+      "paragraphs": 34,
+      "rejection_reasons": [],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 6631,
+      "document_id": "doc_openstax_astronomy_2e_10-for-further-exploration",
+      "paragraphs": 50,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 6373,
+      "document_id": "doc_openstax_astronomy_2e_11-for-further-exploration",
+      "paragraphs": 53,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 221,
+      "document_id": "doc_openstax_astronomy_2e_11-key-terms",
+      "paragraphs": 3,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 5341,
+      "document_id": "doc_openstax_astronomy_2e_12-for-further-exploration",
+      "paragraphs": 46,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4873,
+      "document_id": "doc_openstax_astronomy_2e_13-for-further-exploration",
+      "paragraphs": 41,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3870,
+      "document_id": "doc_openstax_astronomy_2e_14-for-further-exploration",
+      "paragraphs": 29,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4312,
+      "document_id": "doc_openstax_astronomy_2e_15-for-further-exploration",
+      "paragraphs": 31,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 1542,
+      "document_id": "doc_openstax_astronomy_2e_16-for-further-exploration",
+      "paragraphs": 19,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 2185,
+      "document_id": "doc_openstax_astronomy_2e_17-for-further-exploration",
+      "paragraphs": 21,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 2213,
+      "document_id": "doc_openstax_astronomy_2e_18-for-further-exploration",
+      "paragraphs": 18,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3258,
+      "document_id": "doc_openstax_astronomy_2e_19-for-further-exploration",
+      "paragraphs": 23,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 2446,
+      "document_id": "doc_openstax_astronomy_2e_2-for-further-exploration",
+      "paragraphs": 23,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3285,
+      "document_id": "doc_openstax_astronomy_2e_20-for-further-exploration",
+      "paragraphs": 22,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 6477,
+      "document_id": "doc_openstax_astronomy_2e_21-for-further-exploration",
+      "paragraphs": 46,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3255,
+      "document_id": "doc_openstax_astronomy_2e_22-for-further-exploration",
+      "paragraphs": 24,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4389,
+      "document_id": "doc_openstax_astronomy_2e_23-for-further-exploration",
+      "paragraphs": 32,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3928,
+      "document_id": "doc_openstax_astronomy_2e_24-for-further-exploration",
+      "paragraphs": 30,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3811,
+      "document_id": "doc_openstax_astronomy_2e_26-for-further-exploration",
+      "paragraphs": 28,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4155,
+      "document_id": "doc_openstax_astronomy_2e_27-for-further-exploration",
+      "paragraphs": 29,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 6102,
+      "document_id": "doc_openstax_astronomy_2e_28-for-further-exploration",
+      "paragraphs": 42,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3978,
+      "document_id": "doc_openstax_astronomy_2e_29-for-further-exploration",
+      "paragraphs": 26,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 2563,
+      "document_id": "doc_openstax_astronomy_2e_3-for-further-exploration",
+      "paragraphs": 24,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 7715,
+      "document_id": "doc_openstax_astronomy_2e_30-for-further-exploration",
+      "paragraphs": 44,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4576,
+      "document_id": "doc_openstax_astronomy_2e_4-for-further-exploration",
+      "paragraphs": 35,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 1990,
+      "document_id": "doc_openstax_astronomy_2e_5-for-further-exploration",
+      "paragraphs": 18,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3239,
+      "document_id": "doc_openstax_astronomy_2e_6-for-further-exploration",
+      "paragraphs": 25,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3176,
+      "document_id": "doc_openstax_astronomy_2e_7-for-further-exploration",
+      "paragraphs": 24,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4123,
+      "document_id": "doc_openstax_astronomy_2e_8-for-further-exploration",
+      "paragraphs": 33,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4365,
+      "document_id": "doc_openstax_astronomy_2e_9-for-further-exploration",
+      "paragraphs": 34,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 12628,
+      "document_id": "doc_openstax_astronomy_2e_b-astronomy-websites-images-and-apps",
+      "paragraphs": 85,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 111,
+      "document_id": "doc_openstax_astronomy_2e_e-some-useful-constants-for-astronomy",
+      "paragraphs": 6,
+      "rejection_reasons": [
+        "too_short",
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 257,
+      "document_id": "doc_openstax_astronomy_2e_f-physical-and-orbital-data-for-the-planets",
+      "paragraphs": 10,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 908,
+      "document_id": "doc_openstax_astronomy_2e_h-future-total-eclipses",
+      "paragraphs": 17,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 122,
+      "document_id": "doc_openstax_astronomy_2e_i-the-nearest-stars-brown-dwarfs-and-white-dwarfs",
+      "paragraphs": 4,
+      "rejection_reasons": [
+        "too_short",
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 63194,
+      "document_id": "doc_openstax_astronomy_2e_index",
+      "paragraphs": 1646,
+      "rejection_reasons": [
+        "repeated_lines",
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 66,
+      "document_id": "doc_openstax_astronomy_2e_k-the-chemical-elements",
+      "paragraphs": 4,
+      "rejection_reasons": [
+        "too_short",
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 60,
+      "document_id": "doc_openstax_astronomy_2e_l-the-constellations",
+      "paragraphs": 4,
+      "rejection_reasons": [
+        "too_short",
+        "low_language_score"
+      ],
+      "source": "openstax_astronomy_2e"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 5118,
+      "document_id": "doc_wikipedia_en_astronomy_10357796_1037884429",
+      "paragraphs": 10,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 790,
+      "document_id": "doc_wikipedia_en_astronomy_11051840_1074875605",
+      "paragraphs": 4,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 412,
+      "document_id": "doc_wikipedia_en_astronomy_11097664_1183725400",
+      "paragraphs": 3,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 36213,
+      "document_id": "doc_wikipedia_en_astronomy_113496_1190079052",
+      "paragraphs": 64,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 7699,
+      "document_id": "doc_wikipedia_en_astronomy_1167329_1192149645",
+      "paragraphs": 17,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 10352,
+      "document_id": "doc_wikipedia_en_astronomy_1176971_1186572599",
+      "paragraphs": 22,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 54997,
+      "document_id": "doc_wikipedia_en_astronomy_12558_1188789568",
+      "paragraphs": 99,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 18596,
+      "document_id": "doc_wikipedia_en_astronomy_15374124_1191555349",
+      "paragraphs": 26,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3509,
+      "document_id": "doc_wikipedia_en_astronomy_153774_1187043181",
+      "paragraphs": 8,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 4820,
+      "document_id": "doc_wikipedia_en_astronomy_16022035_1189111723",
+      "paragraphs": 10,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 50563,
+      "document_id": "doc_wikipedia_en_astronomy_18896_1191368390",
+      "paragraphs": 97,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 72265,
+      "document_id": "doc_wikipedia_en_astronomy_19331_1192163484",
+      "paragraphs": 155,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 11596,
+      "document_id": "doc_wikipedia_en_astronomy_212598_1191777498",
+      "paragraphs": 30,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 23018,
+      "document_id": "doc_wikipedia_en_astronomy_21491359_1191343897",
+      "paragraphs": 33,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 49709,
+      "document_id": "doc_wikipedia_en_astronomy_21626_1189843099",
+      "paragraphs": 97,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 24751,
+      "document_id": "doc_wikipedia_en_astronomy_2333728_1191343797",
+      "paragraphs": 37,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 13120,
+      "document_id": "doc_wikipedia_en_astronomy_2340343_1191830847",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 4848,
+      "document_id": "doc_wikipedia_en_astronomy_23843_1168985827",
+      "paragraphs": 14,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1537,
+      "document_id": "doc_wikipedia_en_astronomy_25324761_1153203968",
+      "paragraphs": 7,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 10921,
+      "document_id": "doc_wikipedia_en_astronomy_2535858_1182481140",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 62888,
+      "document_id": "doc_wikipedia_en_astronomy_26751_1189375440",
+      "paragraphs": 97,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 55680,
+      "document_id": "doc_wikipedia_en_astronomy_26903_1192468335",
+      "paragraphs": 92,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 7114,
+      "document_id": "doc_wikipedia_en_astronomy_2820700_1191752075",
+      "paragraphs": 13,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 11638,
+      "document_id": "doc_wikipedia_en_astronomy_28233_1183180152",
+      "paragraphs": 22,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 4596,
+      "document_id": "doc_wikipedia_en_astronomy_30869199_1190468812",
+      "paragraphs": 8,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 2483,
+      "document_id": "doc_wikipedia_en_astronomy_38869556_998863477",
+      "paragraphs": 6,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 56601,
+      "document_id": "doc_wikipedia_en_astronomy_40324370_1190551950",
+      "paragraphs": 48,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 39531,
+      "document_id": "doc_wikipedia_en_astronomy_43127_1192785551",
+      "paragraphs": 55,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 8389,
+      "document_id": "doc_wikipedia_en_astronomy_43519_1186068162",
+      "paragraphs": 6,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 248,
+      "document_id": "doc_wikipedia_en_astronomy_46892362_1129482291",
+      "paragraphs": 3,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 20706,
+      "document_id": "doc_wikipedia_en_astronomy_47390194_1192013079",
+      "paragraphs": 46,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 15697,
+      "document_id": "doc_wikipedia_en_astronomy_53306_1189735285",
+      "paragraphs": 31,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 23445,
+      "document_id": "doc_wikipedia_en_astronomy_575613_1192874655",
+      "paragraphs": 33,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3859,
+      "document_id": "doc_wikipedia_en_astronomy_58028396_1050286052",
+      "paragraphs": 9,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 21168,
+      "document_id": "doc_wikipedia_en_astronomy_58948411_1188023788",
+      "paragraphs": 41,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 7706,
+      "document_id": "doc_wikipedia_en_astronomy_61097_1192809593",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1097,
+      "document_id": "doc_wikipedia_en_astronomy_62134998_1178026418",
+      "paragraphs": 4,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 25271,
+      "document_id": "doc_wikipedia_en_astronomy_63793_1191962650",
+      "paragraphs": 39,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 26792,
+      "document_id": "doc_wikipedia_en_astronomy_6502961_1181430796",
+      "paragraphs": 51,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1034,
+      "document_id": "doc_wikipedia_en_astronomy_65270577_1191813606",
+      "paragraphs": 2,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 3909,
+      "document_id": "doc_wikipedia_en_astronomy_67185372_1188090113",
+      "paragraphs": 10,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 14553,
+      "document_id": "doc_wikipedia_en_astronomy_67371587_1168968324",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 8250,
+      "document_id": "doc_wikipedia_en_astronomy_67668_1189822955",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1549,
+      "document_id": "doc_wikipedia_en_astronomy_68450274_1188647538",
+      "paragraphs": 4,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 951,
+      "document_id": "doc_wikipedia_en_astronomy_7276042_1178804230",
+      "paragraphs": 4,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 1652,
+      "document_id": "doc_wikipedia_en_astronomy_75248361_1187999964",
+      "paragraphs": 7,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 57572,
+      "document_id": "doc_wikipedia_en_astronomy_791_1192809654",
+      "paragraphs": 103,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 14555,
+      "document_id": "doc_wikipedia_en_astronomy_818377_1192211123",
+      "paragraphs": 25,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 14452,
+      "document_id": "doc_wikipedia_en_astronomy_8453893_1192456628",
+      "paragraphs": 43,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "accepted",
+      "characters": 55219,
+      "document_id": "doc_wikipedia_en_astronomy_9228_1191965478",
+      "paragraphs": 96,
+      "rejection_reasons": [],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 125,
+      "document_id": "doc_wikipedia_en_astronomy_1484425_1178836778",
+      "paragraphs": 4,
+      "rejection_reasons": [
+        "too_short",
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 41,
+      "document_id": "doc_wikipedia_en_astronomy_1769755_1004219219",
+      "paragraphs": 1,
+      "rejection_reasons": [
+        "too_short",
+        "too_few_paragraphs",
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 250,
+      "document_id": "doc_wikipedia_en_astronomy_20793062_1078249144",
+      "paragraphs": 1,
+      "rejection_reasons": [
+        "too_few_paragraphs"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 741,
+      "document_id": "doc_wikipedia_en_astronomy_21903987_1167953225",
+      "paragraphs": 6,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 26,
+      "document_id": "doc_wikipedia_en_astronomy_24630840_1140274210",
+      "paragraphs": 1,
+      "rejection_reasons": [
+        "too_short",
+        "too_few_paragraphs",
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4465,
+      "document_id": "doc_wikipedia_en_astronomy_33445477_1189683400",
+      "paragraphs": 8,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 27611,
+      "document_id": "doc_wikipedia_en_astronomy_3400190_1189837737",
+      "paragraphs": 44,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 301,
+      "document_id": "doc_wikipedia_en_astronomy_35987270_1182869443",
+      "paragraphs": 3,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 7941,
+      "document_id": "doc_wikipedia_en_astronomy_38213161_1182630471",
+      "paragraphs": 13,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 23,
+      "document_id": "doc_wikipedia_en_astronomy_409845_1187331524",
+      "paragraphs": 1,
+      "rejection_reasons": [
+        "too_short",
+        "too_few_paragraphs",
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 3360,
+      "document_id": "doc_wikipedia_en_astronomy_445513_1185552203",
+      "paragraphs": 5,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 4474,
+      "document_id": "doc_wikipedia_en_astronomy_47608547_1162063998",
+      "paragraphs": 11,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 909,
+      "document_id": "doc_wikipedia_en_astronomy_48043615_1190638116",
+      "paragraphs": 9,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 5261,
+      "document_id": "doc_wikipedia_en_astronomy_51805327_1182626966",
+      "paragraphs": 19,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 1881,
+      "document_id": "doc_wikipedia_en_astronomy_55317680_1113102946",
+      "paragraphs": 8,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 822,
+      "document_id": "doc_wikipedia_en_astronomy_63838985_1172475026",
+      "paragraphs": 8,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 773,
+      "document_id": "doc_wikipedia_en_astronomy_65462416_1177386270",
+      "paragraphs": 5,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 792,
+      "document_id": "doc_wikipedia_en_astronomy_70107821_1172818016",
+      "paragraphs": 3,
+      "rejection_reasons": [
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 32,
+      "document_id": "doc_wikipedia_en_astronomy_74955642_1178128913",
+      "paragraphs": 1,
+      "rejection_reasons": [
+        "too_short",
+        "too_few_paragraphs",
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    },
+    {
+      "auto_label": "rejected",
+      "characters": 30,
+      "document_id": "doc_wikipedia_en_astronomy_9668142_1170885981",
+      "paragraphs": 2,
+      "rejection_reasons": [
+        "too_short",
+        "markup_contamination",
+        "low_language_score"
+      ],
+      "source": "wikipedia_en_astronomy"
+    }
+  ],
+  "sample_size": 157,
+  "seed": 17016
+}

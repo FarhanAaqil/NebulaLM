@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import random
 import re
 from collections import defaultdict
 
@@ -50,18 +51,33 @@ def word_ngrams(text: str, n: int = 5) -> list[str]:
     return [" ".join(words[index : index + n]) for index in range(len(words) - n + 1)]
 
 
-def minhash_signature(text: str, num_perm: int = 64, seed: int = 17012, ngram: int = 5) -> tuple[int, ...]:
+_MASK = (1 << 32) - 1
+
+
+def _hash_params(num_perm: int, seed: int) -> list[tuple[int, int]]:
+    rng = random.Random(seed)
+    return [(rng.randrange(1, _MASK), rng.randrange(0, _MASK)) for _ in range(num_perm)]
+
+
+def minhash_signature(
+    text: str,
+    num_perm: int = 64,
+    seed: int = 17012,
+    ngram: int = 5,
+    params: list[tuple[int, int]] | None = None,
+) -> tuple[int, ...]:
+    """MinHash over word n-grams. One blake2s per gram, then a seeded hash family."""
     grams = word_ngrams(text, ngram)
-    limit = 2**32 - 1
-    signature = [limit] * num_perm
+    coefficients = params if params is not None else _hash_params(num_perm, seed)
+    signature = [_MASK] * len(coefficients)
     if not grams:
         return tuple(signature)
     for gram in grams:
-        for perm in range(num_perm):
-            digest = hashlib.blake2s(f"{seed}:{perm}:{gram}".encode("utf-8"), digest_size=4).digest()
-            value = int.from_bytes(digest, "big")
-            if value < signature[perm]:
-                signature[perm] = value
+        base = int.from_bytes(hashlib.blake2s(gram.encode("utf-8"), digest_size=8).digest(), "big")
+        for index, (slope, intercept) in enumerate(coefficients):
+            value = (slope * base + intercept) & _MASK
+            if value < signature[index]:
+                signature[index] = value
     return tuple(signature)
 
 
@@ -97,11 +113,14 @@ def cluster_documents(
     nodes = UnionFind()
     by_exact: dict[str, list[str]] = defaultdict(list)
     signatures: dict[str, tuple[int, ...]] = {}
+    params = _hash_params(num_perm, seed)
     for doc in documents:
         nodes.add(doc["document_id"])
         exact = sha256_text(doc["clean_text"])
         by_exact[exact].append(doc["document_id"])
-        signatures[doc["document_id"]] = minhash_signature(doc["clean_text"], num_perm=num_perm, seed=seed)
+        signatures[doc["document_id"]] = minhash_signature(
+            doc["clean_text"], num_perm=num_perm, seed=seed, params=params
+        )
     for members in by_exact.values():
         for other in members[1:]:
             nodes.union(members[0], other)

@@ -1,0 +1,7 @@
+{
+  "clusters": 557,
+  "eligible_documents": 557,
+  "jaccard_threshold": 0.8,
+  "largest_cluster": 1,
+  "method": "exact-sha256+minhash-lsh-v1"
+}

@@ -1,0 +1,29 @@
+{
+  "cluster_overlaps": {
+    "train|test": [],
+    "train|validation": [],
+    "validation|test": []
+  },
+  "counts": {
+    "test": 13,
+    "train": 525,
+    "validation": 19
+  },
+  "leaked": false,
+  "paragraph_overlap_counts": {
+    "train|test": 0,
+    "train|validation": 0,
+    "validation|test": 0
+  },
+  "paragraph_overlaps": {
+    "train|test": [],
+    "train|validation": [],
+    "validation|test": []
+  },
+  "substantial_paragraph_min_chars": 400,
+  "substantial_paragraph_overlap_counts": {
+    "train|test": 0,
+    "train|validation": 0,
+    "validation|test": 0
+  }
+}

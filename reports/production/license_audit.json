@@ -1,0 +1,40 @@
+{
+  "by_source": {
+    "openstax_astronomy_2e": {
+      "after_cutoff": 0,
+      "documents": 404,
+      "eligible": 367,
+      "excluded": 37,
+      "licenses": {
+        "CC-BY-4.0": 404
+      }
+    },
+    "wikipedia_en_astronomy": {
+      "after_cutoff": 0,
+      "documents": 210,
+      "eligible": 190,
+      "excluded": 20,
+      "licenses": {
+        "CC-BY-SA-4.0": 210
+      }
+    }
+  },
+  "conditional_sources_in_corpus": [],
+  "cutoff": "2024-01-01T00:00:00Z",
+  "live_web_edition": "excluded; 2026 preface states CC BY-NC-SA and post-dates the cutoff",
+  "openstax_archive_version": "20231109.173216",
+  "openstax_content_revised_at": "2023-07-07T20:20:33Z",
+  "openstax_license_id": "CC-BY-4.0",
+  "wikipedia_categories": [
+    "Category:Astronomy",
+    "Category:Solar_System",
+    "Category:Stars",
+    "Category:Galaxies",
+    "Category:Spaceflight",
+    "Category:Planets",
+    "Category:Cosmology",
+    "Category:Telescopes",
+    "Category:Moons",
+    "Category:Exoplanets"
+  ]
+}

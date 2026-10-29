@@ -50,7 +50,11 @@ def hand_written_documents() -> list[dict]:
         "The transit notebook lists the same field stars on three nights so the deduplicator can see a chain. "
         "Night logs keep the magnitude, the filter, and the airmass next to the object name. "
         "Nothing in this paragraph is taken from a textbook page or a wiki revision. "
-        "The numbers stay small and the sentences stay long enough for a five-gram overlap.\n\n"
+        "The numbers stay small and the sentences stay long enough for a five-gram overlap. "
+        "The observer wrote the start time, the end time, and the sky quality in the same order each night. "
+        "A second line records the comparison star, the filter wheel, and the exposure count. "
+        "A third line records the wind, the humidity, and the moon altitude. "
+        "Those repeated lines are the body of the chain and they dominate the five-gram set.\n\n"
     )
     chain_a = shared + (
         "Chain member A adds that the comparison star was HR 5459 and the sky was photometric. "
