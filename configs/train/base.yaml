@@ -1,0 +1,22 @@
+# Shared training settings (TRAINING.md section 4, blueprint amendments A2 and A4).
+# Per-run values (model, peak LR, passes, seed, data) are given on the command line
+# and saved with the run, which makes the saved run config authoritative.
+optimizer:
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  eps: 1.0e-8
+clip_norm: 1.0
+# Valid prediction tokens per optimizer update is microbatch * accumulation * ~255.
+microbatch: 16
+accumulation: 2
+precision: fp16
+schedule:
+  kind: wsd
+  warmup_fraction_of_one_pass: 0.05
+  decay_fraction: 0.2
+  # The trunk holds the peak to 0.8 * 8 = 6.4 passes; branches decay from 0.8 * E.
+  branch_passes: [1, 2, 4, 8]
+eval_every_fraction_of_pass: 0.25
+checkpoint_every_fraction_of_pass: 0.25
+lr_candidates: [1.0e-4, 3.0e-4, 1.0e-3]
+divergence_rule: rerun once at half the learning rate and log a deviation

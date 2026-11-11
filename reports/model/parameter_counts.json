@@ -1,0 +1,41 @@
+[
+  {
+    "name": "small-4m",
+    "n_layer": 3,
+    "n_head": 4,
+    "d_model": 256,
+    "d_mlp": 1024,
+    "context_length": 256,
+    "vocab_size": 8000,
+    "dropout": 0.1,
+    "config": "small_4m.yaml",
+    "parameters": 4483328,
+    "formula": 4483328
+  },
+  {
+    "name": "smaller-transformer",
+    "n_layer": 4,
+    "n_head": 6,
+    "d_model": 384,
+    "d_mlp": 1536,
+    "context_length": 256,
+    "vocab_size": 8000,
+    "dropout": 0.1,
+    "config": "smaller_transformer.yaml",
+    "parameters": 10268928,
+    "formula": 10268928
+  },
+  {
+    "name": "nebulalm",
+    "n_layer": 8,
+    "n_head": 8,
+    "d_model": 512,
+    "d_mlp": 2048,
+    "context_length": 256,
+    "vocab_size": 8000,
+    "dropout": 0.1,
+    "config": "nebulalm.yaml",
+    "parameters": 29447168,
+    "formula": 29447168
+  }
+]
