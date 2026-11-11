@@ -27,7 +27,9 @@ from nebulalm.utils.hashing import sha256_file
 from nebulalm.utils.io import read_json, read_jsonl, read_yaml, write_json
 
 ROOT = Path(__file__).resolve().parents[1]
-RUNS = ROOT / "runs"
+# Runs and shards are large; they live outside the repository (and outside any synced folder).
+WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
+RUNS = WORK / "runs"
 RESAMPLES = 10_000
 PASSES = (1, 2, 4, 8)
 SIZES = ("4m", "10m", "29m")

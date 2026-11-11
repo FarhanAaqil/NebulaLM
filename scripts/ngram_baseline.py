@@ -25,6 +25,8 @@ from nebulalm.utils.hashing import sha256_file
 from nebulalm.utils.io import read_json, read_jsonl, write_json
 
 ROOT = Path(__file__).resolve().parents[1]
+# Runs and shards are large; they live outside the repository (and outside any synced folder).
+WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
 ORDERS = (3, 4, 5, 6)
 REGISTERED = 5
 
@@ -40,7 +42,7 @@ def arrays(windows: ShardWindows) -> tuple[np.ndarray, np.ndarray, np.ndarray, n
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--shards", type=Path, default=ROOT / "shards")
+    parser.add_argument("--shards", type=Path, default=WORK / "shards")
     parser.add_argument("--tokenizer", type=Path, default=ROOT / "artifacts" / "tokenizer" / "selected")
     parser.add_argument("--final-evaluation-campaign", action="store_true")
     args = parser.parse_args()

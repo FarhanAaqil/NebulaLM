@@ -28,6 +28,8 @@ from nebulalm.utils.hashing import sha256_file
 from nebulalm.utils.io import read_jsonl, read_yaml, write_json
 
 ROOT = Path(__file__).resolve().parents[1]
+# Runs and shards are large; they live outside the repository (and outside any synced folder).
+WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
 WINDOWS_PER_FILE = 20000
 
 
@@ -68,7 +70,8 @@ def write_folder(folder: Path, windows: list[dict], meta: dict, prefix: str = "p
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--tokenizer", type=Path, required=True)
-    parser.add_argument("--out", type=Path, default=ROOT / "shards")
+    parser.add_argument("--out", type=Path, default=WORK / "shards")
+    parser.add_argument("--only-m0", action="store_true", help="m0 and validation only (tokenizer proxies)")
     args = parser.parse_args()
     seeds = read_yaml(ROOT / "configs" / "seeds.yaml")
     tokenizer_path = args.tokenizer / "tokenizer.json"
@@ -95,34 +98,36 @@ def main() -> None:
     m0 = write_folder(args.out / "m0", m0_windows, {**meta, "documents": len(train), "canary_copies": len(copies)})
     write_json(args.out / "m0" / "manifest.json", m0)
 
-    siblings = sorted((row["sibling_id"], row["text"]) for row in read_jsonl(clean / "m1_siblings.jsonl"))
-    sibling_windows = pack_documents(encode_all(tokenizer, siblings), eos_id=tokenizer.eos_id, pad_id=tokenizer.pad_id)
-    (args.out / "m1").mkdir(parents=True, exist_ok=True)
-    for row in m0["files"]:
-        shutil.copyfile(args.out / "m0" / row["name"], args.out / "m1" / row["name"])
-    extra = write_folder(args.out / "m1", sibling_windows, {}, prefix="siblings")
-    m1 = {**m0, "files": m0["files"] + extra["files"], "windows": m0["windows"] + extra["windows"],
-          "target_tokens": m0["target_tokens"] + extra["target_tokens"],
-          "utf8_bytes": m0["utf8_bytes"] + extra["utf8_bytes"],
-          "base_windows": m0["windows"], "siblings": len(siblings)}
-    write_json(args.out / "m1" / "manifest.json", m1)
+    summary = {"m0": m0}
+    if not args.only_m0:
+        siblings = sorted((row["sibling_id"], row["text"]) for row in read_jsonl(clean / "m1_siblings.jsonl"))
+        sibling_windows = pack_documents(encode_all(tokenizer, siblings), eos_id=tokenizer.eos_id, pad_id=tokenizer.pad_id)
+        (args.out / "m1").mkdir(parents=True, exist_ok=True)
+        for row in m0["files"]:
+            shutil.copyfile(args.out / "m0" / row["name"], args.out / "m1" / row["name"])
+        extra = write_folder(args.out / "m1", sibling_windows, {}, prefix="siblings")
+        m1 = {**m0, "files": m0["files"] + extra["files"], "windows": m0["windows"] + extra["windows"],
+              "target_tokens": m0["target_tokens"] + extra["target_tokens"],
+              "utf8_bytes": m0["utf8_bytes"] + extra["utf8_bytes"],
+              "base_windows": m0["windows"], "siblings": len(siblings)}
+        write_json(args.out / "m1" / "manifest.json", m1)
+        summary["m1"] = m1
 
-    # EXP-RVU: D/4 and D/8 unique documents (a seeded prefix of the packing order), no canaries.
-    for folder, fraction in (("m0_quarter", 4), ("m0_eighth", 8)):
-        subset = train[: max(1, len(train) // fraction)]
-        if (args.out / folder).exists():
-            shutil.rmtree(args.out / folder)
-        windows = pack_documents(encode_all(tokenizer, subset), eos_id=tokenizer.eos_id, pad_id=tokenizer.pad_id)
-        written = write_folder(args.out / folder, windows, {**meta, "documents": len(subset), "fraction_of_train": 1 / fraction})
-        write_json(args.out / folder / "manifest.json", written)
+        # EXP-RVU: D/4 and D/8 unique documents (a seeded prefix of the packing order), no canaries.
+        for folder, fraction in (("m0_quarter", 4), ("m0_eighth", 8)):
+            subset = train[: max(1, len(train) // fraction)]
+            windows = pack_documents(encode_all(tokenizer, subset), eos_id=tokenizer.eos_id, pad_id=tokenizer.pad_id)
+            written = write_folder(args.out / folder, windows,
+                                   {**meta, "documents": len(subset), "fraction_of_train": 1 / fraction})
+            write_json(args.out / folder / "manifest.json", written)
+            summary[folder] = written
 
     validation = sorted((row["document_id"], row["text"]) for row in read_jsonl(clean / "validation.jsonl"))
     val_windows = pack_documents(encode_all(tokenizer, validation), eos_id=tokenizer.eos_id, pad_id=tokenizer.pad_id)
     val = write_folder(args.out / "validation", val_windows, {**meta, "documents": len(validation)})
     write_json(args.out / "validation" / "manifest.json", val)
-    summary = {name: {key: value for key, value in folder.items() if key != "files"}
-               for name, folder in (("m0", m0), ("m1", m1), ("validation", val))}
-    print(json.dumps(summary, indent=2))
+    summary["validation"] = val
+    print(json.dumps({name: {k: v for k, v in folder.items() if k != "files"} for name, folder in summary.items()}, indent=2))
 
 
 if __name__ == "__main__":

@@ -23,6 +23,8 @@ from nebulalm.utils.hashing import sha256_file
 from nebulalm.utils.io import read_json, read_jsonl, read_yaml, write_json
 
 ROOT = Path(__file__).resolve().parents[1]
+# Runs and shards are large; they live outside the repository (and outside any synced folder).
+WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
 PROTOCOL = ROOT / "experiments" / "protocols" / "EXP-TOK-production.yaml"
 ARTIFACTS = ROOT / "artifacts" / "tokenizer"
 REPORT = ROOT / "reports" / "tokenizer" / "production_comparison.json"
@@ -61,11 +63,11 @@ def stage_proxies() -> None:
     protocol = read_yaml(PROTOCOL)["controlled_variables"]
     for candidate in candidates():
         name = candidate["name"]
-        shards = ROOT / "shards" / f"tok_{name}"
+        shards = WORK / "shards" / f"tok_{name}"
         if not (shards / "validation" / "manifest.json").exists():
             subprocess.run([sys.executable, str(ROOT / "scripts" / "pack_shards.py"), "--tokenizer",
-                            str(ARTIFACTS / name), "--out", str(shards)], check=True)
-        run_dir = ROOT / "runs" / f"exp-tok-{name}"
+                            str(ARTIFACTS / name), "--out", str(shards), "--only-m0"], check=True)
+        run_dir = WORK / "runs" / f"exp-tok-{name}"
         subprocess.run([sys.executable, str(ROOT / "scripts" / "train.py"), "--model", "smaller_transformer.yaml",
                         "--lr", str(protocol["proxy_peak_lr"]), "--run", str(run_dir), "--passes", "1",
                         "--shards", str(shards / "m0"), "--val-shards", str(shards / "validation")], check=True)

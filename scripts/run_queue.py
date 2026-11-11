@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -23,7 +24,9 @@ from pathlib import Path
 from nebulalm.utils.io import read_json, read_yaml, write_json
 
 ROOT = Path(__file__).resolve().parents[1]
-RUNS = ROOT / "runs"
+# Runs and shards are large; they live outside the repository (and outside any synced folder).
+WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
+RUNS = WORK / "runs"
 SIZES = {"4m": "small_4m.yaml", "10m": "smaller_transformer.yaml", "29m": "nebulalm.yaml"}
 LR_RECORD = ROOT / "experiments" / "records" / "EXP-LR.json"
 
@@ -109,7 +112,7 @@ def command(row: dict, rates: dict) -> list[str]:
     if isinstance(lr, str):
         lr = rates[lr.split(":", 1)[1]]["lr"]
     args = [sys.executable, str(ROOT / "scripts" / "train.py"), "--model", SIZES[row["size"]], "--lr", str(lr),
-            "--run", str(RUNS / row["name"]), "--shards", str(ROOT / "shards" / row["shards"])]
+            "--run", str(RUNS / row["name"]), "--shards", str(WORK / "shards" / row["shards"])]
     if row["trunk"]:
         args.append("--trunk")
     else:

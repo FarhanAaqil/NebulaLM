@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import math
 import subprocess
 from pathlib import Path
@@ -35,6 +36,8 @@ from nebulalm.utils.hashing import sha256_file, sha256_text
 from nebulalm.utils.io import read_json, read_yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+# Runs and shards are large; they live outside the repository (and outside any synced folder).
+WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
 
 
 def git_commit() -> dict:
@@ -52,8 +55,8 @@ def main() -> None:
     parser.add_argument("--model", required=True)
     parser.add_argument("--lr", type=float, required=True)
     parser.add_argument("--run", type=Path, required=True)
-    parser.add_argument("--shards", type=Path, default=ROOT / "shards" / "m0")
-    parser.add_argument("--val-shards", type=Path, default=ROOT / "shards" / "validation")
+    parser.add_argument("--shards", type=Path, default=WORK / "shards" / "m0")
+    parser.add_argument("--val-shards", type=Path, default=WORK / "shards" / "validation")
     parser.add_argument("--passes", type=float)
     parser.add_argument("--trunk", action="store_true")
     parser.add_argument("--branch-from", type=Path)
