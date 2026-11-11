@@ -10,7 +10,7 @@ from nebulalm.utils.io import read_yaml, write_json
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    sources = read_yaml(root / "configs" / "data" / "sources.yaml")
+    sources = read_yaml(root / "configs" / "data" / "slice_sources.yaml")
     thresholds = read_yaml(root / "configs" / "data" / "quality.yaml")
     seeds = read_yaml(root / "configs" / "seeds.yaml")
     prepared = prepare_corpus(

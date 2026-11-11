@@ -7,6 +7,8 @@ import random
 import re
 from collections import defaultdict
 
+import numpy as np
+
 from nebulalm.utils.hashing import sha256_text
 
 _WORDS = re.compile(r"\S+")
@@ -69,16 +71,18 @@ def minhash_signature(
     """MinHash over word n-grams. One blake2s per gram, then a seeded hash family."""
     grams = word_ngrams(text, ngram)
     coefficients = params if params is not None else _hash_params(num_perm, seed)
-    signature = [_MASK] * len(coefficients)
     if not grams:
-        return tuple(signature)
-    for gram in grams:
-        base = int.from_bytes(hashlib.blake2s(gram.encode("utf-8"), digest_size=8).digest(), "big")
-        for index, (slope, intercept) in enumerate(coefficients):
-            value = (slope * base + intercept) & _MASK
-            if value < signature[index]:
-                signature[index] = value
-    return tuple(signature)
+        return tuple([_MASK] * len(coefficients))
+    bases = np.array(
+        [int.from_bytes(hashlib.blake2s(gram.encode("utf-8"), digest_size=8).digest(), "big") for gram in grams],
+        dtype=np.uint64,
+    )
+    slopes = np.array([slope for slope, _ in coefficients], dtype=np.uint64)
+    intercepts = np.array([intercept for _, intercept in coefficients], dtype=np.uint64)
+    # uint64 arithmetic wraps mod 2**64; the low 32 bits equal the exact integer result.
+    with np.errstate(over="ignore"):
+        values = (bases[:, None] * slopes[None, :] + intercepts[None, :]) & np.uint64(_MASK)
+    return tuple(int(value) for value in values.min(axis=0))
 
 
 def estimated_jaccard(left: tuple[int, ...], right: tuple[int, ...]) -> float:
@@ -99,6 +103,48 @@ def _band_keys(signature: tuple[int, ...], bands: int) -> list[tuple[int, tuple[
     return keys
 
 
+_QUALIFIER = re.compile(r"^(.+?) \([^)]*\)$")
+
+
+def _entity_stems(title: str) -> list[str]:
+    stems = []
+    qualified = _QUALIFIER.match(title)
+    if qualified:
+        stems.append(qualified.group(1))
+    parts = title.split(" of ")
+    if len(parts) > 1:
+        stems.append(" of ".join(parts[1:]))
+        stems.append(parts[-1])
+    cleaned = []
+    for stem in stems:
+        stem = stem.strip()
+        if stem.lower().startswith("the "):
+            stem = stem[4:]
+        if stem:
+            cleaned.append(stem.lower())
+    return cleaned
+
+
+def lead_entity_links(titles: dict[str, str]) -> list[tuple[str, str]]:
+    """Pairs of document ids whose titles name the same lead entity.
+
+    "Geology of Mars" and "Moons of Mars" link to "Mars"; "Mercury (planet)"
+    links to "Mercury". A link is made only when the stem is itself a title in
+    the corpus, compared case-insensitively.
+    """
+    by_title: dict[str, str] = {}
+    for document_id, title in sorted(titles.items()):
+        by_title.setdefault(title.lower(), document_id)
+    links = []
+    for document_id, title in sorted(titles.items()):
+        for stem in _entity_stems(title):
+            other = by_title.get(stem)
+            if other and other != document_id:
+                links.append((document_id, other))
+                break
+    return links
+
+
 def cluster_documents(
     documents: list[dict],
     *,
@@ -106,8 +152,12 @@ def cluster_documents(
     num_perm: int = 64,
     bands: int = 16,
     seed: int = 17012,
+    links: list[tuple[str, str]] | None = None,
 ) -> list[dict]:
-    """Cluster accepted documents. Each input dict needs document_id and clean_text."""
+    """Cluster accepted documents. Each input dict needs document_id and clean_text.
+
+    links are extra pairs (for example shared lead entities) unioned before the split.
+    """
     if num_perm % bands != 0:
         raise ValueError("num_perm must be divisible by bands")
     nodes = UnionFind()
@@ -138,7 +188,12 @@ def cluster_documents(
     for left, right in candidate_pairs:
         if estimated_jaccard(signatures[left], signatures[right]) >= jaccard_threshold:
             nodes.union(left, right)
+    known = set(signatures)
+    for left, right in links or []:
+        if left in known and right in known:
+            nodes.union(left, right)
 
+    method = "exact-sha256+minhash-lsh+lead-entity-v1" if links is not None else "exact-sha256+minhash-lsh-v1"
     grouped = nodes.clusters()
     clusters = []
     for _root, members in sorted(grouped.items(), key=lambda item: item[1][0]):
@@ -147,7 +202,7 @@ def cluster_documents(
             {
                 "dedup_cluster_id": f"cluster_{cluster_key}",
                 "member_ids": members,
-                "method": "exact-sha256+minhash-lsh-v1",
+                "method": method,
                 "jaccard_threshold": jaccard_threshold,
                 "num_perm": num_perm,
                 "bands": bands,

@@ -1,0 +1,36 @@
+# Probe groups and canaries for the Learn / Store / Leak study (decision 004).
+# Written before any probe document was drawn. Changing a value here changes
+# the probe manifest identity and needs a dated decision.
+
+probe_groups:
+  # Z: untouched control. C: exact copy. B_j: edited copy at word 5-gram
+  # Jaccard j. A: Simple English sibling (natural paraphrase).
+  order: [A, C, B90, B80, B65, B50, Z]
+  edited_jaccard:
+    B90: 0.90
+    B80: 0.80
+    B65: 0.65
+    B50: 0.50
+  # Jaccard is measured on lowercased word 5-gram sets, the same shingles dedup uses.
+  shingle_words: 5
+  # Edited copy accepted when its measured Jaccard is within this distance of the target.
+  jaccard_tolerance: 0.02
+  per_group_target: 100
+  # Risk R4: if the probe pool cannot fill the target, every group shrinks to the
+  # same size, not below this floor.
+  per_group_floor: 60
+
+simple_siblings:
+  # Risk R11: a Simple page is kept as a sibling only if its lowercased word-type
+  # Jaccard with the English probe document reaches this value and it passes the
+  # same quality filter as the corpus.
+  min_word_type_jaccard: 0.15
+
+canaries:
+  # Random word sequences, not text from any source. Words are drawn uniformly
+  # from train-split word types seen at least min_word_count times.
+  words_per_canary: 32
+  per_multiplicity: 100
+  multiplicities: [1, 4, 16]
+  controls: 100
+  min_word_count: 5

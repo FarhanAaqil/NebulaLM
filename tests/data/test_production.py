@@ -55,3 +55,16 @@ def test_tokenizer_tooling_refuses_held_out_text():
     assert [doc for doc, _text in rows] == ["doc_a"]
     with pytest.raises(PermissionError):
         list(reader.iter_split_text("test"))
+
+
+def test_latest_revision_titles_follow_normalization_and_redirects():
+    from nebulalm.data.adapters.wikipedia import resolve_titles
+
+    payload = {
+        "query": {
+            "normalized": [{"from": "alpha_Centauri", "to": "Alpha Centauri"}],
+            "redirects": [{"from": "Alpha Centauri", "to": "Alpha Centauri system"}],
+        }
+    }
+    resolved = resolve_titles(payload, ["alpha_Centauri", "Sirius"])
+    assert resolved == {"alpha_Centauri": "Alpha Centauri system", "Sirius": "Sirius"}

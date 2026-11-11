@@ -62,7 +62,7 @@ def build_slice(
     volume_limit: int | None = None,
 ) -> dict:
     root = root.resolve()
-    sources = read_yaml(root / "configs" / "data" / "sources.yaml")
+    sources = read_yaml(root / "configs" / "data" / "slice_sources.yaml")
     thresholds = read_yaml(root / "configs" / "data" / "quality.yaml")
     seeds = read_yaml(root / "configs" / "seeds.yaml")
     records = build_sample_records()

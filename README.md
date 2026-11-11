@@ -22,6 +22,18 @@ Instruction tuning, chat, retrieval, distributed training, and claims against ge
 - Phase 1 runs an authored sample through cleaning, dedup, a 94/3/3 cluster split, 4k and 8k byte-level BPE, packing, a small probe loss, and a 5-gram skeleton. The trace is `reports/vertical_slice/trace.json`.
 - The 29M model has not been trained. The probe losses in the trace are sample measurements only.
 
+## Corpus
+
+The production corpus is English Wikipedia astronomy pages only, at the latest revision at or before `2023-11-01T00:00:00Z` (decision 004). OpenStax is excluded because its terms forbid use in language-model training; the earlier OpenStax-plus-Wikipedia freeze in `manifests/production/` is kept only as history. Clusters are split into train 91%, validation 3%, test 3%, probe 2%, and cloze reserve 1%. The probe pool feeds the paired leak study (exact, edited, and Simple English siblings added only to the M1 training set), and `manifests/corpus/canaries.jsonl` holds the random-word canaries and never-inserted controls.
+
+```bash
+export NEBULALM_DATA_DIR=/path/outside/the/repo   # article text never enters git
+python scripts/collect_corpus.py                  # category tree, cutoff revisions, wikitext
+python scripts/build_corpus.py                    # writes probe titles, then stops
+python scripts/collect_corpus.py simple --probe-titles $NEBULALM_DATA_DIR/corpus/probe_titles.json
+python scripts/build_corpus.py                    # manifests/corpus/, reports/corpus/
+```
+
 ## Layout
 
 `src/nebulalm/` holds data, tokenizer, packing, the loss probe, baselines, and evaluation. `configs/` and `schemas/` are the source of truth for decisions that code reads. Manifests carry checksums and provenance, not article text.

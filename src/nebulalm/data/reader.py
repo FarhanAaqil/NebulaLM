@@ -1,7 +1,7 @@
 """Train-only text iterator.
 
-Validation requires allow_eval. Test requires allow_final_eval.
-The default training iterator never yields either split.
+Validation, probe, cloze reserve, and excluded text require allow_eval.
+Test requires allow_final_eval. The default training iterator yields train only.
 """
 
 from __future__ import annotations
@@ -25,10 +25,10 @@ class SplitReader:
             raise PermissionError("validation text requires allow_eval=True")
         if split == "test" and not allow_final_eval:
             raise PermissionError("test text requires allow_final_eval=True")
-        if split not in {"train", "validation", "test", "excluded"}:
+        if split not in {"train", "validation", "test", "probe", "cloze_reserve", "excluded"}:
             raise ValueError(f"unknown split {split}")
-        if split == "excluded" and not allow_eval:
-            raise PermissionError("excluded text requires allow_eval=True")
+        if split in {"probe", "cloze_reserve", "excluded"} and not allow_eval:
+            raise PermissionError(f"{split} text requires allow_eval=True")
         for record in self.records:
             if record["split"] != split:
                 continue

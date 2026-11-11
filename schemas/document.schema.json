@@ -44,7 +44,7 @@
     "language_score": {"type": "number", "minimum": 0, "maximum": 1},
     "quality_flags": {"type": "array", "items": {"type": "string"}},
     "dedup_cluster_id": {"type": "string"},
-    "split": {"type": "string", "enum": ["train", "validation", "test", "excluded"]},
+    "split": {"type": "string", "enum": ["train", "validation", "test", "probe", "cloze_reserve", "excluded"]},
     "rejection_reasons": {"type": "array", "items": {"type": "string"}},
     "is_representative": {"type": "boolean"},
     "quality_score": {"type": "number"}

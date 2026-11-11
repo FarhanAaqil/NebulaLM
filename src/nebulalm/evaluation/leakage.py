@@ -19,8 +19,13 @@ def paragraph_hashes(text: str, min_chars: int = MIN_PARAGRAPH_CHARS) -> set[str
     return {sha256_text(part) for part in parts if len(part) >= min_chars}
 
 
-def leakage_report(records: list[dict], texts: dict[str, str]) -> dict:
-    by_split: dict[str, list[dict]] = {"train": [], "validation": [], "test": []}
+def leakage_report(
+    records: list[dict],
+    texts: dict[str, str],
+    pools: tuple[str, ...] = ("train", "validation", "test"),
+) -> dict:
+    """Every pair of pools is checked. Pairs follow the order given in pools."""
+    by_split: dict[str, list[dict]] = {name: [] for name in pools}
     for record in records:
         if record["split"] in by_split:
             by_split[record["split"]].append(record)
@@ -32,7 +37,7 @@ def leakage_report(records: list[dict], texts: dict[str, str]) -> dict:
             text = texts[row["document_id"]]
             paragraphs[name] |= paragraph_hashes(text)
             substantial[name] |= paragraph_hashes(text, min_chars=400)
-    pairs = (("train", "validation"), ("train", "test"), ("validation", "test"))
+    pairs = [(a, b) for index, a in enumerate(pools) for b in pools[index + 1 :]]
     cluster_overlaps = {f"{a}|{b}": sorted(clusters[a] & clusters[b]) for a, b in pairs}
     paragraph_overlaps = {f"{a}|{b}": sorted(paragraphs[a] & paragraphs[b]) for a, b in pairs}
     substantial_overlaps = {f"{a}|{b}": sorted(substantial[a] & substantial[b]) for a, b in pairs}

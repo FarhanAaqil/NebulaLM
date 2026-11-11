@@ -1,0 +1,68 @@
+# Frozen copy of sources.yaml as it stood when the authored sample slice was built.
+# The slice reads this file so its artifacts reproduce. Production reads sources.yaml.
+temporal_cutoff: "2024-01-01T00:00:00Z"
+cutoff_rule: >
+  Exclude a record from train, validation, test, and tokenizer training when
+  published_at or the source revision timestamp is later than the cutoff.
+  A null published_at is allowed only for an edition that was frozen before
+  the cutoff and is named in this file. Later revisions may be stored only
+  in a labeled post-cutoff challenge set.
+license_audit:
+  unresolved_policy: exclude
+  steps:
+    - Record the SPDX or project license id and the license URL.
+    - Record the attribution the license requires.
+    - Reject a record when third-party text, figure captions, or quotations have no compatible rights note.
+    - Keep conditional sources out of every baseline split until a decision record approves specific records.
+    - Never treat public availability as a license.
+sources:
+  openstax_astronomy_2e:
+    status: approved
+    license_id: CC-BY-4.0
+    license_url: https://creativecommons.org/licenses/by/4.0/
+    edition: "2e"
+    canonical_book_url: https://openstax.org/books/astronomy-2e
+    archive_version: "20231109.173216"
+    book_id: "4c29f9e5-a53d-42c0-bdb5-091990527d79"
+    content_version: "a52f4ee"
+    content_revised_at: "2023-07-07T20:20:33Z"
+    author_attribution:
+      - Andrew Fraknoi
+      - David Morrison
+      - Sidney Wolff
+    notes: >
+      Only archive 20231109.173216 is approved. That snapshot's license is
+      CC BY 4.0 and its book revision is 2023-07-07. The live web preface
+      checked on 2026-10-25 states CC BY-NC-SA and the web edition was updated
+      after the cutoff, so live HTML is not baseline text.
+  wikipedia_en_astronomy:
+    status: approved
+    license_id: CC-BY-SA-4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0/
+    notes: Use a dated revision at or before the cutoff. Keep page id, revision id, and title.
+    categories:
+      - Category:Astronomy
+      - Category:Solar_System
+      - Category:Stars
+      - Category:Galaxies
+      - Category:Spaceflight
+      - Category:Planets
+      - Category:Cosmology
+      - Category:Telescopes
+      - Category:Moons
+      - Category:Exoplanets
+  nasa_apod:
+    status: conditional
+    license_id: null
+    license_url: null
+    notes: Out of the baseline until each record's text rights are audited. Not collected in Phase 1.
+  esa_outreach:
+    status: excluded
+    license_id: null
+    license_url: null
+    notes: Excluded from the baseline corpus.
+  astronomy_stackexchange:
+    status: excluded
+    license_id: null
+    license_url: null
+    notes: Excluded from the baseline corpus.
