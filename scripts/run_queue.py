@@ -50,6 +50,8 @@ def plan() -> list[dict]:
         for passes in branches:
             rows.append(entry(f"m0-{size}-e{passes}", size, lr=f"best:{size}", passes=passes,
                               branch_from=f"m0-{size}-trunk", tier="P0", experiment="EXP-GRID"))
+    # Branch-equivalence check (G2): a standalone 1-pass run with the trunk's seed and data order.
+    rows.append(entry("check-10m-e1-standalone", "10m", lr="best:10m", passes=1, tier="P0", experiment="BRANCH-EQ"))
     # EXP-LEAK (P1): the same grid on M1 (M0 plus probe siblings).
     for size in ("10m", "29m"):
         rows.append(entry(f"m1-{size}-trunk", size, lr=f"best:{size}", shards="m1", trunk=True, tier="P1", experiment="EXP-LEAK"))
