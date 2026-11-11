@@ -1,0 +1,45 @@
+experiment_id: EXP-TOK-production
+registered_at: "2026-11-11T00:00:00Z"
+hypothesis: >
+  Among byte-level BPE tokenizers trained on the frozen Wikipedia train pool,
+  the vocabulary size that gives the lowest validation bits per byte for a
+  10.3M-parameter proxy trained for one pass is the one to freeze (blueprint
+  EXP-TOK, amendment A6: the trainer exists before the tokenizer is chosen).
+decision_informed: Frozen tokenizer for every model, shard, and baseline in the study.
+primary_metric: validation bits per byte of the smaller-transformer proxy after one pass
+secondary_metrics:
+  - validation tokens per UTF-8 byte
+  - fragmentation_tokens_per_term
+  - embedding_parameter_count
+  - round_trip_rate
+changed_variables:
+  candidates:
+    - {name: bpe-4k, vocab_size: 4000, split_digits: false}
+    - {name: bpe-8k, vocab_size: 8000, split_digits: false}
+    - {name: bpe-12k, vocab_size: 12000, split_digits: false}
+    - {name: bpe-8k-digits, vocab_size: 8000, split_digits: true}
+controlled_variables:
+  tokenizer_training_text: train pool only (no canaries, siblings, validation, probe, cloze, or test text)
+  normalizer: NFC
+  add_prefix_space: false
+  proxy_model: configs/model/smaller_transformer.yaml
+  proxy_passes: 1
+  proxy_schedule: wsd, decay over the last 20 percent
+  proxy_peak_lr: 3.0e-4
+  proxy_training_set: M0 (train pool plus canaries), each packed with its own candidate
+dataset_manifest_sha256: manifests/corpus/DATASET_HASHES.txt at the build commit
+seeds:
+  - name: tokenizer_train
+    value: 17013
+  - name: model_init
+    value: 17014
+  - name: data_shuffle
+    value: 17015
+stop_rule: One pass per candidate; a diverged proxy is rerun once at half the learning rate.
+decision_rule: >
+  Lowest proxy validation bits per byte. If the best two are within 1 percent
+  of each other, take the smaller vocabulary (fewer embedding parameters).
+fallback: If the proxies cannot run, use bpe-8k (blueprint Tokenizer gate fallback).
+known_deviations:
+  - Proxy peak LR is fixed at 3e-4, the middle of the EXP-LR grid, because the LR sweep needs the frozen tokenizer.
+status: registered
