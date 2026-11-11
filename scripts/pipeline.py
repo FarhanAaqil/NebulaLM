@@ -51,17 +51,18 @@ def script(name: str, *args: str) -> None:
     python(str(ROOT / "scripts" / name), *args)
 
 
-def wait_downloads() -> None:
+def wait_dataset() -> None:
     english = DATA / "hf" / "20231101.en"
     while len(list(english.glob("*.parquet"))) < ENGLISH_FILES:
-        time.sleep(60)
+        time.sleep(20)
     log("dataset download complete")
-    while not WHEEL.exists() or WHEEL.stat().st_size < WHEEL_BYTES:
-        time.sleep(30)
-    log("CUDA wheel downloaded")
 
 
 def install_torch() -> None:
+    """Only the GPU stages need this, so the CPU stages run while the wheel downloads."""
+    while not WHEEL.exists() or WHEEL.stat().st_size < WHEEL_BYTES:
+        time.sleep(20)
+    log("CUDA wheel downloaded")
     check = subprocess.run([sys.executable, "-c", "import torch; print(torch.cuda.is_available())"],
                            capture_output=True, text=True)
     if check.stdout.strip() != "True":
@@ -87,11 +88,11 @@ def audit_all(final: bool) -> None:
 
 
 STAGES = [
-    ("downloads", wait_downloads),
-    ("torch", install_torch),
+    ("dataset", wait_dataset),
     ("dump", lambda: script("collect_corpus.py", "dump")),
     ("corpus", lambda: script("build_corpus.py")),
     ("tokenizer_train", lambda: script("tokenizer_experiment.py", "train")),
+    ("torch", install_torch),
     ("tokenizer_proxies", lambda: script("tokenizer_experiment.py", "proxies")),
     ("tokenizer_select", lambda: script("tokenizer_experiment.py", "select")),
     ("pack", lambda: script("pack_shards.py", "--tokenizer", str(SELECTED), "--out", str(WORK / "shards"))),
