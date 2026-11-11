@@ -41,36 +41,60 @@ def edit_to_jaccard(
 ) -> dict:
     """Substitute words until the shingle Jaccard with the original is as close to target as possible.
 
-    Positions and replacement words are drawn once per call, then the number of
-    substitutions is found by bisection. Each target level gets its own draw.
+    Coarse step: random positions, count found by bisection. One isolated
+    substitution breaks up to n shingles, which is too coarse on short
+    documents, so a fine step then substitutes words next to ones already
+    changed (each breaks only one or two more shingles) while that moves the
+    score closer to the target. Each target level gets its own random draw.
     """
     pieces = _PIECES.split(text)
     word_slots = [index for index, piece in enumerate(pieces) if piece and not piece.isspace()]
     order = word_slots[:]
     rng.shuffle(order)
-    replacements = [rng.choice(vocabulary) for _ in order]
+    replacements = {slot: rng.choice(vocabulary) for slot in order}
     original = shingle_set(text, n)
 
-    def build(count: int) -> str:
+    def build(slots) -> str:
         edited = pieces[:]
-        for slot, word in zip(order[:count], replacements[:count]):
-            edited[slot] = word
+        for slot in slots:
+            edited[slot] = replacements[slot]
         return "".join(edited)
 
-    def score(count: int) -> float:
-        return jaccard(original, shingle_set(build(count), n))
+    def score(slots) -> float:
+        return jaccard(original, shingle_set(build(slots), n))
 
     low, high = 0, len(order)
     while low < high:
         middle = (low + high) // 2
-        if score(middle) > target:
+        if score(order[:middle]) > target:
             low = middle + 1
         else:
             high = middle
-    candidates = {max(0, low - 1), low, min(len(order), low + 1)}
-    best = min(candidates, key=lambda count: (abs(score(count) - target), count))
-    edited = build(best)
-    return {"text": edited, "jaccard": score(best), "substitutions": best, "words": len(order)}
+    # Coarse result: the largest count still above the target (or zero).
+    chosen = list(order[: max(0, low - 1)])
+    current = score(chosen)
+    best_slots, best_score = list(chosen), current
+    taken = set(chosen)
+    position = {slot: index for index, slot in enumerate(word_slots)}
+    while current > target:
+        neighbours = []
+        for slot in chosen:
+            index = position[slot]
+            for step in (-1, 1):
+                if 0 <= index + step < len(word_slots) and word_slots[index + step] not in taken:
+                    neighbours.append(word_slots[index + step])
+        if not neighbours:
+            pool = [slot for slot in order if slot not in taken]
+            if not pool:
+                break
+            neighbours = pool[:1]
+        slot = neighbours[0]
+        chosen.append(slot)
+        taken.add(slot)
+        current = score(chosen)
+        if abs(current - target) < abs(best_score - target):
+            best_slots, best_score = list(chosen), current
+    return {"text": build(best_slots), "jaccard": best_score, "substitutions": len(best_slots), "words": len(order)}
 
 
 def canary_vocabulary(train_texts: list[str], min_count: int) -> list[str]:

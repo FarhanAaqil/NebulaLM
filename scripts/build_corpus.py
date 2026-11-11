@@ -174,10 +174,10 @@ def main() -> None:
             sibling = {"text": texts[document_id], "jaccard": 1.0, "source": "exact_copy"}
         elif group in levels:
             edited = edit_to_jaccard(texts[document_id], float(levels[group]), vocabulary, edit_rng)
-            if abs(edited["jaccard"] - float(levels[group])) > tolerance:
-                raise SystemExit(f"{document_id} edit missed {group}: {edited['jaccard']:.3f}")
+            # A miss is kept and flagged; the dose-response uses the measured Jaccard, not the target.
             sibling = {"text": edited["text"], "jaccard": edited["jaccard"], "source": "edited_copy",
-                       "substitutions": edited["substitutions"], "words": edited["words"]}
+                       "substitutions": edited["substitutions"], "words": edited["words"],
+                       "within_tolerance": abs(edited["jaccard"] - float(levels[group])) <= tolerance}
         elif group == "A":
             match = siblings["accepted"][document_id]
             record = match["record"]
@@ -294,6 +294,9 @@ def main() -> None:
             values = value.pop("jaccard")
             value["jaccard_min"], value["jaccard_max"] = min(values), max(values)
             value["jaccard_mean"] = sum(values) / len(values)
+    for entry in probe_manifest:
+        if entry.get("within_tolerance") is False:
+            group_report[entry["group"]]["outside_tolerance"] = group_report[entry["group"]].get("outside_tolerance", 0) + 1
     write_json(report_dir / "probe_report.json", {
         "probe_pool_documents": len(probe_rows),
         "per_group": groups["per_group"],

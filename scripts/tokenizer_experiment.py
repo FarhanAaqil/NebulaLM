@@ -55,7 +55,17 @@ def stage_train() -> None:
         report["candidates"][candidate["name"]] = {"static": metrics}
         print(candidate["name"], json.dumps({k: metrics[k] for k in ("actual_vocab_size", "tokens_per_utf8_byte",
                                                                      "fragmentation_tokens_per_term")}), flush=True)
-    write_json(REPORT, report)
+        write_json(REPORT, report)
+        # Packing is CPU work; doing it here keeps the GPU stage to training alone.
+        pack_candidate(candidate["name"])
+
+
+def pack_candidate(name: str) -> Path:
+    shards = WORK / "shards" / f"tok_{name}"
+    if not (shards / "validation" / "manifest.json").exists():
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "pack_shards.py"), "--tokenizer",
+                        str(ARTIFACTS / name), "--out", str(shards), "--only-m0"], check=True)
+    return shards
 
 
 def stage_proxies() -> None:
@@ -63,10 +73,7 @@ def stage_proxies() -> None:
     protocol = read_yaml(PROTOCOL)["controlled_variables"]
     for candidate in candidates():
         name = candidate["name"]
-        shards = WORK / "shards" / f"tok_{name}"
-        if not (shards / "validation" / "manifest.json").exists():
-            subprocess.run([sys.executable, str(ROOT / "scripts" / "pack_shards.py"), "--tokenizer",
-                            str(ARTIFACTS / name), "--out", str(shards), "--only-m0"], check=True)
+        shards = pack_candidate(name)
         run_dir = WORK / "runs" / f"exp-tok-{name}"
         subprocess.run([sys.executable, str(ROOT / "scripts" / "train.py"), "--model", "smaller_transformer.yaml",
                         "--lr", str(protocol["proxy_peak_lr"]), "--run", str(run_dir), "--passes", "1",
