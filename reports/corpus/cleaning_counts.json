@@ -1,0 +1,26 @@
+{
+  "clusters": {
+    "clusters": 16909,
+    "documents": 17036
+  },
+  "extracted": {
+    "documents": 20287,
+    "utf8_bytes": 65918600
+  },
+  "input": {
+    "documents": 20287,
+    "utf8_bytes": 71097574
+  },
+  "normalized": {
+    "documents": 20287,
+    "utf8_bytes": 65770886
+  },
+  "quality_and_cutoff": {
+    "documents": 17046,
+    "utf8_bytes": 63385387
+  },
+  "shared_paragraphs": {
+    "documents": 17036,
+    "utf8_bytes": 63212626
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "below_floor": true,
+  "canaries": {
+    "control_m0": 100,
+    "inserted_m1": 100,
+    "inserted_m16": 100,
+    "inserted_m4": 100
+  },
+  "canary_insertions": 2100,
+  "canary_vocabulary_words": 36152,
+  "dropped_groups": [
+    "A"
+  ],
+  "groups": {
+    "B50": {
+      "documents": 59,
+      "jaccard_max": 0.5111111111111111,
+      "jaccard_mean": 0.5004231097543237,
+      "jaccard_min": 0.4945054945054945
+    },
+    "B65": {
+      "documents": 59,
+      "jaccard_max": 0.6666666666666666,
+      "jaccard_mean": 0.6502308840819728,
+      "jaccard_min": 0.6438356164383562
+    },
+    "B80": {
+      "documents": 59,
+      "jaccard_max": 0.8095238095238095,
+      "jaccard_mean": 0.7994675943973552,
+      "jaccard_min": 0.7727272727272727,
+      "outside_tolerance": 1
+    },
+    "B90": {
+      "documents": 59,
+      "jaccard_max": 0.9056603773584906,
+      "jaccard_mean": 0.8984615499851082,
+      "jaccard_min": 0.8507462686567164,
+      "outside_tolerance": 2
+    },
+    "C": {
+      "documents": 59,
+      "jaccard_max": 1.0,
+      "jaccard_mean": 1.0,
+      "jaccard_min": 1.0
+    },
+    "Z": {
+      "documents": 59
+    }
+  },
+  "per_group": 59,
+  "probe_pool_documents": 359,
+  "simple_sibling_audit": {
+    "accepted": 4,
+    "below_overlap_threshold": 7,
+    "failed_quality": 5,
+    "no_simple_page_with_same_title": 343
+  },
+  "spare": 5
+}

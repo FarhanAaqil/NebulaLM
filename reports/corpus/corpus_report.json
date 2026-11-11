@@ -1,0 +1,57 @@
+{
+  "by_pool": {
+    "cloze_reserve": {
+      "documents": 175,
+      "utf8_bytes": 560386,
+      "words": 89995
+    },
+    "excluded": {
+      "documents": 3251,
+      "utf8_bytes": 2386797,
+      "words": 378253
+    },
+    "probe": {
+      "documents": 359,
+      "utf8_bytes": 1382495,
+      "words": 222786
+    },
+    "test": {
+      "documents": 489,
+      "utf8_bytes": 1928117,
+      "words": 310373
+    },
+    "train": {
+      "documents": 15541,
+      "utf8_bytes": 57740765,
+      "words": 9309757
+    },
+    "validation": {
+      "documents": 472,
+      "utf8_bytes": 1600863,
+      "words": 258969
+    }
+  },
+  "category_pages": 28102,
+  "category_titles_without_page": 6,
+  "cutoff": "2023-11-01T00:00:00Z",
+  "distinct_page_ids": 25162,
+  "input_documents": 20287,
+  "page_ids_absent_from_dump": 4875,
+  "pipeline_version": "wikipedia-v1",
+  "pool_bounds": {
+    "cloze_reserve": 1.0,
+    "probe": 0.99,
+    "test": 0.97,
+    "train": 0.91,
+    "validation": 0.94
+  },
+  "shared_paragraphs_removed": 455,
+  "split_algorithm": "hmac-sha256-pools-v1",
+  "text_source": {
+    "dataset": "wikimedia/wikipedia",
+    "dataset_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+    "english_config": "20231101.en",
+    "english_files": 41,
+    "simple_config": "20231101.simple"
+  }
+}

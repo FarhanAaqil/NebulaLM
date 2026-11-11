@@ -1,0 +1,6 @@
+{
+  "held_out_ids_in_training_iterator": 0,
+  "test_documents": 489,
+  "test_text_location": "NEBULALM_DATA_DIR/corpus/sealed/test.jsonl",
+  "train_documents": 15541
+}

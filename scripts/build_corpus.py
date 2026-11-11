@@ -63,6 +63,16 @@ def _stats(manifests: list[dict], texts: dict[str, str]) -> dict:
     return grouped
 
 
+def split_view(manifests: list[dict]) -> list[dict]:
+    return [{"document_id": row["document_id"], "split": row["split"], "dedup_cluster_id": row["dedup_cluster_id"],
+             "clean_sha256": row["clean_sha256"]} for row in manifests if row["split"] != "excluded"]
+
+
+def excluded_view(manifests: list[dict]) -> list[dict]:
+    return [{"document_id": row["document_id"], "title": row["title"], "rejection_reasons": row["rejection_reasons"]}
+            for row in manifests if row["split"] == "excluded"]
+
+
 def _count_tokens(train_texts: list[str], seed: int, manifest_sha: str) -> dict:
     """Train-only BPE used to measure D. It is discarded; the frozen tokenizer is chosen later."""
     with tempfile.TemporaryDirectory() as scratch:
@@ -214,8 +224,9 @@ def main() -> None:
     report_dir = ROOT / "reports" / "corpus"
     write_jsonl(manifest_dir / "document_manifest.jsonl", manifests)
     write_jsonl(manifest_dir / "clusters.jsonl", prepared["clusters"])
-    write_jsonl(manifest_dir / "split_manifest.jsonl", [row for row in manifests if row["split"] != "excluded"])
-    write_jsonl(manifest_dir / "eval_excluded.jsonl", [row for row in manifests if row["split"] == "excluded"])
+    # Full provenance is in document_manifest.jsonl; these two are keyed views of it.
+    write_jsonl(manifest_dir / "split_manifest.jsonl", split_view(manifests))
+    write_jsonl(manifest_dir / "eval_excluded.jsonl", excluded_view(manifests))
     write_jsonl(manifest_dir / "probe_manifest.jsonl", probe_manifest)
     write_jsonl(manifest_dir / "canaries.jsonl", canaries)
     write_json(

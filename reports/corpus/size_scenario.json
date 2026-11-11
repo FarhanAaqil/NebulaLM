@@ -1,0 +1,13 @@
+{
+  "counting_tokenizer": "byte-level BPE, vocab 8000, train split only, discarded after counting",
+  "d_cap_note": "D_cap is set after the throughput benchmark; it binds only in scenario L.",
+  "scenario": "S",
+  "scenario_targets": {
+    "L": 100000000,
+    "M": 30000000,
+    "S": 8000000
+  },
+  "tokens_per_byte": 0.2415285630524639,
+  "train_tokens": 13946044,
+  "train_utf8_bytes": 57740765
+}
