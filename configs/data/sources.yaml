@@ -19,8 +19,16 @@ sources:
     license_id: CC-BY-SA-4.0
     license_url: https://creativecommons.org/licenses/by-sa/4.0/
     notes: >
-      Latest revision at or before the cutoff. Keep page id, revision id, and
-      title. Manifests carry ids and hashes; article text is not committed.
+      Text comes from the pinned wikimedia/wikipedia dump below, matched by page
+      id to the category tree. The dump has no per-page revision id, so the
+      manifest's revision_id names the dataset commit and config. Manifests
+      carry ids and hashes; article text is not committed.
+    dump:
+      dataset: wikimedia/wikipedia
+      dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa
+      english_config: "20231101.en"
+      english_files: 41
+      simple_config: "20231101.simple"
     categories:
       - Category:Astronomy
       - Category:Solar_System
@@ -84,8 +92,8 @@ sources:
     license_id: CC-BY-SA-4.0
     license_url: https://creativecommons.org/licenses/by-sa/4.0/
     notes: >
-      Simple English Wikipedia pages with the same title as an English probe
-      document. Used only as paraphrase siblings for probe group A in the M1
+      Simple English Wikipedia pages (dump config 20231101.simple) with the same
+      title as an English probe document. Used only as paraphrase siblings for probe group A in the M1
       training set. Never in M0, the tokenizer, validation, or test.
   openstax_astronomy_2e:
     status: excluded

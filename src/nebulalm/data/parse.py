@@ -121,6 +121,26 @@ def _drop_sections(text: str) -> str:
     return "\n".join(kept)
 
 
+# Simple English Wikipedia names its trailing sections differently.
+DUMP_TRAILING_SECTIONS = DROPPED_SECTIONS | {"related pages", "other websites"}
+
+
+def parse_dump_text(text: str) -> str:
+    """Plain text from the wikimedia/wikipedia dump.
+
+    Markup and templates are already gone; headings are bare lines. The dump
+    appends the trailing apparatus and then the category names, so the text is
+    cut at the first standalone heading that names an apparatus section.
+    """
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if line.strip().lower() not in DUMP_TRAILING_SECTIONS:
+            continue
+        if index == 0 or not lines[index - 1].strip():
+            return "\n".join(lines[:index])
+    return text
+
+
 def parse_wikitext(text: str) -> str:
     cleaned = _REF.sub("", text)
     cleaned = _COMMENT.sub("", cleaned)

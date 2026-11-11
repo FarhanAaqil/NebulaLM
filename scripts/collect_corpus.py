@@ -3,12 +3,16 @@
 Stages, each resumable:
 
   tree       walk the category tree in configs/data/sources.yaml
+  pageids    resolve every tree title to its page id, 50 titles per request
+  dump       select those page ids from the pinned wikimedia/wikipedia parquet
+             dump, and Simple English pages with the same titles (default path)
+
+API alternative, slower and rate limited (about two hours for the full tree):
+
   revisions  find the latest revision at or before the cutoff for every page
   content    fetch wikitext for those revision ids
   simple     fetch Simple English pages with the same title (probe siblings)
 
-Revision lookups use a few concurrent workers with maxlag=5; content is fetched
-in batches of revision ids, one request at a time.
 Article text goes to NEBULALM_DATA_DIR (default: data/), which git ignores.
 """
 
@@ -25,6 +29,7 @@ from pathlib import Path
 
 from nebulalm.data.acquire import RateLimiter, within_cutoff
 from nebulalm.data.adapters.wikipedia import (
+    EN_SOURCE,
     SIMPLE_API,
     SIMPLE_SOURCE,
     fetch_records_by_revid,
@@ -32,7 +37,8 @@ from nebulalm.data.adapters.wikipedia import (
     lookup_revision,
     walk_category_tree,
 )
-from nebulalm.utils.io import read_json, read_yaml, write_json
+from nebulalm.data.adapters.wikipedia_dump import iter_dump_rows, record_from_dump_row
+from nebulalm.utils.io import read_json, read_yaml, write_json, write_jsonl
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT_BATCH = 40
@@ -197,9 +203,61 @@ def stage_content(revisions: list[dict], out: Path, api: str | None = None, sour
     return added
 
 
+def stage_pageids(tree: dict, out: Path) -> dict[str, dict]:
+    """Page ids survive renames, so the dump is matched by id, not by today's title."""
+    path = out / "page_ids.jsonl"
+    known = {row["requested_title"]: row for row in _rows(path)}
+    pending = [title for title in sorted(tree["pages"]) if title not in known]
+    print(f"page_ids.jsonl: {len(tree['pages'])} titles, {len(pending)} pending", flush=True)
+    limiter = RateLimiter(0.2)
+    for start in range(0, len(pending), LATEST_BATCH):
+        batch = pending[start : start + LATEST_BATCH]
+        limiter.wait()
+        try:
+            current = _retrying(lambda: latest_revisions(batch), batch[0])
+        except (OSError, ValueError) as exc:
+            print(f"page id batch at {batch[0]} failed: {exc}", flush=True)
+            continue
+        for title in batch:
+            meta = current.get(title)
+            row = {"requested_title": title, "page_id": meta["page_id"], "title": meta["title"]} if meta else {
+                "requested_title": title, "page_id": None}
+            _append(path, row)
+            known[title] = row
+    return known
+
+
+def stage_dump(page_ids: dict[str, dict], out: Path, dump: dict) -> None:
+    revision = dump["dataset_revision"]
+    root = Path(os.environ.get("NEBULALM_DATA_DIR", ROOT / "data")) / "hf"
+    retrieved_at = _now()
+    wanted = {row["page_id"] for row in page_ids.values() if row.get("page_id")}
+    en_files = sorted((root / dump["english_config"]).glob("*.parquet"))
+    if len(en_files) != int(dump["english_files"]):
+        raise SystemExit(f"expected {dump['english_files']} English parquet files, found {len(en_files)}")
+    records = []
+    for row in iter_dump_rows(en_files, page_ids=wanted):
+        records.append(record_from_dump_row(
+            row, source=EN_SOURCE, config=dump["english_config"], dataset_revision=revision, retrieved_at=retrieved_at))
+    records.sort(key=lambda record: record["document_id"])
+    write_jsonl(out / "records.jsonl", records)
+    print(f"records.jsonl: {len(records)} of {len(wanted)} page ids found in {dump['english_config']}", flush=True)
+
+    titles = {record["title"] for record in records}
+    simple_files = sorted((root / dump["simple_config"]).glob("*.parquet"))
+    simple = [
+        record_from_dump_row(row, source=SIMPLE_SOURCE, config=dump["simple_config"], dataset_revision=revision,
+                             retrieved_at=retrieved_at)
+        for row in iter_dump_rows(simple_files, titles=titles)
+    ]
+    simple.sort(key=lambda record: record["document_id"])
+    write_jsonl(out / "simple_records.jsonl", simple)
+    print(f"simple_records.jsonl: {len(simple)} Simple English pages share a title with the corpus", flush=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("stages", nargs="*", default=["tree", "revisions", "content"])
+    parser.add_argument("stages", nargs="*", default=["tree", "pageids", "dump"])
     parser.add_argument("--probe-titles", type=Path, help="JSON list of English probe titles for the simple stage")
     args = parser.parse_args()
     sources = read_yaml(ROOT / "configs" / "data" / "sources.yaml")
@@ -207,7 +265,12 @@ def main() -> None:
     source = sources["sources"]["wikipedia_en_astronomy"]
     out = data_dir()
     out.mkdir(parents=True, exist_ok=True)
-    tree = stage_tree(source, out) if "tree" in args.stages or "revisions" in args.stages else None
+    needs_tree = {"tree", "revisions", "pageids", "dump"} & set(args.stages)
+    tree = stage_tree(source, out) if needs_tree else None
+    if "pageids" in args.stages or "dump" in args.stages:
+        page_ids = stage_pageids(tree, out)
+        if "dump" in args.stages:
+            stage_dump(page_ids, out, source["dump"])
     if "revisions" in args.stages:
         stage_revisions(tree, cutoff, out)
     if "content" in args.stages:
