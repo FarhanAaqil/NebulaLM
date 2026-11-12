@@ -1,4 +1,20 @@
-from nebulalm.data.parse import parse_wikitext
+from nebulalm.data.parse import parse_dump_text, parse_wikitext
+
+
+def test_dump_text_is_cut_at_the_first_trailing_heading():
+    raw = (
+        "Earth is the third planet.\n\nOrbit and turning\n\nEarth orbits the Sun.\n\n"
+        "Related pages \n\n Solar System\n\nReferences\n\nOther websites \n\nPlanets\nTerrestrial planets"
+    )
+    text = parse_dump_text(raw)
+    assert text.rstrip().endswith("Earth orbits the Sun.")
+    assert "Orbit and turning" in text
+    assert "Terrestrial planets" not in text
+
+
+def test_dump_text_keeps_an_apparatus_word_inside_a_sentence_line():
+    raw = "Mars has moons.\nNotes\nare kept here because the word is not a standalone heading."
+    assert parse_dump_text(raw) == raw
 
 
 def test_trailing_apparatus_sections_are_dropped_with_their_subsections():

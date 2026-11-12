@@ -1,0 +1,59 @@
+{
+  "cluster_overlaps": {
+    "probe|cloze_reserve": [],
+    "test|cloze_reserve": [],
+    "test|probe": [],
+    "train|cloze_reserve": [],
+    "train|probe": [],
+    "train|test": [],
+    "train|validation": [],
+    "validation|cloze_reserve": [],
+    "validation|probe": [],
+    "validation|test": []
+  },
+  "counts": {
+    "cloze_reserve": 175,
+    "probe": 359,
+    "test": 489,
+    "train": 15541,
+    "validation": 472
+  },
+  "leaked": false,
+  "paragraph_overlap_counts": {
+    "probe|cloze_reserve": 0,
+    "test|cloze_reserve": 0,
+    "test|probe": 0,
+    "train|cloze_reserve": 0,
+    "train|probe": 0,
+    "train|test": 0,
+    "train|validation": 0,
+    "validation|cloze_reserve": 0,
+    "validation|probe": 0,
+    "validation|test": 0
+  },
+  "paragraph_overlaps": {
+    "probe|cloze_reserve": [],
+    "test|cloze_reserve": [],
+    "test|probe": [],
+    "train|cloze_reserve": [],
+    "train|probe": [],
+    "train|test": [],
+    "train|validation": [],
+    "validation|cloze_reserve": [],
+    "validation|probe": [],
+    "validation|test": []
+  },
+  "substantial_paragraph_min_chars": 400,
+  "substantial_paragraph_overlap_counts": {
+    "probe|cloze_reserve": 0,
+    "test|cloze_reserve": 0,
+    "test|probe": 0,
+    "train|cloze_reserve": 0,
+    "train|probe": 0,
+    "train|test": 0,
+    "train|validation": 0,
+    "validation|cloze_reserve": 0,
+    "validation|probe": 0,
+    "validation|test": 0
+  }
+}

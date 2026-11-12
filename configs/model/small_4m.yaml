@@ -1,0 +1,17 @@
+model_family: decoder-only-transformer
+name: small-4m
+n_layer: 3
+n_head: 4
+d_model: 256
+d_mlp: 1024
+context_length: 256
+vocab_size: 8000
+norm: pre-layernorm
+activation: gelu-exact
+position: learned-absolute
+weight_tying: true
+dropout: 0.10
+notes: >
+  Blueprint amendment A3: the small end of the size axis (about 4.5M at an
+  8,000-token vocabulary). Same block, tokenizer, data, and schedule as the
+  other two sizes. The count is computed by code.

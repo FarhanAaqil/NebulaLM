@@ -8,7 +8,7 @@ from collections.abc import Callable
 from nebulalm.data.acquire import raw_checksum, within_cutoff
 from nebulalm.data.dedup import choose_representative, cluster_documents, lead_entity_links
 from nebulalm.data.normalize import normalize
-from nebulalm.data.parse import parse_html, parse_wikitext
+from nebulalm.data.parse import parse_dump_text, parse_html, parse_wikitext
 from nebulalm.data.quality import assess
 from nebulalm.data.split import assign_cluster
 from nebulalm.utils.hashing import sha256_text
@@ -115,7 +115,9 @@ def prepare_corpus(
     for incoming in records:
         source_meta = source_rows[incoming["source"]]
         raw_text = incoming["raw_text"]
-        if incoming["source"] == "wikipedia_en_astronomy":
+        if incoming.get("text_format") == "dump_plaintext":
+            extracted = parse_dump_text(raw_text)
+        elif incoming["source"] == "wikipedia_en_astronomy":
             extracted = parse_wikitext(raw_text)
         elif incoming["source"] == "openstax_astronomy_2e" and "<" in raw_text:
             extracted = parse_html(raw_text)

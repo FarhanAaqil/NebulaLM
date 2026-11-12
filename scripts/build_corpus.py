@@ -1,11 +1,7 @@
 """Clean, filter, cluster, and freeze the Wikipedia corpus into five pools.
 
-Run after scripts/collect_corpus.py. The first run writes the probe-pool
-titles and stops if the Simple English siblings are not collected yet:
-
-    python scripts/build_corpus.py
-    python scripts/collect_corpus.py simple --probe-titles <data>/corpus/probe_titles.json
-    python scripts/build_corpus.py
+Run after scripts/collect_corpus.py, which writes records.jsonl and
+simple_records.jsonl from the pinned dump.
 
 Text goes under NEBULALM_DATA_DIR (default data/); the sealed test text is
 written to its own folder. Git receives manifests, hashes, canaries, and reports.
@@ -17,14 +13,13 @@ import json
 import math
 import os
 import random
-import sys
 import tempfile
 from collections import Counter
 from pathlib import Path
 
 from nebulalm.data.adapters.wikipedia import SIMPLE_SOURCE
 from nebulalm.data.normalize import normalize
-from nebulalm.data.parse import parse_wikitext
+from nebulalm.data.parse import parse_dump_text
 from nebulalm.data.pipeline import prepare_corpus
 from nebulalm.data.probes import (
     assign_groups,
@@ -68,6 +63,16 @@ def _stats(manifests: list[dict], texts: dict[str, str]) -> dict:
     return grouped
 
 
+def split_view(manifests: list[dict]) -> list[dict]:
+    return [{"document_id": row["document_id"], "split": row["split"], "dedup_cluster_id": row["dedup_cluster_id"],
+             "clean_sha256": row["clean_sha256"]} for row in manifests if row["split"] != "excluded"]
+
+
+def excluded_view(manifests: list[dict]) -> list[dict]:
+    return [{"document_id": row["document_id"], "title": row["title"], "rejection_reasons": row["rejection_reasons"]}
+            for row in manifests if row["split"] == "excluded"]
+
+
 def _count_tokens(train_texts: list[str], seed: int, manifest_sha: str) -> dict:
     """Train-only BPE used to measure D. It is discarded; the frozen tokenizer is chosen later."""
     with tempfile.TemporaryDirectory() as scratch:
@@ -90,21 +95,15 @@ def _count_tokens(train_texts: list[str], seed: int, manifest_sha: str) -> dict:
 
 
 def _simple_siblings(probe_rows: list[dict], texts: dict[str, str], out: Path, thresholds: dict, settings: dict) -> dict:
-    records = _rows(out / "simple_records.jsonl")
-    revisions = {row["requested_title"]: row for row in _rows(out / "simple_revisions.jsonl")}
-    by_title = {row["title"]: row for row in records}
+    by_title = {row["title"]: row for row in _rows(out / "simple_records.jsonl")}
     accepted: dict[str, dict] = {}
     audit = Counter()
     for row in probe_rows:
-        meta = revisions.get(row["title"])
-        if not meta or meta.get("status") != "ok":
-            audit["no_simple_page_at_cutoff"] += 1
-            continue
-        record = by_title.get(meta["title"])
+        record = by_title.get(row["title"])
         if not record:
-            audit["content_missing"] += 1
+            audit["no_simple_page_with_same_title"] += 1
             continue
-        clean = normalize(parse_wikitext(record["raw_text"]))
+        clean = normalize(parse_dump_text(record["raw_text"]))
         if assess(clean, thresholds)["rejection_reasons"]:
             audit["failed_quality"] += 1
             continue
@@ -151,13 +150,6 @@ def main() -> None:
         raise SystemExit(f"leakage audit failed: {leakage['cluster_overlaps']}")
 
     probe_rows = sorted((row for row in manifests if row["split"] == "probe"), key=lambda row: row["document_id"])
-    titles_path = out / "probe_titles.json"
-    write_json(titles_path, sorted({row["title"] for row in probe_rows}))
-    if not (out / "simple_revisions.jsonl").exists():
-        print(f"{len(probe_rows)} probe documents. Collect Simple siblings next:")
-        print(f"  python scripts/collect_corpus.py simple --probe-titles {titles_path}")
-        sys.exit(2)
-
     siblings = _simple_siblings(probe_rows, texts, out, thresholds, probe_config["simple_siblings"])
     groups = assign_groups(
         [row["document_id"] for row in probe_rows],
@@ -192,16 +184,16 @@ def main() -> None:
             sibling = {"text": texts[document_id], "jaccard": 1.0, "source": "exact_copy"}
         elif group in levels:
             edited = edit_to_jaccard(texts[document_id], float(levels[group]), vocabulary, edit_rng)
-            if abs(edited["jaccard"] - float(levels[group])) > tolerance:
-                raise SystemExit(f"{document_id} edit missed {group}: {edited['jaccard']:.3f}")
+            # A miss is kept and flagged; the dose-response uses the measured Jaccard, not the target.
             sibling = {"text": edited["text"], "jaccard": edited["jaccard"], "source": "edited_copy",
-                       "substitutions": edited["substitutions"], "words": edited["words"]}
+                       "substitutions": edited["substitutions"], "words": edited["words"],
+                       "within_tolerance": abs(edited["jaccard"] - float(levels[group])) <= tolerance}
         elif group == "A":
             match = siblings["accepted"][document_id]
             record = match["record"]
             sibling = {"text": match["text"], "source": SIMPLE_SOURCE, "word_type_jaccard": match["word_type_jaccard"],
-                       "simple_revision_id": record["revision_id"], "simple_url": record["canonical_url"],
-                       "simple_published_at": record["published_at"]}
+                       "simple_page_id": record["source_record_id"], "simple_revision_id": record["revision_id"],
+                       "simple_url": record["canonical_url"]}
         if sibling:
             sibling_id = f"sib_{group.lower()}_{document_id}"
             text = sibling.pop("text")
@@ -232,8 +224,9 @@ def main() -> None:
     report_dir = ROOT / "reports" / "corpus"
     write_jsonl(manifest_dir / "document_manifest.jsonl", manifests)
     write_jsonl(manifest_dir / "clusters.jsonl", prepared["clusters"])
-    write_jsonl(manifest_dir / "split_manifest.jsonl", [row for row in manifests if row["split"] != "excluded"])
-    write_jsonl(manifest_dir / "eval_excluded.jsonl", [row for row in manifests if row["split"] == "excluded"])
+    # Full provenance is in document_manifest.jsonl; these two are keyed views of it.
+    write_jsonl(manifest_dir / "split_manifest.jsonl", split_view(manifests))
+    write_jsonl(manifest_dir / "eval_excluded.jsonl", excluded_view(manifests))
     write_jsonl(manifest_dir / "probe_manifest.jsonl", probe_manifest)
     write_jsonl(manifest_dir / "canaries.jsonl", canaries)
     write_json(
@@ -259,15 +252,19 @@ def main() -> None:
     stats = _stats(manifests, texts)
     size = _count_tokens(train_texts, int(seeds["tokenizer_train"]), train_id_hash)
     reasons = Counter(reason for row in manifests for reason in row["rejection_reasons"])
-    statuses = Counter(row.get("status") for row in _rows(out / "revisions.jsonl"))
+    page_ids = _rows(out / "page_ids.jsonl")
+    resolved = {row["page_id"] for row in page_ids if row.get("page_id")}
     clusters = prepared["clusters"]
     write_json(report_dir / "corpus_report.json", {
         "pipeline_version": PIPELINE_VERSION,
         "cutoff": sources["temporal_cutoff"],
+        "text_source": sources["sources"]["wikipedia_en_astronomy"]["dump"],
         "split_algorithm": POOLS_ALGORITHM,
         "pool_bounds": dict(POOL_BOUNDS),
         "category_pages": len(tree["pages"]),
-        "revision_lookup_status": dict(statuses),
+        "category_titles_without_page": sum(1 for row in page_ids if not row.get("page_id")),
+        "distinct_page_ids": len(resolved),
+        "page_ids_absent_from_dump": len(resolved) - len(records),
         "input_documents": len(records),
         "by_pool": stats,
         "shared_paragraphs_removed": prepared["shared_paragraphs_removed"],
@@ -308,6 +305,9 @@ def main() -> None:
             values = value.pop("jaccard")
             value["jaccard_min"], value["jaccard_max"] = min(values), max(values)
             value["jaccard_mean"] = sum(values) / len(values)
+    for entry in probe_manifest:
+        if entry.get("within_tolerance") is False:
+            group_report[entry["group"]]["outside_tolerance"] = group_report[entry["group"]].get("outside_tolerance", 0) + 1
     write_json(report_dir / "probe_report.json", {
         "probe_pool_documents": len(probe_rows),
         "per_group": groups["per_group"],

@@ -14,7 +14,7 @@ from tokenizers import Tokenizer
 from tokenizers.decoders import ByteLevel as ByteLevelDecoder
 from tokenizers.models import BPE
 from tokenizers.normalizers import NFC
-from tokenizers.pre_tokenizers import ByteLevel
+from tokenizers.pre_tokenizers import ByteLevel, Digits, Sequence
 from tokenizers.trainers import BpeTrainer
 
 from nebulalm.utils.hashing import sha256_file, sha256_text
@@ -71,6 +71,7 @@ def train_byte_bpe(
     *,
     seed: int,
     train_manifest_sha256: str,
+    split_digits: bool = False,
 ) -> NebulaTokenizer:
     if vocab_size < 300:
         raise ValueError("vocab_size must leave room for the byte alphabet and special tokens")
@@ -79,7 +80,9 @@ def train_byte_bpe(
     output_dir.mkdir(parents=True, exist_ok=True)
     tokenizer = Tokenizer(BPE(unk_token=None))
     tokenizer.normalizer = NFC()
-    tokenizer.pre_tokenizer = ByteLevel(add_prefix_space=False)
+    byte_level = ByteLevel(add_prefix_space=False)
+    # split_digits makes every digit its own pre-token, so numbers never merge across digits.
+    tokenizer.pre_tokenizer = Sequence([Digits(individual_digits=True), byte_level]) if split_digits else byte_level
     tokenizer.decoder = ByteLevelDecoder()
     trainer = BpeTrainer(
         vocab_size=vocab_size,
@@ -98,7 +101,8 @@ def train_byte_bpe(
         "special_tokens": list(SPECIAL_TOKENS),
         "unk_token": None,
         "normalizer": "NFC",
-        "pre_tokenizer": "ByteLevel",
+        "pre_tokenizer": "Digits+ByteLevel" if split_digits else "ByteLevel",
+        "split_digits": split_digits,
         "add_prefix_space": False,
         "train_manifest_sha256": train_manifest_sha256,
         "training_text_sha256": sha256_text("\n".join(texts)),

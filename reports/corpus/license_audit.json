@@ -1,0 +1,19 @@
+{
+  "after_cutoff": 0,
+  "cutoff": "2023-11-01T00:00:00Z",
+  "excluded_sources": {
+    "arxiv_abstracts": "Decision 004. arXiv grants no blanket license; most papers carry the default arXiv license.",
+    "astronomy_stackexchange": "Excluded from the baseline corpus.",
+    "esa_outreach": "Excluded from the baseline corpus.",
+    "nasa_apod": "Out of the baseline until each record's text rights are audited.",
+    "openstax_astronomy_2e": "Decision 004. The OpenStax terms state the book may not be used in the training of large language models or otherwise be ingested without written permission. Excluded from training, tokenizer, validation, test, and cloze items. The 2023 archive snapshot frozen in decision 003 is superseded and kept only as a historical record.",
+    "project_gutenberg_astronomy": "Era-shift challenge set only, never training. Deferred under the first blueprint cut-line until per-title public-domain status is checked."
+  },
+  "licenses_in_corpus": {
+    "CC-BY-SA-4.0": 20287
+  },
+  "simple_siblings": "probe group A only, in M1 only",
+  "sources_in_corpus": {
+    "wikipedia_en_astronomy": 20287
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "cluster_size_histogram": {
+    "1": 16849,
+    "15": 1,
+    "19": 1,
+    "2": 42,
+    "3": 8,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 1,
+    "8": 1
+  },
+  "clusters": 16909,
+  "jaccard_threshold": 0.8,
+  "largest_cluster": 19,
+  "lead_entity_links": 91,
+  "method": "exact-sha256+minhash-lsh+lead-entity-v1"
+}
