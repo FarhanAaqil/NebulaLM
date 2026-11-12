@@ -17,7 +17,7 @@ import torch
 
 from nebulalm.utils.hashing import sha256_file
 
-KEEP_LATEST = 3
+KEEP_LATEST = 2
 
 
 def rng_state() -> dict:
@@ -80,17 +80,30 @@ def step_path(run_dir: Path, step: int) -> Path:
     return run_dir / "checkpoints" / f"step_{step:08d}.pt"
 
 
-def retain(run_dir: Path, keep: set[Path]) -> None:
-    """Keep the newest KEEP_LATEST step checkpoints plus any path in keep."""
+def retain(run_dir: Path, keep: set[Path], latest: int = KEEP_LATEST) -> None:
+    """Keep the newest `latest` step checkpoints plus any path in keep; drop stale temporaries.
+
+    Only checkpoints that load cleanly count toward `latest`, so pruning never
+    removes the last known-good file.
+    """
     folder = run_dir / "checkpoints"
     steps = sorted(folder.glob("step_*.pt"))
-    survivors = set(steps[-KEEP_LATEST:]) | {Path(path) for path in keep}
+    valid = []
+    for path in reversed(steps):
+        if len(valid) == latest:
+            break
+        sidecar = path.with_name(path.name + ".sha256")
+        if sidecar.exists() and sha256_file(path) == sidecar.read_text(encoding="ascii").strip():
+            valid.append(path)
+    survivors = set(valid) | {Path(path) for path in keep}
     for path in steps:
         if path not in survivors:
             path.unlink()
             sidecar = path.with_name(path.name + ".sha256")
             if sidecar.exists():
                 sidecar.unlink()
+    for stale in folder.glob("*.tmp"):
+        stale.unlink()
 
 
 def latest_valid(run_dir: Path, identity: dict | None = None) -> tuple[Path, dict] | None:

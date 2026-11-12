@@ -17,6 +17,6 @@ schedule:
   # The trunk holds the peak to 0.8 * 8 = 6.4 passes; branches decay from 0.8 * E.
   branch_passes: [1, 2, 4, 8]
 eval_every_fraction_of_pass: 0.25
-checkpoint_every_fraction_of_pass: 0.25
+checkpoint_every_fraction_of_pass: 1.0
 lr_candidates: [1.0e-4, 3.0e-4, 1.0e-3]
 divergence_rule: rerun once at half the learning rate and log a deviation
