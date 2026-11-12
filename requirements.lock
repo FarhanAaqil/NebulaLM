@@ -1,6 +1,6 @@
 # Direct dependencies pinned from the environment that produced reports/environment.json.
-# torch 2.10.0+cpu is the installed build. CUDA is not linked into this interpreter.
-# GPU presence is probed separately and is not implied by this lock file.
+# Training uses the CUDA build: pip install "torch==2.10.0+cu128" --index-url https://download.pytorch.org/whl/cu128
+# (wheel SHA-256 fbde8f6a9ec8c76979a0d14df21c10b9e5cab6f0d106a73ca73e2179bc597cae). The CPU build runs the tests.
 torch==2.10.0
 numpy==2.4.2
 tokenizers==0.22.2

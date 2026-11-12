@@ -1,0 +1,96 @@
+{
+  "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "torch": "2.10.0+cu128",
+  "cuda": "12.8",
+  "vocab_size": 8000,
+  "measured_at": "2026-11-12T06:33:18+0530",
+  "models": [
+    {
+      "config": "small_4m.yaml",
+      "parameters": 4483328,
+      "precision": "fp16",
+      "microbatch": 16,
+      "accumulation": 2,
+      "measured_steps": 270,
+      "tokens_per_step": 8160,
+      "tokens_per_second": 143391.08740440672,
+      "tokens_per_second_first_half": 141647.66190796293,
+      "tokens_per_second_second_half": 145177.9645151777,
+      "peak_allocated_mib": 595.82470703125,
+      "peak_reserved_mib": 718.0,
+      "checkpoint_write_seconds": 0.14051820000167936,
+      "checkpoint_bytes": 53848741,
+      "gpu_before": {
+        "temperature_c": 56.0,
+        "sm_clock_mhz": 1740.0,
+        "power_w": "15.69",
+        "throttle_reasons": "0x0000000000000000"
+      },
+      "gpu_after": {
+        "temperature_c": 74.0,
+        "sm_clock_mhz": 1987.0,
+        "power_w": "76.95",
+        "throttle_reasons": "0x0000000000000000"
+      }
+    },
+    {
+      "config": "smaller_transformer.yaml",
+      "parameters": 10268928,
+      "precision": "fp16",
+      "microbatch": 16,
+      "accumulation": 2,
+      "measured_steps": 270,
+      "tokens_per_step": 8160,
+      "tokens_per_second": 83429.29829518862,
+      "tokens_per_second_first_half": 83304.13101083135,
+      "tokens_per_second_second_half": 83554.8422817401,
+      "peak_allocated_mib": 825.74658203125,
+      "peak_reserved_mib": 994.0,
+      "checkpoint_write_seconds": 1.33330930000011,
+      "checkpoint_bytes": 123290229,
+      "gpu_before": {
+        "temperature_c": 66.0,
+        "sm_clock_mhz": 1987.0,
+        "power_w": "64.77",
+        "throttle_reasons": "0x0000000000000000"
+      },
+      "gpu_after": {
+        "temperature_c": 80.0,
+        "sm_clock_mhz": 1972.0,
+        "power_w": "79.54",
+        "throttle_reasons": "0x0000000000000004"
+      }
+    },
+    {
+      "config": "nebulalm.yaml",
+      "parameters": 29447168,
+      "precision": "fp16",
+      "microbatch": 16,
+      "accumulation": 2,
+      "measured_steps": 470,
+      "tokens_per_step": 8160,
+      "tokens_per_second": 36055.4659531519,
+      "tokens_per_second_first_half": 36509.14699118423,
+      "tokens_per_second_second_half": 35612.92185973363,
+      "peak_allocated_mib": 1557.49267578125,
+      "peak_reserved_mib": 1630.0,
+      "checkpoint_write_seconds": 1.1926634999981616,
+      "checkpoint_bytes": 353486261,
+      "gpu_before": {
+        "temperature_c": 69.0,
+        "sm_clock_mhz": 1987.0,
+        "power_w": "24.91",
+        "throttle_reasons": "0x0000000000000000"
+      },
+      "gpu_after": {
+        "temperature_c": 87.0,
+        "sm_clock_mhz": 1950.0,
+        "power_w": "77.64",
+        "throttle_reasons": "0x0000000000000024"
+      }
+    }
+  ],
+  "d_cap_tokens_at_90_gpu_hours": 222674099,
+  "gpu_hours_per_million_D": 0.4041781241184045,
+  "note": "Synthetic token ids; throughput is independent of token values. D_cap uses the blueprint's per-model D multiples."
+}
