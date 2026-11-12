@@ -29,6 +29,8 @@ WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
 RUNS = WORK / "runs"
 SIZES = {"4m": "small_4m.yaml", "10m": "smaller_transformer.yaml", "29m": "nebulalm.yaml"}
 LR_RECORD = ROOT / "experiments" / "records" / "EXP-LR.json"
+# Create this file to stop the queue cleanly after the run in progress finishes.
+STOP_FILE = WORK / "runs" / "STOP"
 
 
 def entry(name: str, size: str, *, lr: float | str, shards: str = "m0", passes: float | None = None,
@@ -147,6 +149,9 @@ def main() -> None:
                 if size not in rates:
                     raise SystemExit(f"EXP-LR for {size} is not finished; run the sweep first")
                 write_json(LR_RECORD, rates)
+        if STOP_FILE.exists():
+            # Exit non-zero so the pipeline does not mark the queue finished.
+            raise SystemExit(f"stopping before {row['name']}: {STOP_FILE} exists (delete it to continue)")
         print("running", row["name"], flush=True)
         subprocess.run(command(row, rates), check=True)
 
