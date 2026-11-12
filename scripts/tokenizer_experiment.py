@@ -81,7 +81,7 @@ def stage_proxies() -> None:
         result = read_json(run_dir / "result.json")
         final = result["history"][-1]
         report["candidates"][name]["proxy"] = {
-            "run": str(run_dir.relative_to(ROOT)),
+            "run": str(run_dir),
             "final_val_bpb": final["bits_per_byte"],
             "best_val_bpb": result["best_val_bpb"],
             "tokens_seen": result["tokens_seen"],

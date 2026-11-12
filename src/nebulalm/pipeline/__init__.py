@@ -128,7 +128,8 @@ def build_slice(
         loaded[vocab] = tokenizer
     winner_metrics = select_on_pareto(candidates)
     winner = loaded[winner_metrics["requested_vocab_size"]]
-    selected = root / "artifacts" / "tokenizer" / "selected"
+    # artifacts/tokenizer/selected is the production tokenizer (decision 006); the slice keeps its own.
+    selected = root / "artifacts" / "tokenizer" / "slice_selected"
     if selected.exists():
         shutil.rmtree(selected)
     shutil.copytree(Path(winner_metrics["path"]), selected)

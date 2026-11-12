@@ -1,0 +1,145 @@
+{
+  "candidates": {
+    "bpe-12k": {
+      "proxy": {
+        "best_val_bpb": 1.503423935203724,
+        "final_val_bpb": 1.503423935203724,
+        "run": "C:\\Users\\aaqil\\nebulalm-data\\runs\\exp-tok-bpe-12k",
+        "run_config_sha256": "41729e9222aa33c59114485a74db2a5039474d4ad0a50bc09b60809ec215cd11",
+        "tokens_seen": 13316888
+      },
+      "static": {
+        "actual_vocab_size": 12000,
+        "embedding_parameter_count": 6144000,
+        "encode_seconds": 1.1943705999997292,
+        "fragmentation_tokens_per_term": 3.3333333333333335,
+        "planned_model_parameter_count": 11804928,
+        "round_trip_rate": 1.0,
+        "tokenizer_sha256": "808fdb0c74f1944ef128aad3e527a68cd57e6ece515116466150c0f20a1707b4",
+        "tokens": 369531,
+        "tokens_per_second": 309393.91843711137,
+        "tokens_per_utf8_byte": 0.23083236979054422,
+        "tokens_per_word_mean": 1.412795542225705,
+        "tokens_per_word_median": 1.384742951907131,
+        "tokens_per_word_p95": 1.6555555555555554,
+        "tokens_per_word_p99": 1.89937106918239,
+        "unknown_rate": 0.0,
+        "utf8_bytes": 1600863
+      }
+    },
+    "bpe-4k": {
+      "proxy": {
+        "best_val_bpb": 1.5456651588069765,
+        "final_val_bpb": 1.5456651588069765,
+        "run": "C:\\Users\\aaqil\\nebulalm-data\\runs\\exp-tok-bpe-4k",
+        "run_config_sha256": "c7a8ce33076957a394d7fdb4f59cfe02604e3dff9a8f2b65c21abcd70a57d13d",
+        "tokens_seen": 16009710
+      },
+      "static": {
+        "actual_vocab_size": 4000,
+        "embedding_parameter_count": 2048000,
+        "encode_seconds": 1.1109761999996408,
+        "fragmentation_tokens_per_term": 4.0,
+        "planned_model_parameter_count": 8732928,
+        "round_trip_rate": 1.0,
+        "tokenizer_sha256": "8761dc755449644eaa71190d18f5f352a9aceb30226fd65488a29c96dad7f1a7",
+        "tokens": 442832,
+        "tokens_per_second": 398597.1976718702,
+        "tokens_per_utf8_byte": 0.2766207976572636,
+        "tokens_per_word_mean": 1.6663831597788281,
+        "tokens_per_word_median": 1.6335078534031413,
+        "tokens_per_word_p95": 2.0011435105774726,
+        "tokens_per_word_p99": 2.2236180904522613,
+        "unknown_rate": 0.0,
+        "utf8_bytes": 1600863
+      }
+    },
+    "bpe-8k": {
+      "proxy": {
+        "best_val_bpb": 1.5162298101509157,
+        "final_val_bpb": 1.5162298101509157,
+        "run": "C:\\Users\\aaqil\\nebulalm-data\\runs\\exp-tok-bpe-8k",
+        "run_config_sha256": "833c6e020dfa1bc331ae1805444761df94233c2204779d4f37c2d7d15e1f403f",
+        "tokens_seen": 14092273
+      },
+      "static": {
+        "actual_vocab_size": 8000,
+        "embedding_parameter_count": 4096000,
+        "encode_seconds": 0.9077196999996886,
+        "fragmentation_tokens_per_term": 3.5555555555555554,
+        "planned_model_parameter_count": 10268928,
+        "round_trip_rate": 1.0,
+        "tokenizer_sha256": "8c3d9ba7b726a68030c4ec7e2310a4159ce29344d0fbc1e5e247f9d833afa2c3",
+        "tokens": 390723,
+        "tokens_per_second": 430444.55243191705,
+        "tokens_per_utf8_byte": 0.24407022961989877,
+        "tokens_per_word_mean": 1.4819782553214416,
+        "tokens_per_word_median": 1.4489795918367347,
+        "tokens_per_word_p95": 1.7543424317617866,
+        "tokens_per_word_p99": 2.0074074074074075,
+        "unknown_rate": 0.0,
+        "utf8_bytes": 1600863
+      }
+    },
+    "bpe-8k-digits": {
+      "proxy": {
+        "best_val_bpb": 1.5132111865438829,
+        "final_val_bpb": 1.5132111865438829,
+        "run": "C:\\Users\\aaqil\\nebulalm-data\\runs\\exp-tok-bpe-8k-digits",
+        "run_config_sha256": "957c5789edb7419e84dcdafe7be6925221754d644695714a5e4a6bcef00b0a4a",
+        "tokens_seen": 14761335
+      },
+      "static": {
+        "actual_vocab_size": 8000,
+        "embedding_parameter_count": 4096000,
+        "encode_seconds": 1.428233999999975,
+        "fragmentation_tokens_per_term": 4.555555555555555,
+        "planned_model_parameter_count": 10268928,
+        "round_trip_rate": 1.0,
+        "tokenizer_sha256": "f156539e6ec425c049447067fc4ee6f6cf247b2c7324b6eef66da1f6e33fb07a",
+        "tokens": 409983,
+        "tokens_per_second": 287055.9026042002,
+        "tokens_per_utf8_byte": 0.25610124039346277,
+        "tokens_per_word_mean": 1.582527827934667,
+        "tokens_per_word_median": 1.5575757575757576,
+        "tokens_per_word_p95": 1.911764705882353,
+        "tokens_per_word_p99": 2.10062893081761,
+        "unknown_rate": 0.0,
+        "utf8_bytes": 1600863
+      }
+    }
+  },
+  "protocol": "experiments\\protocols\\EXP-TOK-production.yaml",
+  "selection": {
+    "chosen": "bpe-8k-digits",
+    "reason": "within 1 percent of the best; smaller vocabulary preferred",
+    "table": [
+      {
+        "name": "bpe-4k",
+        "split_digits": false,
+        "val_bpb": 1.5456651588069765,
+        "vocab_size": 4000
+      },
+      {
+        "name": "bpe-8k",
+        "split_digits": false,
+        "val_bpb": 1.5162298101509157,
+        "vocab_size": 8000
+      },
+      {
+        "name": "bpe-12k",
+        "split_digits": false,
+        "val_bpb": 1.503423935203724,
+        "vocab_size": 12000
+      },
+      {
+        "name": "bpe-8k-digits",
+        "split_digits": true,
+        "val_bpb": 1.5132111865438829,
+        "vocab_size": 8000
+      }
+    ],
+    "tokenizer_sha256": "f156539e6ec425c049447067fc4ee6f6cf247b2c7324b6eef66da1f6e33fb07a"
+  },
+  "train_document_ids_sha256": "4195d740127a2a377506df0a4e20cbcaf4378a4f5fc935d12e37528e44943ee1"
+}
