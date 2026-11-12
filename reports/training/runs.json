@@ -1,0 +1,1426 @@
+{
+  "exp-tok-bpe-12k": {
+    "branch_from": null,
+    "config_sha256": "b861e737f4806ce224cb7ea5327c56be11d6da3b46bc613d6810c086502aee06",
+    "final_checkpoint_sha256": null,
+    "final_step": 1632,
+    "final_validation_bpb": 1.503423935203724,
+    "git_commit": "f77d529e18fc70cd7c742e9466e3393e55b095d5",
+    "model": "smaller-transformer",
+    "parameters": 11804928,
+    "passes": 1.0002681478643938,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 1306,
+      "kind": "wsd",
+      "total": 1632,
+      "warmup": 82
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1632,
+    "tokens_seen": 13316888,
+    "validation_history": [
+      {
+        "bpb": 1.8450471211965296,
+        "step": 408
+      },
+      {
+        "bpb": 1.677537558656026,
+        "step": 816
+      },
+      {
+        "bpb": 1.5716160386927265,
+        "step": 1224
+      },
+      {
+        "bpb": 1.503423935203724,
+        "step": 1632
+      }
+    ]
+  },
+  "exp-tok-bpe-4k": {
+    "branch_from": null,
+    "config_sha256": "f3c495cf4e70bce87c54ad36c89d852371a90910d09cec1f396709b603f0a629",
+    "final_checkpoint_sha256": null,
+    "final_step": 1962,
+    "final_validation_bpb": 1.5456651588069765,
+    "git_commit": "f77d529e18fc70cd7c742e9466e3393e55b095d5",
+    "model": "smaller-transformer",
+    "parameters": 8732928,
+    "passes": 1.000462114572544,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 1570,
+      "kind": "wsd",
+      "total": 1962,
+      "warmup": 98
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1962,
+    "tokens_seen": 16009710,
+    "validation_history": [
+      {
+        "bpb": 1.9177587404043857,
+        "step": 490
+      },
+      {
+        "bpb": 1.732284279622798,
+        "step": 980
+      },
+      {
+        "bpb": 1.6257473039146322,
+        "step": 1470
+      },
+      {
+        "bpb": 1.5457311608027386,
+        "step": 1960
+      },
+      {
+        "bpb": 1.5456651588069765,
+        "step": 1962
+      }
+    ]
+  },
+  "exp-tok-bpe-8k": {
+    "branch_from": null,
+    "config_sha256": "ad98f5805b0550250afcb43a9ed0d024457b356d8b7d8e0163602359dc936b63",
+    "final_checkpoint_sha256": null,
+    "final_step": 1727,
+    "final_validation_bpb": 1.5162298101509157,
+    "git_commit": "f77d529e18fc70cd7c742e9466e3393e55b095d5",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 1.0001447806573043,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 1382,
+      "kind": "wsd",
+      "total": 1727,
+      "warmup": 86
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1727,
+    "tokens_seen": 14092273,
+    "validation_history": [
+      {
+        "bpb": 1.8851630652669065,
+        "step": 432
+      },
+      {
+        "bpb": 1.695459906079322,
+        "step": 864
+      },
+      {
+        "bpb": 1.5879512047054145,
+        "step": 1296
+      },
+      {
+        "bpb": 1.5162298101509157,
+        "step": 1727
+      }
+    ]
+  },
+  "exp-tok-bpe-8k-digits": {
+    "branch_from": null,
+    "config_sha256": "6d0d54eddb422a1d1de69f34b1e2794e5d0b0f4695309e0ac9696f3c46854147",
+    "final_checkpoint_sha256": null,
+    "final_step": 1809,
+    "final_validation_bpb": 1.5132111865438829,
+    "git_commit": "f77d529e18fc70cd7c742e9466e3393e55b095d5",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 1.0001554968123154,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 1447,
+      "kind": "wsd",
+      "total": 1809,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 14761335,
+    "validation_history": [
+      {
+        "bpb": 1.8856836390862617,
+        "step": 452
+      },
+      {
+        "bpb": 1.6927868321815485,
+        "step": 904
+      },
+      {
+        "bpb": 1.5842012069598757,
+        "step": 1356
+      },
+      {
+        "bpb": 1.5132350636788743,
+        "step": 1808
+      },
+      {
+        "bpb": 1.5132111865438829,
+        "step": 1809
+      }
+    ]
+  },
+  "lr-10m-0.0001": {
+    "branch_from": null,
+    "config_sha256": "ab6d2fef019bd3eb83e04f0bbe79e65b1799853b5102987b9c00d8a5b5179b08",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.9154059276582227,
+    "git_commit": "943a175f286995cb23ebd0c7655814d55160834d",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.0001,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 2.0410185058708525,
+        "step": 452
+      },
+      {
+        "bpb": 1.9154059276582227,
+        "step": 904
+      }
+    ]
+  },
+  "lr-10m-0.0003": {
+    "branch_from": null,
+    "config_sha256": "b7a9993d7b31402dc83a832613080030ebabf289336f6d900654e8bf53580636",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.703036061188889,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.8856836390862617,
+        "step": 452
+      },
+      {
+        "bpb": 1.703036061188889,
+        "step": 904
+      }
+    ]
+  },
+  "lr-10m-0.001": {
+    "branch_from": null,
+    "config_sha256": "f9ca9686914798f1d73106b29664e94575ded9aa8529804ad6b6fdc5e003d48c",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.5547385688922868,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.7547307794478888,
+        "step": 452
+      },
+      {
+        "bpb": 1.5547385688922868,
+        "step": 904
+      }
+    ]
+  },
+  "lr-29m-0.0001": {
+    "branch_from": null,
+    "config_sha256": "06688018c2d3d8bc16ce57766b6874319c1b3bba05de1c4cd44b24e1134e49a1",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.8209660047185723,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.0001,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.981200183127368,
+        "step": 452
+      },
+      {
+        "bpb": 1.8209660047185723,
+        "step": 904
+      }
+    ]
+  },
+  "lr-29m-0.0003": {
+    "branch_from": null,
+    "config_sha256": "fc95f81938e8224b8c525b9d4e21ea77d5f23dc1b3d781121915da7d07ab6d24",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.6288953773112222,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.8424266010658286,
+        "step": 452
+      },
+      {
+        "bpb": 1.6288953773112222,
+        "step": 904
+      }
+    ]
+  },
+  "lr-29m-0.001": {
+    "branch_from": null,
+    "config_sha256": "66f0f361aa144b9aaef470696abaa3f65d7eee1e9fcf05e707c3f3969537a717",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.5168962150634102,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.758398594991559,
+        "step": 452
+      },
+      {
+        "bpb": 1.5168962150634102,
+        "step": 904
+      }
+    ]
+  },
+  "lr-4m-0.0001": {
+    "branch_from": null,
+    "config_sha256": "b4960e0ddaef3591ef0d18e9fb7e01b35c5db2d4e9803b9c535984829625dcbe",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 2.010380789685611,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "small-4m",
+    "parameters": 4483328,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.0001,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 2.1309561564301447,
+        "step": 452
+      },
+      {
+        "bpb": 2.010380789685611,
+        "step": 904
+      }
+    ]
+  },
+  "lr-4m-0.0003": {
+    "branch_from": null,
+    "config_sha256": "7e452f7c59c043efb4eaa349e061493c044249661f95ae29e62b8e309f2f819a",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.815418274084899,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "small-4m",
+    "parameters": 4483328,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.0003,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.9576168599090698,
+        "step": 452
+      },
+      {
+        "bpb": 1.815418274084899,
+        "step": 904
+      }
+    ]
+  },
+  "lr-4m-0.001": {
+    "branch_from": null,
+    "config_sha256": "b8465fe6fa0f4e8110f3a865026310aa5639af552e311a63faff5173cca7bb57",
+    "final_checkpoint_sha256": null,
+    "final_step": 904,
+    "final_validation_bpb": 1.6224106178070579,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "small-4m",
+    "parameters": 4483328,
+    "passes": 0.49980130962870817,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 723,
+      "kind": "wsd",
+      "total": 904,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 7376640,
+    "validation_history": [
+      {
+        "bpb": 1.8016271785992224,
+        "step": 452
+      },
+      {
+        "bpb": 1.6224106178070579,
+        "step": 904
+      }
+    ]
+  },
+  "m0-10m-e1": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-10m-trunk",
+    "config_sha256": "2a7f77df4139dd61cd87eff9b11def0f977309e7b3ae4613ef584f79ea19fa53",
+    "final_checkpoint_sha256": "731e27d9836487b63c99d7bf199a351e70a39cc09c5ffa014de97f3b76ea803f",
+    "final_step": 1809,
+    "final_validation_bpb": 1.3962903318869113,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 1.0001554968123154,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 1447,
+      "kind": "wsd",
+      "total": 1809,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 14761335,
+    "validation_history": [
+      {
+        "bpb": 1.7547307794478888,
+        "step": 452
+      },
+      {
+        "bpb": 1.5867115498758613,
+        "step": 904
+      },
+      {
+        "bpb": 1.4959196656212155,
+        "step": 1356
+      },
+      {
+        "bpb": 1.3963635848328022,
+        "step": 1808
+      },
+      {
+        "bpb": 1.3962903318869113,
+        "step": 1809
+      }
+    ]
+  },
+  "m0-10m-e2": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-10m-trunk",
+    "config_sha256": "1b0e1f8cba4b65cfba8b58477ad09bad49905981607413aae028422fd0bceb15",
+    "final_checkpoint_sha256": "5b8f36f4d4b9adcc5a701427d3f77b5affa2f2066aef3084f4405333c0e4873a",
+    "final_step": 3618,
+    "final_validation_bpb": 1.2737473609919447,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 2.000310993624631,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 2894,
+      "kind": "wsd",
+      "total": 3618,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 29522670,
+    "validation_history": [
+      {
+        "bpb": 1.7547307794478888,
+        "step": 452
+      },
+      {
+        "bpb": 1.5867115498758613,
+        "step": 904
+      },
+      {
+        "bpb": 1.4959196656212155,
+        "step": 1356
+      },
+      {
+        "bpb": 1.443795413714512,
+        "step": 1808
+      },
+      {
+        "bpb": 1.4078584578101696,
+        "step": 2260
+      },
+      {
+        "bpb": 1.3751014901759107,
+        "step": 2712
+      },
+      {
+        "bpb": 1.3122563139001895,
+        "step": 3164
+      },
+      {
+        "bpb": 1.2736130749621044,
+        "step": 3616
+      },
+      {
+        "bpb": 1.2737473609919447,
+        "step": 3618
+      }
+    ]
+  },
+  "m0-10m-e4": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-10m-trunk",
+    "config_sha256": "513abad104ca2e5b0696dd59eeae1ab8dbd8fabe2e81a829bc865ede73477f9f",
+    "final_checkpoint_sha256": "598bb847f08fb9d03123708613b5781cbe8afd381a750789ac326d4b16254aed",
+    "final_step": 7236,
+    "final_validation_bpb": 1.1923660643643028,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 4.000621987249262,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 5789,
+      "kind": "wsd",
+      "total": 7236,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 59045340,
+    "validation_history": [
+      {
+        "bpb": 1.7547307794478888,
+        "step": 452
+      },
+      {
+        "bpb": 1.5867115498758613,
+        "step": 904
+      },
+      {
+        "bpb": 1.4959196656212155,
+        "step": 1356
+      },
+      {
+        "bpb": 1.443795413714512,
+        "step": 1808
+      },
+      {
+        "bpb": 1.4078584578101696,
+        "step": 2260
+      },
+      {
+        "bpb": 1.3751014901759107,
+        "step": 2712
+      },
+      {
+        "bpb": 1.349315900534356,
+        "step": 3164
+      },
+      {
+        "bpb": 1.3272554332766004,
+        "step": 3616
+      },
+      {
+        "bpb": 1.31263718052859,
+        "step": 4068
+      },
+      {
+        "bpb": 1.300466563927167,
+        "step": 4520
+      },
+      {
+        "bpb": 1.2858287800818484,
+        "step": 4972
+      },
+      {
+        "bpb": 1.276662139534544,
+        "step": 5424
+      },
+      {
+        "bpb": 1.2597509867869598,
+        "step": 5876
+      },
+      {
+        "bpb": 1.2264689133795064,
+        "step": 6328
+      },
+      {
+        "bpb": 1.2067802752304897,
+        "step": 6780
+      },
+      {
+        "bpb": 1.1924366280164862,
+        "step": 7232
+      },
+      {
+        "bpb": 1.1923660643643028,
+        "step": 7236
+      }
+    ]
+  },
+  "m0-10m-e8": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-10m-trunk",
+    "config_sha256": "1e959f81e0a09b68d39b81f7b652a2230c249482feab60d44610750427f8e901",
+    "final_checkpoint_sha256": "865f41d2826c28ee3aaf9d8945952eb2597af3e557ff9713c845b4c5c169b19c",
+    "final_step": 14472,
+    "final_validation_bpb": 1.147558426632316,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 8.003455484718119,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 11578,
+      "kind": "wsd",
+      "total": 14472,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 4,
+    "steps_per_pass": 1809,
+    "tokens_seen": 118090680,
+    "validation_history": [
+      {
+        "bpb": 1.7547307794478888,
+        "step": 452
+      },
+      {
+        "bpb": 1.5867115498758613,
+        "step": 904
+      },
+      {
+        "bpb": 1.4959196656212155,
+        "step": 1356
+      },
+      {
+        "bpb": 1.443795413714512,
+        "step": 1808
+      },
+      {
+        "bpb": 1.4078584578101696,
+        "step": 2260
+      },
+      {
+        "bpb": 1.3751014901759107,
+        "step": 2712
+      },
+      {
+        "bpb": 1.349315900534356,
+        "step": 3164
+      },
+      {
+        "bpb": 1.3272554332766004,
+        "step": 3616
+      },
+      {
+        "bpb": 1.31263718052859,
+        "step": 4068
+      },
+      {
+        "bpb": 1.300466563927167,
+        "step": 4520
+      },
+      {
+        "bpb": 1.2858287800818484,
+        "step": 4972
+      },
+      {
+        "bpb": 1.276662139534544,
+        "step": 5424
+      },
+      {
+        "bpb": 1.2714892523958436,
+        "step": 5876
+      },
+      {
+        "bpb": 1.264463798653802,
+        "step": 6328
+      },
+      {
+        "bpb": 1.2564022157991745,
+        "step": 6780
+      },
+      {
+        "bpb": 1.2534759068245478,
+        "step": 7232
+      },
+      {
+        "bpb": 1.2494488758540285,
+        "step": 7684
+      },
+      {
+        "bpb": 1.2457633982754768,
+        "step": 8136
+      },
+      {
+        "bpb": 1.240710714732813,
+        "step": 8588
+      },
+      {
+        "bpb": 1.2361748482930348,
+        "step": 9040
+      },
+      {
+        "bpb": 1.2345312776320394,
+        "step": 9492
+      },
+      {
+        "bpb": 1.2305348381200054,
+        "step": 9944
+      },
+      {
+        "bpb": 1.2301270803146849,
+        "step": 10396
+      },
+      {
+        "bpb": 1.2229638081358267,
+        "step": 10848
+      },
+      {
+        "bpb": 1.223871885350336,
+        "step": 11300
+      },
+      {
+        "bpb": 1.2232722549207353,
+        "step": 11578
+      },
+      {
+        "bpb": 1.2099105012260893,
+        "step": 11752
+      },
+      {
+        "bpb": 1.190673485324339,
+        "step": 12204
+      },
+      {
+        "bpb": 1.176989054778151,
+        "step": 12656
+      },
+      {
+        "bpb": 1.1684200724090532,
+        "step": 13108
+      },
+      {
+        "bpb": 1.1619986781915137,
+        "step": 13560
+      },
+      {
+        "bpb": 1.1537624545000975,
+        "step": 14012
+      },
+      {
+        "bpb": 1.147590675824863,
+        "step": 14464
+      },
+      {
+        "bpb": 1.147558426632316,
+        "step": 14472
+      }
+    ]
+  },
+  "m0-10m-trunk": {
+    "branch_from": null,
+    "config_sha256": "dfd1f5c74aa20e06ea0cbfa4f8fe0adbfe2d0b0a82f34cc1bc447a4855129a4a",
+    "final_checkpoint_sha256": "de60c73efd2f79ada2e51b5d417ad9f4db521af7d4cbc5237479243cf2a08ae0",
+    "final_step": 11578,
+    "final_validation_bpb": 1.2232722549207353,
+    "git_commit": "6ee5eae36e0b15bc9057cc716408e41cff594d88",
+    "model": "smaller-transformer",
+    "parameters": 10268928,
+    "passes": 6.402322085730576,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 1000000000000,
+      "kind": "wsd",
+      "total": 1000000000000,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 2,
+    "steps_per_pass": 1809,
+    "tokens_seen": 94475850,
+    "validation_history": [
+      {
+        "bpb": 1.7547307794478888,
+        "step": 452
+      },
+      {
+        "bpb": 1.5867115498758613,
+        "step": 904
+      },
+      {
+        "bpb": 1.4959196656212155,
+        "step": 1356
+      },
+      {
+        "bpb": 1.443795413714512,
+        "step": 1808
+      },
+      {
+        "bpb": 1.4078584578101696,
+        "step": 2260
+      },
+      {
+        "bpb": 1.3751014901759107,
+        "step": 2712
+      },
+      {
+        "bpb": 1.349315900534356,
+        "step": 3164
+      },
+      {
+        "bpb": 1.3272554332766004,
+        "step": 3616
+      },
+      {
+        "bpb": 1.31263718052859,
+        "step": 4068
+      },
+      {
+        "bpb": 1.300466563927167,
+        "step": 4520
+      },
+      {
+        "bpb": 1.2858287800818484,
+        "step": 4972
+      },
+      {
+        "bpb": 1.276662139534544,
+        "step": 5424
+      },
+      {
+        "bpb": 1.2714892523958436,
+        "step": 5876
+      },
+      {
+        "bpb": 1.264463798653802,
+        "step": 6328
+      },
+      {
+        "bpb": 1.2564022157991745,
+        "step": 6780
+      },
+      {
+        "bpb": 1.2534759068245478,
+        "step": 7232
+      },
+      {
+        "bpb": 1.2494488758540285,
+        "step": 7684
+      },
+      {
+        "bpb": 1.2457633982754768,
+        "step": 8136
+      },
+      {
+        "bpb": 1.240710714732813,
+        "step": 8588
+      },
+      {
+        "bpb": 1.2361748482930348,
+        "step": 9040
+      },
+      {
+        "bpb": 1.2345312776320394,
+        "step": 9492
+      },
+      {
+        "bpb": 1.2305348381200054,
+        "step": 9944
+      },
+      {
+        "bpb": 1.2301270803146849,
+        "step": 10396
+      },
+      {
+        "bpb": 1.2229638081358267,
+        "step": 10848
+      },
+      {
+        "bpb": 1.223871885350336,
+        "step": 11300
+      },
+      {
+        "bpb": 1.2232722549207353,
+        "step": 11578
+      }
+    ]
+  },
+  "m0-29m-e1": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-29m-trunk",
+    "config_sha256": "9edf75c700a46668c796a4e51b32b100ddd0674da520a9df9f5d09488ce778ca",
+    "final_checkpoint_sha256": "f60c329709d5ff7a06d6825d9e2358143a087271a04d3d28d851cbf5523f142b",
+    "final_step": 1809,
+    "final_validation_bpb": 1.3399612327469463,
+    "git_commit": "c2581547098e7e1850369d12543d66482fee96d7",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 1.0001554968123154,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 1447,
+      "kind": "wsd",
+      "total": 1809,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 14761335,
+    "validation_history": [
+      {
+        "bpb": 1.758398594991559,
+        "step": 452
+      },
+      {
+        "bpb": 1.5565895090042812,
+        "step": 904
+      },
+      {
+        "bpb": 1.4570202132074457,
+        "step": 1356
+      },
+      {
+        "bpb": 1.3400729364543185,
+        "step": 1808
+      },
+      {
+        "bpb": 1.3399612327469463,
+        "step": 1809
+      }
+    ]
+  },
+  "m0-29m-e2": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-29m-trunk",
+    "config_sha256": "0c7b30303f6a74c21813f5571e895728176ee66dd60d40d6b4729b910be3afe6",
+    "final_checkpoint_sha256": "9ac11347a2473db8d2836b2485e371bd382228c70d798226f2e3e0d7c756f50b",
+    "final_step": 3618,
+    "final_validation_bpb": 1.2050534515345672,
+    "git_commit": "c2581547098e7e1850369d12543d66482fee96d7",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 2.000310993624631,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 2894,
+      "kind": "wsd",
+      "total": 3618,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 29522670,
+    "validation_history": [
+      {
+        "bpb": 1.758398594991559,
+        "step": 452
+      },
+      {
+        "bpb": 1.5565895090042812,
+        "step": 904
+      },
+      {
+        "bpb": 1.4570202132074457,
+        "step": 1356
+      },
+      {
+        "bpb": 1.3946121701498524,
+        "step": 1808
+      },
+      {
+        "bpb": 1.3489628846962691,
+        "step": 2260
+      },
+      {
+        "bpb": 1.311277429362321,
+        "step": 2712
+      },
+      {
+        "bpb": 1.2474298729268944,
+        "step": 3164
+      },
+      {
+        "bpb": 1.2050373385443023,
+        "step": 3616
+      },
+      {
+        "bpb": 1.2050534515345672,
+        "step": 3618
+      }
+    ]
+  },
+  "m0-29m-e4": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-29m-trunk",
+    "config_sha256": "46a2f3c5a76bd57c9fba65cf174e211f52e052aa7e4f5d36c89bf65fae93c2bf",
+    "final_checkpoint_sha256": "d7d44875ed71bcbd91a40ab1fb5cd15773f52be0ef929b1e4360dfed1db2ad27",
+    "final_step": 7236,
+    "final_validation_bpb": 1.1260730295098011,
+    "git_commit": "c2581547098e7e1850369d12543d66482fee96d7",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 4.000621987249262,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 5789,
+      "kind": "wsd",
+      "total": 7236,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 0,
+    "steps_per_pass": 1809,
+    "tokens_seen": 59045340,
+    "validation_history": [
+      {
+        "bpb": 1.758398594991559,
+        "step": 452
+      },
+      {
+        "bpb": 1.5565895090042812,
+        "step": 904
+      },
+      {
+        "bpb": 1.4570202132074457,
+        "step": 1356
+      },
+      {
+        "bpb": 1.3946121701498524,
+        "step": 1808
+      },
+      {
+        "bpb": 1.3489628846962691,
+        "step": 2260
+      },
+      {
+        "bpb": 1.311277429362321,
+        "step": 2712
+      },
+      {
+        "bpb": 1.285989935286697,
+        "step": 3164
+      },
+      {
+        "bpb": 1.265396677633656,
+        "step": 3616
+      },
+      {
+        "bpb": 1.2521825068243853,
+        "step": 4068
+      },
+      {
+        "bpb": 1.2398010912239261,
+        "step": 4520
+      },
+      {
+        "bpb": 1.2277996094808068,
+        "step": 4972
+      },
+      {
+        "bpb": 1.2161973172283969,
+        "step": 5424
+      },
+      {
+        "bpb": 1.1993937933240673,
+        "step": 5876
+      },
+      {
+        "bpb": 1.1634699420885581,
+        "step": 6328
+      },
+      {
+        "bpb": 1.141272746698736,
+        "step": 6780
+      },
+      {
+        "bpb": 1.126342838076938,
+        "step": 7232
+      },
+      {
+        "bpb": 1.1260730295098011,
+        "step": 7236
+      }
+    ]
+  },
+  "m0-29m-e8": {
+    "branch_from": "C:\\Users\\aaqil\\nebulalm-data\\runs\\m0-29m-trunk",
+    "config_sha256": "bac713252670d3f9f58d9451169e6c4563e39932d0d881551bf06980172fb830",
+    "final_checkpoint_sha256": "de243ff268caecb18f7f20c996db0c15729cf3bb7b4e1ada9dfa388c9502f097",
+    "final_step": 14472,
+    "final_validation_bpb": 1.0846826816700883,
+    "git_commit": "c2581547098e7e1850369d12543d66482fee96d7",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 8.00290260716322,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 11578,
+      "kind": "wsd",
+      "total": 14472,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 3,
+    "steps_per_pass": 1809,
+    "tokens_seen": 118090680,
+    "validation_history": [
+      {
+        "bpb": 1.758398594991559,
+        "step": 452
+      },
+      {
+        "bpb": 1.5565895090042812,
+        "step": 904
+      },
+      {
+        "bpb": 1.4570202132074457,
+        "step": 1356
+      },
+      {
+        "bpb": 1.3946121701498524,
+        "step": 1808
+      },
+      {
+        "bpb": 1.3489628846962691,
+        "step": 2260
+      },
+      {
+        "bpb": 1.311277429362321,
+        "step": 2712
+      },
+      {
+        "bpb": 1.285989935286697,
+        "step": 3164
+      },
+      {
+        "bpb": 1.265396677633656,
+        "step": 3616
+      },
+      {
+        "bpb": 1.2521825068243853,
+        "step": 4068
+      },
+      {
+        "bpb": 1.2398010912239261,
+        "step": 4520
+      },
+      {
+        "bpb": 1.2277996094808068,
+        "step": 4972
+      },
+      {
+        "bpb": 1.2161973172283969,
+        "step": 5424
+      },
+      {
+        "bpb": 1.2108869491622103,
+        "step": 5876
+      },
+      {
+        "bpb": 1.2042932880041803,
+        "step": 6328
+      },
+      {
+        "bpb": 1.1947944296962016,
+        "step": 6780
+      },
+      {
+        "bpb": 1.1922218181788964,
+        "step": 7232
+      },
+      {
+        "bpb": 1.1879309622812357,
+        "step": 7684
+      },
+      {
+        "bpb": 1.184674265664977,
+        "step": 8136
+      },
+      {
+        "bpb": 1.1774179097768782,
+        "step": 8588
+      },
+      {
+        "bpb": 1.175512955300881,
+        "step": 9040
+      },
+      {
+        "bpb": 1.17566387609633,
+        "step": 9492
+      },
+      {
+        "bpb": 1.169781961281095,
+        "step": 9944
+      },
+      {
+        "bpb": 1.1686336658709364,
+        "step": 10396
+      },
+      {
+        "bpb": 1.1637444867872782,
+        "step": 10848
+      },
+      {
+        "bpb": 1.1647778659908892,
+        "step": 11300
+      },
+      {
+        "bpb": 1.164464868220487,
+        "step": 11578
+      },
+      {
+        "bpb": 1.1492154004180812,
+        "step": 11752
+      },
+      {
+        "bpb": 1.1277189449145615,
+        "step": 12204
+      },
+      {
+        "bpb": 1.1128829912777205,
+        "step": 12656
+      },
+      {
+        "bpb": 1.1077475553536378,
+        "step": 13108
+      },
+      {
+        "bpb": 1.0998083866271486,
+        "step": 13560
+      },
+      {
+        "bpb": 1.090831241837568,
+        "step": 14012
+      },
+      {
+        "bpb": 1.0843969340378012,
+        "step": 14464
+      },
+      {
+        "bpb": 1.0846826816700883,
+        "step": 14472
+      }
+    ]
+  },
+  "m0-29m-trunk": {
+    "branch_from": null,
+    "config_sha256": "a10166e8339f38edb6d6e52fdb53827f826bfb2434a604dbd2e82972ea4cb792",
+    "final_checkpoint_sha256": "b3e6e2f5b27d37004ed9a5b2c23a98aa0d71248e5415646e7f658e82f3006d7a",
+    "final_step": 11578,
+    "final_validation_bpb": 1.164464868220487,
+    "git_commit": "c2581547098e7e1850369d12543d66482fee96d7",
+    "model": "nebulalm",
+    "parameters": 29447168,
+    "passes": 6.402322085730576,
+    "peak_lr": 0.001,
+    "schedule": {
+      "decay_start": 1000000000000,
+      "kind": "wsd",
+      "total": 1000000000000,
+      "warmup": 90
+    },
+    "seed": 17014,
+    "skipped_steps": 2,
+    "steps_per_pass": 1809,
+    "tokens_seen": 94475850,
+    "validation_history": [
+      {
+        "bpb": 1.758398594991559,
+        "step": 452
+      },
+      {
+        "bpb": 1.5565895090042812,
+        "step": 904
+      },
+      {
+        "bpb": 1.4570202132074457,
+        "step": 1356
+      },
+      {
+        "bpb": 1.3946121701498524,
+        "step": 1808
+      },
+      {
+        "bpb": 1.3489628846962691,
+        "step": 2260
+      },
+      {
+        "bpb": 1.311277429362321,
+        "step": 2712
+      },
+      {
+        "bpb": 1.285989935286697,
+        "step": 3164
+      },
+      {
+        "bpb": 1.265396677633656,
+        "step": 3616
+      },
+      {
+        "bpb": 1.2521825068243853,
+        "step": 4068
+      },
+      {
+        "bpb": 1.2398010912239261,
+        "step": 4520
+      },
+      {
+        "bpb": 1.2277996094808068,
+        "step": 4972
+      },
+      {
+        "bpb": 1.2161973172283969,
+        "step": 5424
+      },
+      {
+        "bpb": 1.2108869491622103,
+        "step": 5876
+      },
+      {
+        "bpb": 1.2042932880041803,
+        "step": 6328
+      },
+      {
+        "bpb": 1.1947944296962016,
+        "step": 6780
+      },
+      {
+        "bpb": 1.1922218181788964,
+        "step": 7232
+      },
+      {
+        "bpb": 1.1879309622812357,
+        "step": 7684
+      },
+      {
+        "bpb": 1.184674265664977,
+        "step": 8136
+      },
+      {
+        "bpb": 1.1774179097768782,
+        "step": 8588
+      },
+      {
+        "bpb": 1.175512955300881,
+        "step": 9040
+      },
+      {
+        "bpb": 1.17566387609633,
+        "step": 9492
+      },
+      {
+        "bpb": 1.169781961281095,
+        "step": 9944
+      },
+      {
+        "bpb": 1.1686336658709364,
+        "step": 10396
+      },
+      {
+        "bpb": 1.1637444867872782,
+        "step": 10848
+      },
+      {
+        "bpb": 1.1647778659908892,
+        "step": 11300
+      },
+      {
+        "bpb": 1.164464868220487,
+        "step": 11578
+      }
+    ]
+  }
+}

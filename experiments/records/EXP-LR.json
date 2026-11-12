@@ -1,0 +1,65 @@
+{
+  "10m": {
+    "lr": 0.001,
+    "results": [
+      {
+        "lr": 0.001,
+        "run": "lr-10m-0.001",
+        "val_bpb": 1.5547385688922868
+      },
+      {
+        "lr": 0.0003,
+        "run": "lr-10m-0.0003",
+        "val_bpb": 1.703036061188889
+      },
+      {
+        "lr": 0.0001,
+        "run": "lr-10m-0.0001",
+        "val_bpb": 1.9154059276582227
+      }
+    ],
+    "rule": "lowest validation BPB after half a pass; within 1 percent, the smaller LR"
+  },
+  "29m": {
+    "lr": 0.001,
+    "results": [
+      {
+        "lr": 0.001,
+        "run": "lr-29m-0.001",
+        "val_bpb": 1.5168962150634102
+      },
+      {
+        "lr": 0.0003,
+        "run": "lr-29m-0.0003",
+        "val_bpb": 1.6288953773112222
+      },
+      {
+        "lr": 0.0001,
+        "run": "lr-29m-0.0001",
+        "val_bpb": 1.8209660047185723
+      }
+    ],
+    "rule": "lowest validation BPB after half a pass; within 1 percent, the smaller LR"
+  },
+  "4m": {
+    "lr": 0.001,
+    "results": [
+      {
+        "lr": 0.001,
+        "run": "lr-4m-0.001",
+        "val_bpb": 1.6224106178070579
+      },
+      {
+        "lr": 0.0003,
+        "run": "lr-4m-0.0003",
+        "val_bpb": 1.815418274084899
+      },
+      {
+        "lr": 0.0001,
+        "run": "lr-4m-0.0001",
+        "val_bpb": 2.010380789685611
+      }
+    ],
+    "rule": "lowest validation BPB after half a pass; within 1 percent, the smaller LR"
+  }
+}
