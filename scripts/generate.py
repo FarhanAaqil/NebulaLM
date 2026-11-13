@@ -5,6 +5,7 @@
 
 Sampling defaults follow TRAINING.md: temperature 0.8, top-k 40, at most 150
 new tokens, stop at <eos>. Output is model text, not a factual source.
+For a browser interface, see scripts/web_ui.py.
 """
 
 from __future__ import annotations
@@ -16,37 +17,11 @@ from pathlib import Path
 
 import torch
 
-from nebulalm.model.config import ModelShape
-from nebulalm.model.transformer import NebulaLM
+from nebulalm.model.sampling import generate, load_run
 from nebulalm.tokenizer.train import NebulaTokenizer
-from nebulalm.training.checkpoint import load_checkpoint
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = Path(os.environ.get("NEBULALM_WORK_DIR", ROOT))
-
-
-@torch.no_grad()
-def generate(model: NebulaLM, ids: list[int], eos_id: int, *, max_new: int, temperature: float, top_k: int,
-             greedy: bool, generator: torch.Generator, device: str) -> list[int]:
-    context = model.shape.context_length
-    if len(ids) + max_new > context:
-        raise SystemExit(f"prompt plus {max_new} new tokens exceeds the {context}-token context")
-    sequence = torch.tensor([ids], device=device)
-    out: list[int] = []
-    for _ in range(max_new):
-        logits = model(sequence)[0, -1].float()
-        if greedy:
-            token = int(logits.argmax())
-        else:
-            logits = logits / temperature
-            values, indices = torch.topk(logits, top_k)
-            probs = torch.softmax(values, dim=-1)
-            token = int(indices[torch.multinomial(probs, 1, generator=generator)])
-        if token == eos_id:
-            break
-        out.append(token)
-        sequence = torch.cat([sequence, torch.tensor([[token]], device=device)], dim=1)
-    return out
 
 
 def main() -> None:
@@ -66,11 +41,7 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     run = Path(args.run) if Path(args.run).exists() else WORK / "runs" / args.run
-    path = sorted((run / "checkpoints").glob("step_*.pt"))[-1]
-    payload = load_checkpoint(path)
-    model = NebulaLM(ModelShape(**payload["identity"]["model"]), seed=0)
-    model.load_state_dict(payload["model"])
-    model.to(args.device).eval()
+    model, path = load_run(run, args.device)
     tokenizer = NebulaTokenizer.from_file(args.tokenizer / "tokenizer.json", "")
     if tokenizer.vocab_size() != model.shape.vocab_size:
         raise SystemExit("tokenizer and checkpoint vocabularies differ")
