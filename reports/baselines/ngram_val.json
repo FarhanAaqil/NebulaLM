@@ -1,0 +1,63 @@
+{
+  "best_validation_order": "6",
+  "m0_manifest_sha256": "84810938b540eacf9307503201b49d4432c4ecfddd6e35f16b72e65ca36e27e1",
+  "orders": {
+    "3": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.7493079645671601
+      ],
+      "seconds": 66.80531189999965,
+      "validation_bpb": 1.4821750828220948,
+      "validation_nll_nats": 1644671.3840159692,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    },
+    "4": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.8026643565243803,
+        0.8328587871945515
+      ],
+      "seconds": 61.077214099997946,
+      "validation_bpb": 1.4210326710509351,
+      "validation_nll_nats": 1576825.70494931,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    },
+    "5": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.8026643565243803,
+        0.8856379298662106,
+        0.8837795876100994
+      ],
+      "seconds": 83.76604480000242,
+      "validation_bpb": 1.401133310157574,
+      "validation_nll_nats": 1554744.7039927947,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    },
+    "6": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.8026643565243803,
+        0.8856379298662106,
+        0.933665764792376,
+        0.9148676993950206
+      ],
+      "seconds": 126.03290010000273,
+      "validation_bpb": 1.3941423831014388,
+      "validation_nll_nats": 1546987.3359124486,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    }
+  },
+  "registered_order": 5,
+  "train_tokens": 14816919,
+  "vocab_size": 8000
+}

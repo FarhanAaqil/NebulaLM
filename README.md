@@ -6,6 +6,15 @@ NebulaLM is a from-scratch decoder-only language model for space and astronomy, 
 
 The primary question is unchanged: under the same corpus, tokenizer, context, and token budget, does the 29.4M model reach lower held-out bits per byte than a 10.3M transformer and a 5-gram model, without pervasive verbatim memorization? The study adds how validation BPB and memorization change with passes (1, 2, 4, 8) and size, and how much exact, edited, and paraphrased near-copies inflate a held-out score. Hypotheses, thresholds, and the multiplicity rules are fixed in the research blueprint and in decisions 004 and 005; a rejected hypothesis is reported as rejected.
 
+## Results
+
+The full write-up is `reports/final_report.md`; the numbers are in `reports/study/results.json`.
+
+- **Learn.** On the sealed test split the 29.4M model reaches 1.060 bits per byte, 5.5% below the 10.3M model (1.122) and 23% below the 5-gram baseline (1.379). The size gap holds across three seeds. H1a and H1b are supported.
+- **Store.** Membership AUC rises with passes and size, reaching 0.66 for 29.4M at 8 passes. Verbatim extraction stays under 1%, but random canaries inserted a few times are fully exposed.
+- **Leak.** An edited copy sharing only half its word 5-grams with a held-out document transfers 71–83% of an exact copy's benefit. Near-duplicate filtering at Jaccard 0.80 would miss most of that leakage.
+- **Not supported.** H2a (the 29.4M four-pass cost lands at 2.7% with an interval reaching 3.02%), H3a (its monotonicity part), H2c, and H3c. H1c needs human ratings. H3b, H4, and H5 were not run.
+
 ## Hardware
 
 ASUS TUF Gaming F15 FX507ZC4: Intel i7-12700H, RTX 3050 Laptop GPU (4096 MiB), 16 GB RAM. `reports/environment.json` is the measured machine report; `reports/hardware_benchmark.json` holds measured training throughput and VRAM per model size once the benchmark stage has run.

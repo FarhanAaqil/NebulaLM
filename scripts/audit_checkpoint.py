@@ -81,6 +81,33 @@ def main() -> None:
     model.to(args.device).eval()
     tokenizer = NebulaTokenizer.from_file(args.tokenizer / "tokenizer.json", "")
 
+    checkpoint_sha = sha256_file(path)
+    existing = args.run / "audit.json"
+    if args.final_evaluation_campaign and existing.exists() and read_json(existing)["checkpoint_sha256"] == checkpoint_sha:
+        # The campaign only adds test; the validation and Store/Leak readouts of this checkpoint already exist.
+        report = read_json(existing)
+    else:
+        report = audit_report(model, tokenizer, folder, args, path, checkpoint_sha, payload, bundle)
+        write_json(existing, report)
+    if args.final_evaluation_campaign:
+        test_path = data_dir() / "sealed" / "test.jsonl"
+        if sha256_file(test_path) != bundle["sections"]["sealed_test_text"]:
+            raise SystemExit("sealed test text does not match its frozen hash")
+        test = per_document(model, tokenizer, read_jsonl(test_path), args.device)
+        report["learn"]["test_bpb"] = pooled_bpb(test)
+        report["learn"]["test_documents"] = test
+        log = ROOT / "reports" / "campaign" / "test_reads.jsonl"
+        log.parent.mkdir(parents=True, exist_ok=True)
+        with log.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps({"run": str(args.run), "checkpoint": path.name, "at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}) + "\n")
+        write_json(args.run / "audit_test.json", report)
+    print(json.dumps({"validation_bpb": report["learn"]["validation_bpb"], "membership_auc": report["store"]["membership_auc"],
+                      "extractability": report["store"]["extractability"]["rate"],
+                      "canary_bits_mean": report["store"]["canary_bits_mean"],
+                      **({"test_bpb": report["learn"]["test_bpb"]} if args.final_evaluation_campaign else {})}))
+
+
+def audit_report(model, tokenizer, folder: Path, args, path: Path, checkpoint_sha: str, payload: dict, bundle: dict) -> dict:
     validation = per_document(model, tokenizer, read_jsonl(folder / "validation.jsonl"), args.device)
     probes = per_document(model, tokenizer, read_jsonl(folder / "probes.jsonl"), args.device)
     membership = per_document(model, tokenizer, read_jsonl(folder / "membership.jsonl"), args.device)
@@ -98,10 +125,10 @@ def main() -> None:
     for row in canaries:
         if row["kind"] == "inserted":
             by_multiplicity.setdefault(str(row["multiplicity"]), []).append(exposure_bits(losses[row["canary_id"]], controls))
-    report = {
+    return {
         "run": str(args.run),
         "checkpoint": path.name,
-        "checkpoint_sha256": sha256_file(path),
+        "checkpoint_sha256": checkpoint_sha,
         "step": payload["state"]["step"],
         "tokens_seen": payload["state"]["tokens_seen"],
         "bundle_sha256": bundle["bundle_sha256"],
@@ -115,22 +142,6 @@ def main() -> None:
         },
         "leak": {"probe_documents": probes},
     }
-    if args.final_evaluation_campaign:
-        test_path = data_dir() / "sealed" / "test.jsonl"
-        if sha256_file(test_path) != bundle["sections"]["sealed_test_text"]:
-            raise SystemExit("sealed test text does not match its frozen hash")
-        test = per_document(model, tokenizer, read_jsonl(test_path), args.device)
-        report["learn"]["test_bpb"] = pooled_bpb(test)
-        report["learn"]["test_documents"] = test
-        log = ROOT / "reports" / "campaign" / "test_reads.jsonl"
-        log.parent.mkdir(parents=True, exist_ok=True)
-        with log.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps({"run": str(args.run), "checkpoint": path.name, "at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}) + "\n")
-    name = "audit_test.json" if args.final_evaluation_campaign else "audit.json"
-    write_json(args.run / name, report)
-    print(json.dumps({"validation_bpb": report["learn"]["validation_bpb"], "membership_auc": auc_value,
-                      "extractability": extraction["rate"], "canary_bits_mean": report["store"]["canary_bits_mean"],
-                      **({"test_bpb": report["learn"]["test_bpb"]} if args.final_evaluation_campaign else {})}))
 
 
 if __name__ == "__main__":

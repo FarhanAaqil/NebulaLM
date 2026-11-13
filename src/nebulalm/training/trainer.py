@@ -21,6 +21,7 @@ from torch import nn
 
 from nebulalm.evaluation.metrics import metric_block
 from nebulalm.training.checkpoint import (
+    KEEP_LATEST,
     latest_valid,
     restore_rng,
     retain,
@@ -190,8 +191,15 @@ def run(
     log_every: int = 10,
     extra_checkpoints: set[int] | None = None,
     resume: bool = True,
+    keep_best: bool = False,
 ) -> TrainState:
-    """Train to max_steps, resuming from the newest valid checkpoint in run_dir."""
+    """Train to max_steps, resuming from the newest valid checkpoint in run_dir.
+
+    The best validation score is always tracked; a best.pt file is written only
+    with keep_best, because every registered model is evaluated at its final
+    step. When the run finishes, only the final checkpoint and the extra
+    (branch-point) checkpoints are kept.
+    """
     run_dir.mkdir(parents=True, exist_ok=True)
     if resume:
         found = latest_valid(run_dir, identity)
@@ -221,11 +229,12 @@ def run(
             if evaluated["bits_per_byte"] < trainer.state.best_val_bpb:
                 trainer.state.best_val_bpb = evaluated["bits_per_byte"]
                 trainer.state.best_step = step
-                save_checkpoint(best_path, trainer.payload(identity, config))
+                if keep_best:
+                    save_checkpoint(best_path, trainer.payload(identity, config))
         if (checkpoint_every and step % checkpoint_every == 0) or step == max_steps or step in extra:
             path = step_path(run_dir, step)
             save_checkpoint(path, trainer.payload(identity, config))
             keep = {best_path} | {step_path(run_dir, kept) for kept in extra}
-            retain(run_dir, keep)
+            retain(run_dir, keep, latest=1 if step == max_steps else KEEP_LATEST)
             write_json_atomic(run_dir / "state.json", {"step": step, **{k: v for k, v in vars(trainer.state).items() if k != "history"}})
     return trainer.state
