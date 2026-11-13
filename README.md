@@ -15,6 +15,17 @@ The full write-up is `reports/final_report.md`; the numbers are in `reports/stud
 - **Leak.** An edited copy sharing only half its word 5-grams with a held-out document transfers 71–83% of an exact copy's benefit. Near-duplicate filtering at Jaccard 0.80 would miss most of that leakage.
 - **Not supported.** H2a (the 29.4M four-pass cost lands at 2.7% with an interval reaching 3.02%), H3a (its monotonicity part), H2c, and H3c. H1c needs human ratings. H3b, H4, and H5 were not run.
 
+## Try the models
+
+```bash
+export NEBULALM_WORK_DIR=/path/to/runs/parent   # the folder that holds runs/
+export PYTHONPATH=src
+python scripts/web_ui.py                         # opens http://localhost:7860
+python scripts/generate.py --run m0-29m-e8 --prompt "The Andromeda Galaxy is" --samples 3
+```
+
+The web interface lets you pick any of the twelve M0 models (three sizes, four pass counts), shows each one's measured test bits per byte, and samples continuations with adjustable temperature, top-k, and length. It runs only on localhost and uses the standard library. The models write fluent but often wrong astronomy; treat the output as a demonstration, not a source.
+
 ## Hardware
 
 ASUS TUF Gaming F15 FX507ZC4: Intel i7-12700H, RTX 3050 Laptop GPU (4096 MiB), 16 GB RAM. `reports/environment.json` is the measured machine report; `reports/hardware_benchmark.json` holds measured training throughput and VRAM per model size once the benchmark stage has run.
