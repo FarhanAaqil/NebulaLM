@@ -1,0 +1,3492 @@
+{
+  "best_validation_order": "6",
+  "m0_manifest_sha256": "84810938b540eacf9307503201b49d4432c4ecfddd6e35f16b72e65ca36e27e1",
+  "orders": {
+    "3": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.7493079645671601
+      ],
+      "seconds": 38.49947099998826,
+      "validation_bpb": 1.4821750828220948,
+      "validation_nll_nats": 1644671.3840159692,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    },
+    "4": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.8026643565243803,
+        0.8328587871945515
+      ],
+      "seconds": 75.6834864000266,
+      "validation_bpb": 1.4210326710509351,
+      "validation_nll_nats": 1576825.70494931,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    },
+    "5": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.8026643565243803,
+        0.8856379298662106,
+        0.8837795876100994
+      ],
+      "seconds": 82.12989699997706,
+      "validation_bpb": 1.401133310157574,
+      "validation_nll_nats": 1554744.7039927947,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    },
+    "6": {
+      "discounts": [
+        0.2849740932642487,
+        0.6803389858923528,
+        0.8026643565243803,
+        0.8856379298662106,
+        0.933665764792376,
+        0.9148676993950206
+      ],
+      "seconds": 119.81184869998833,
+      "validation_bpb": 1.3941423831014388,
+      "validation_nll_nats": 1546987.3359124486,
+      "validation_targets": 408851,
+      "validation_utf8_bytes": 1600863
+    }
+  },
+  "registered_order": 5,
+  "test": {
+    "documents": [
+      {
+        "bpb": 1.1363024482141575,
+        "document_id": "doc_wikipedia_en_astronomy_1003531_20231101",
+        "nll_nats": 1527.9921861914327,
+        "targets": 459,
+        "utf8_bytes": 1940
+      },
+      {
+        "bpb": 0.8788034950122796,
+        "document_id": "doc_wikipedia_en_astronomy_10397289_20231101",
+        "nll_nats": 782.7451118116741,
+        "targets": 316,
+        "utf8_bytes": 1285
+      },
+      {
+        "bpb": 1.4926870829959733,
+        "document_id": "doc_wikipedia_en_astronomy_1039772_20231101",
+        "nll_nats": 2176.9074777496544,
+        "targets": 570,
+        "utf8_bytes": 2104
+      },
+      {
+        "bpb": 1.023835024770964,
+        "document_id": "doc_wikipedia_en_astronomy_10397972_20231101",
+        "nll_nats": 463.4134395883706,
+        "targets": 151,
+        "utf8_bytes": 653
+      },
+      {
+        "bpb": 1.1505896793019956,
+        "document_id": "doc_wikipedia_en_astronomy_1053860_20231101",
+        "nll_nats": 733.7257528143858,
+        "targets": 225,
+        "utf8_bytes": 920
+      },
+      {
+        "bpb": 1.1361997674877984,
+        "document_id": "doc_wikipedia_en_astronomy_10663286_20231101",
+        "nll_nats": 3844.0494407541073,
+        "targets": 1157,
+        "utf8_bytes": 4881
+      },
+      {
+        "bpb": 1.215259730108887,
+        "document_id": "doc_wikipedia_en_astronomy_10774004_20231101",
+        "nll_nats": 872.6785943736436,
+        "targets": 255,
+        "utf8_bytes": 1036
+      },
+      {
+        "bpb": 1.2421771790783378,
+        "document_id": "doc_wikipedia_en_astronomy_10795214_20231101",
+        "nll_nats": 882.5368996699075,
+        "targets": 260,
+        "utf8_bytes": 1025
+      },
+      {
+        "bpb": 1.2443236088546186,
+        "document_id": "doc_wikipedia_en_astronomy_10806798_20231101",
+        "nll_nats": 1168.686688601278,
+        "targets": 355,
+        "utf8_bytes": 1355
+      },
+      {
+        "bpb": 1.4062983624916494,
+        "document_id": "doc_wikipedia_en_astronomy_10980356_20231101",
+        "nll_nats": 4746.163626342456,
+        "targets": 1337,
+        "utf8_bytes": 4869
+      },
+      {
+        "bpb": 0.7968566005703718,
+        "document_id": "doc_wikipedia_en_astronomy_1104225_20231101",
+        "nll_nats": 470.0404090025413,
+        "targets": 207,
+        "utf8_bytes": 851
+      },
+      {
+        "bpb": 2.11946036044651,
+        "document_id": "doc_wikipedia_en_astronomy_11355257_20231101",
+        "nll_nats": 455.42037167713977,
+        "targets": 104,
+        "utf8_bytes": 310
+      },
+      {
+        "bpb": 1.0306984640444752,
+        "document_id": "doc_wikipedia_en_astronomy_11541555_20231101",
+        "nll_nats": 561.5386272068768,
+        "targets": 202,
+        "utf8_bytes": 786
+      },
+      {
+        "bpb": 1.1615407703331102,
+        "document_id": "doc_wikipedia_en_astronomy_1159290_20231101",
+        "nll_nats": 3052.2050298443683,
+        "targets": 920,
+        "utf8_bytes": 3791
+      },
+      {
+        "bpb": 0.8830080104179753,
+        "document_id": "doc_wikipedia_en_astronomy_1159314_20231101",
+        "nll_nats": 628.5799846795592,
+        "targets": 231,
+        "utf8_bytes": 1027
+      },
+      {
+        "bpb": 1.1809236906803349,
+        "document_id": "doc_wikipedia_en_astronomy_11630199_20231101",
+        "nll_nats": 4096.8624028908525,
+        "targets": 1300,
+        "utf8_bytes": 5005
+      },
+      {
+        "bpb": 1.4072948049403804,
+        "document_id": "doc_wikipedia_en_astronomy_11633074_20231101",
+        "nll_nats": 1295.414102074718,
+        "targets": 319,
+        "utf8_bytes": 1328
+      },
+      {
+        "bpb": 1.0997143147908297,
+        "document_id": "doc_wikipedia_en_astronomy_1165682_20231101",
+        "nll_nats": 724.9129467594607,
+        "targets": 220,
+        "utf8_bytes": 951
+      },
+      {
+        "bpb": 1.8840626594664713,
+        "document_id": "doc_wikipedia_en_astronomy_1172622_20231101",
+        "nll_nats": 5197.612227221679,
+        "targets": 1153,
+        "utf8_bytes": 3980
+      },
+      {
+        "bpb": 1.3954149217390956,
+        "document_id": "doc_wikipedia_en_astronomy_1176500_20231101",
+        "nll_nats": 3731.5653104014314,
+        "targets": 924,
+        "utf8_bytes": 3858
+      },
+      {
+        "bpb": 0.8006689944832746,
+        "document_id": "doc_wikipedia_en_astronomy_11773786_20231101",
+        "nll_nats": 1035.040415603837,
+        "targets": 459,
+        "utf8_bytes": 1865
+      },
+      {
+        "bpb": 1.8224973032748764,
+        "document_id": "doc_wikipedia_en_astronomy_1194555_20231101",
+        "nll_nats": 5783.19909469664,
+        "targets": 1219,
+        "utf8_bytes": 4578
+      },
+      {
+        "bpb": 0.9375139987603177,
+        "document_id": "doc_wikipedia_en_astronomy_1197807_20231101",
+        "nll_nats": 1946.906214188678,
+        "targets": 671,
+        "utf8_bytes": 2996
+      },
+      {
+        "bpb": 1.7669589691074705,
+        "document_id": "doc_wikipedia_en_astronomy_12109585_20231101",
+        "nll_nats": 6661.483931527009,
+        "targets": 1608,
+        "utf8_bytes": 5439
+      },
+      {
+        "bpb": 1.4769565370922824,
+        "document_id": "doc_wikipedia_en_astronomy_1216043_20231101",
+        "nll_nats": 3127.5509327575173,
+        "targets": 794,
+        "utf8_bytes": 3055
+      },
+      {
+        "bpb": 0.942191514692504,
+        "document_id": "doc_wikipedia_en_astronomy_1216268_20231101",
+        "nll_nats": 892.7567948046906,
+        "targets": 305,
+        "utf8_bytes": 1367
+      },
+      {
+        "bpb": 0.9192471542535126,
+        "document_id": "doc_wikipedia_en_astronomy_1216433_20231101",
+        "nll_nats": 376.569581766268,
+        "targets": 137,
+        "utf8_bytes": 591
+      },
+      {
+        "bpb": 1.5975333555696158,
+        "document_id": "doc_wikipedia_en_astronomy_125024_20231101",
+        "nll_nats": 12348.896666571085,
+        "targets": 3201,
+        "utf8_bytes": 11152
+      },
+      {
+        "bpb": 0.8359220553272988,
+        "document_id": "doc_wikipedia_en_astronomy_1253054_20231101",
+        "nll_nats": 611.8643687037993,
+        "targets": 245,
+        "utf8_bytes": 1056
+      },
+      {
+        "bpb": 0.9495092469158065,
+        "document_id": "doc_wikipedia_en_astronomy_12566353_20231101",
+        "nll_nats": 916.8024727794965,
+        "targets": 358,
+        "utf8_bytes": 1393
+      },
+      {
+        "bpb": 0.8785398707665083,
+        "document_id": "doc_wikipedia_en_astronomy_1263070_20231101",
+        "nll_nats": 1779.9825808427013,
+        "targets": 778,
+        "utf8_bytes": 2923
+      },
+      {
+        "bpb": 0.9694664745108387,
+        "document_id": "doc_wikipedia_en_astronomy_1266407_20231101",
+        "nll_nats": 973.7032995556833,
+        "targets": 341,
+        "utf8_bytes": 1449
+      },
+      {
+        "bpb": 1.6473625942581485,
+        "document_id": "doc_wikipedia_en_astronomy_1274810_20231101",
+        "nll_nats": 14860.227694735364,
+        "targets": 3788,
+        "utf8_bytes": 13014
+      },
+      {
+        "bpb": 0.9765030324176881,
+        "document_id": "doc_wikipedia_en_astronomy_1285581_20231101",
+        "nll_nats": 847.4291253081539,
+        "targets": 297,
+        "utf8_bytes": 1252
+      },
+      {
+        "bpb": 1.1876289453905495,
+        "document_id": "doc_wikipedia_en_astronomy_1295582_20231101",
+        "nll_nats": 1585.486387624067,
+        "targets": 452,
+        "utf8_bytes": 1926
+      },
+      {
+        "bpb": 1.3912714689018004,
+        "document_id": "doc_wikipedia_en_astronomy_13096236_20231101",
+        "nll_nats": 277.73449806607965,
+        "targets": 82,
+        "utf8_bytes": 288
+      },
+      {
+        "bpb": 0.8498263581829871,
+        "document_id": "doc_wikipedia_en_astronomy_1316913_20231101",
+        "nll_nats": 730.427882733679,
+        "targets": 284,
+        "utf8_bytes": 1240
+      },
+      {
+        "bpb": 1.4956083219636254,
+        "document_id": "doc_wikipedia_en_astronomy_13288679_20231101",
+        "nll_nats": 6177.556405191233,
+        "targets": 1437,
+        "utf8_bytes": 5959
+      },
+      {
+        "bpb": 1.3181020993421906,
+        "document_id": "doc_wikipedia_en_astronomy_13313106_20231101",
+        "nll_nats": 683.4017878791899,
+        "targets": 252,
+        "utf8_bytes": 748
+      },
+      {
+        "bpb": 0.5913776606400032,
+        "document_id": "doc_wikipedia_en_astronomy_13390276_20231101",
+        "nll_nats": 548.4619323628933,
+        "targets": 323,
+        "utf8_bytes": 1338
+      },
+      {
+        "bpb": 0.6991606771977632,
+        "document_id": "doc_wikipedia_en_astronomy_1352045_20231101",
+        "nll_nats": 376.55071292677496,
+        "targets": 175,
+        "utf8_bytes": 777
+      },
+      {
+        "bpb": 1.1184985867840413,
+        "document_id": "doc_wikipedia_en_astronomy_1368311_20231101",
+        "nll_nats": 435.70968774197854,
+        "targets": 160,
+        "utf8_bytes": 562
+      },
+      {
+        "bpb": 1.6157359560570435,
+        "document_id": "doc_wikipedia_en_astronomy_13690575_20231101",
+        "nll_nats": 31909.410897822854,
+        "targets": 7020,
+        "utf8_bytes": 28492
+      },
+      {
+        "bpb": 1.166735609797465,
+        "document_id": "doc_wikipedia_en_astronomy_13737596_20231101",
+        "nll_nats": 1244.619308022212,
+        "targets": 427,
+        "utf8_bytes": 1539
+      },
+      {
+        "bpb": 0.5567438326009916,
+        "document_id": "doc_wikipedia_en_astronomy_13750582_20231101",
+        "nll_nats": 348.4725923289485,
+        "targets": 217,
+        "utf8_bytes": 903
+      },
+      {
+        "bpb": 1.148621831720598,
+        "document_id": "doc_wikipedia_en_astronomy_13790872_20231101",
+        "nll_nats": 617.0270877447176,
+        "targets": 211,
+        "utf8_bytes": 775
+      },
+      {
+        "bpb": 0.9018561328522631,
+        "document_id": "doc_wikipedia_en_astronomy_13791717_20231101",
+        "nll_nats": 438.8335631015836,
+        "targets": 192,
+        "utf8_bytes": 702
+      },
+      {
+        "bpb": 1.5670496669109018,
+        "document_id": "doc_wikipedia_en_astronomy_13793229_20231101",
+        "nll_nats": 279.1523870130901,
+        "targets": 72,
+        "utf8_bytes": 257
+      },
+      {
+        "bpb": 1.301279891915678,
+        "document_id": "doc_wikipedia_en_astronomy_1384515_20231101",
+        "nll_nats": 3908.272789373644,
+        "targets": 1006,
+        "utf8_bytes": 4333
+      },
+      {
+        "bpb": 1.3005578928746249,
+        "document_id": "doc_wikipedia_en_astronomy_13853908_20231101",
+        "nll_nats": 266.83749883390476,
+        "targets": 68,
+        "utf8_bytes": 296
+      },
+      {
+        "bpb": 1.6469584853368742,
+        "document_id": "doc_wikipedia_en_astronomy_14158076_20231101",
+        "nll_nats": 14138.525650111442,
+        "targets": 3184,
+        "utf8_bytes": 12385
+      },
+      {
+        "bpb": 1.5687338489918752,
+        "document_id": "doc_wikipedia_en_astronomy_1425862_20231101",
+        "nll_nats": 663.2917011313782,
+        "targets": 151,
+        "utf8_bytes": 610
+      },
+      {
+        "bpb": 1.3646232609942754,
+        "document_id": "doc_wikipedia_en_astronomy_143047_20231101",
+        "nll_nats": 6771.58903896857,
+        "targets": 1720,
+        "utf8_bytes": 7159
+      },
+      {
+        "bpb": 1.4000699201064604,
+        "document_id": "doc_wikipedia_en_astronomy_14345389_20231101",
+        "nll_nats": 5980.911192637985,
+        "targets": 1428,
+        "utf8_bytes": 6163
+      },
+      {
+        "bpb": 1.7700341464162046,
+        "document_id": "doc_wikipedia_en_astronomy_1435007_20231101",
+        "nll_nats": 618.3546657539437,
+        "targets": 181,
+        "utf8_bytes": 504
+      },
+      {
+        "bpb": 0.6746348750170785,
+        "document_id": "doc_wikipedia_en_astronomy_14445101_20231101",
+        "nll_nats": 997.903772095415,
+        "targets": 555,
+        "utf8_bytes": 2134
+      },
+      {
+        "bpb": 1.4299970753230642,
+        "document_id": "doc_wikipedia_en_astronomy_14487205_20231101",
+        "nll_nats": 458.92487816871625,
+        "targets": 111,
+        "utf8_bytes": 463
+      },
+      {
+        "bpb": 1.4180504390851372,
+        "document_id": "doc_wikipedia_en_astronomy_1452622_20231101",
+        "nll_nats": 810.9070725885156,
+        "targets": 232,
+        "utf8_bytes": 825
+      },
+      {
+        "bpb": 1.7529815178723607,
+        "document_id": "doc_wikipedia_en_astronomy_14542460_20231101",
+        "nll_nats": 810.4544891901758,
+        "targets": 203,
+        "utf8_bytes": 667
+      },
+      {
+        "bpb": 1.0995468504116666,
+        "document_id": "doc_wikipedia_en_astronomy_14587467_20231101",
+        "nll_nats": 1416.8327588176746,
+        "targets": 439,
+        "utf8_bytes": 1859
+      },
+      {
+        "bpb": 0.7519191091104448,
+        "document_id": "doc_wikipedia_en_astronomy_14667031_20231101",
+        "nll_nats": 662.9544565420724,
+        "targets": 344,
+        "utf8_bytes": 1272
+      },
+      {
+        "bpb": 1.161313439099767,
+        "document_id": "doc_wikipedia_en_astronomy_14667812_20231101",
+        "nll_nats": 1579.3337489465362,
+        "targets": 594,
+        "utf8_bytes": 1962
+      },
+      {
+        "bpb": 1.04656491721231,
+        "document_id": "doc_wikipedia_en_astronomy_1470599_20231101",
+        "nll_nats": 859.6268731418182,
+        "targets": 282,
+        "utf8_bytes": 1185
+      },
+      {
+        "bpb": 0.7648047024639216,
+        "document_id": "doc_wikipedia_en_astronomy_14726779_20231101",
+        "nll_nats": 669.544367891313,
+        "targets": 336,
+        "utf8_bytes": 1263
+      },
+      {
+        "bpb": 1.1147908227454395,
+        "document_id": "doc_wikipedia_en_astronomy_1505215_20231101",
+        "nll_nats": 1799.65117546554,
+        "targets": 517,
+        "utf8_bytes": 2329
+      },
+      {
+        "bpb": 0.7876257983653067,
+        "document_id": "doc_wikipedia_en_astronomy_1517625_20231101",
+        "nll_nats": 388.70970824891003,
+        "targets": 171,
+        "utf8_bytes": 712
+      },
+      {
+        "bpb": 0.9448314709153833,
+        "document_id": "doc_wikipedia_en_astronomy_1522372_20231101",
+        "nll_nats": 1561.2989320836205,
+        "targets": 603,
+        "utf8_bytes": 2384
+      },
+      {
+        "bpb": 1.4149541074026992,
+        "document_id": "doc_wikipedia_en_astronomy_1525197_20231101",
+        "nll_nats": 1191.6373119539924,
+        "targets": 319,
+        "utf8_bytes": 1215
+      },
+      {
+        "bpb": 1.3887190867011745,
+        "document_id": "doc_wikipedia_en_astronomy_15324726_20231101",
+        "nll_nats": 2267.8543112284683,
+        "targets": 565,
+        "utf8_bytes": 2356
+      },
+      {
+        "bpb": 0.8449618320348198,
+        "document_id": "doc_wikipedia_en_astronomy_1554454_20231101",
+        "nll_nats": 619.652520425932,
+        "targets": 256,
+        "utf8_bytes": 1058
+      },
+      {
+        "bpb": 1.0796142236057764,
+        "document_id": "doc_wikipedia_en_astronomy_1558400_20231101",
+        "nll_nats": 1330.5335051185002,
+        "targets": 429,
+        "utf8_bytes": 1778
+      },
+      {
+        "bpb": 1.6085805345194772,
+        "document_id": "doc_wikipedia_en_astronomy_1559807_20231101",
+        "nll_nats": 8650.038596592483,
+        "targets": 2014,
+        "utf8_bytes": 7758
+      },
+      {
+        "bpb": 1.1189520964775133,
+        "document_id": "doc_wikipedia_en_astronomy_1571487_20231101",
+        "nll_nats": 577.820875686996,
+        "targets": 210,
+        "utf8_bytes": 745
+      },
+      {
+        "bpb": 1.1518953867755715,
+        "document_id": "doc_wikipedia_en_astronomy_15898162_20231101",
+        "nll_nats": 579.6623867811774,
+        "targets": 196,
+        "utf8_bytes": 726
+      },
+      {
+        "bpb": 1.1041204901332389,
+        "document_id": "doc_wikipedia_en_astronomy_15951454_20231101",
+        "nll_nats": 441.58848873170234,
+        "targets": 141,
+        "utf8_bytes": 577
+      },
+      {
+        "bpb": 0.8361257912426437,
+        "document_id": "doc_wikipedia_en_astronomy_16065341_20231101",
+        "nll_nats": 634.0367088638613,
+        "targets": 278,
+        "utf8_bytes": 1094
+      },
+      {
+        "bpb": 1.384106828837874,
+        "document_id": "doc_wikipedia_en_astronomy_1614102_20231101",
+        "nll_nats": 30781.060610751883,
+        "targets": 7644,
+        "utf8_bytes": 32084
+      },
+      {
+        "bpb": 1.512054327003684,
+        "document_id": "doc_wikipedia_en_astronomy_16547978_20231101",
+        "nll_nats": 1480.9316615795055,
+        "targets": 380,
+        "utf8_bytes": 1413
+      },
+      {
+        "bpb": 1.1235730610591754,
+        "document_id": "doc_wikipedia_en_astronomy_16742304_20231101",
+        "nll_nats": 810.732360902752,
+        "targets": 278,
+        "utf8_bytes": 1041
+      },
+      {
+        "bpb": 1.1247649142542462,
+        "document_id": "doc_wikipedia_en_astronomy_16796724_20231101",
+        "nll_nats": 667.361250516516,
+        "targets": 233,
+        "utf8_bytes": 856
+      },
+      {
+        "bpb": 1.359573786489325,
+        "document_id": "doc_wikipedia_en_astronomy_16797286_20231101",
+        "nll_nats": 520.1963747512931,
+        "targets": 156,
+        "utf8_bytes": 552
+      },
+      {
+        "bpb": 1.260282863930759,
+        "document_id": "doc_wikipedia_en_astronomy_1689440_20231101",
+        "nll_nats": 6089.597312989925,
+        "targets": 1518,
+        "utf8_bytes": 6971
+      },
+      {
+        "bpb": 1.170897535477848,
+        "document_id": "doc_wikipedia_en_astronomy_16996815_20231101",
+        "nll_nats": 1275.8419995933446,
+        "targets": 353,
+        "utf8_bytes": 1572
+      },
+      {
+        "bpb": 1.442128858094817,
+        "document_id": "doc_wikipedia_en_astronomy_17058845_20231101",
+        "nll_nats": 1329.4780441500993,
+        "targets": 332,
+        "utf8_bytes": 1330
+      },
+      {
+        "bpb": 1.8111898337486652,
+        "document_id": "doc_wikipedia_en_astronomy_1710546_20231101",
+        "nll_nats": 11839.876646112572,
+        "targets": 2832,
+        "utf8_bytes": 9431
+      },
+      {
+        "bpb": 1.4283684517139557,
+        "document_id": "doc_wikipedia_en_astronomy_17142884_20231101",
+        "nll_nats": 631.6643825378212,
+        "targets": 167,
+        "utf8_bytes": 638
+      },
+      {
+        "bpb": 0.8849979461229783,
+        "document_id": "doc_wikipedia_en_astronomy_1719474_20231101",
+        "nll_nats": 504.85604304178696,
+        "targets": 181,
+        "utf8_bytes": 823
+      },
+      {
+        "bpb": 1.2279770826641194,
+        "document_id": "doc_wikipedia_en_astronomy_1720938_20231101",
+        "nll_nats": 2886.3135793051606,
+        "targets": 758,
+        "utf8_bytes": 3391
+      },
+      {
+        "bpb": 1.455957440904026,
+        "document_id": "doc_wikipedia_en_astronomy_173077_20231101",
+        "nll_nats": 5951.209913164069,
+        "targets": 1344,
+        "utf8_bytes": 5897
+      },
+      {
+        "bpb": 1.552225789714276,
+        "document_id": "doc_wikipedia_en_astronomy_1731800_20231101",
+        "nll_nats": 1527.8077202206966,
+        "targets": 354,
+        "utf8_bytes": 1420
+      },
+      {
+        "bpb": 1.321701578322026,
+        "document_id": "doc_wikipedia_en_astronomy_17444003_20231101",
+        "nll_nats": 1019.6568332043184,
+        "targets": 288,
+        "utf8_bytes": 1113
+      },
+      {
+        "bpb": 1.7056536272386493,
+        "document_id": "doc_wikipedia_en_astronomy_1752849_20231101",
+        "nll_nats": 568.6713903142429,
+        "targets": 120,
+        "utf8_bytes": 481
+      },
+      {
+        "bpb": 0.7399337926773676,
+        "document_id": "doc_wikipedia_en_astronomy_1754701_20231101",
+        "nll_nats": 583.1479962361066,
+        "targets": 260,
+        "utf8_bytes": 1137
+      },
+      {
+        "bpb": 1.8369122210168776,
+        "document_id": "doc_wikipedia_en_astronomy_17563470_20231101",
+        "nll_nats": 1750.7194745341892,
+        "targets": 397,
+        "utf8_bytes": 1375
+      },
+      {
+        "bpb": 0.938190233034944,
+        "document_id": "doc_wikipedia_en_astronomy_17627250_20231101",
+        "nll_nats": 833.6896188467374,
+        "targets": 391,
+        "utf8_bytes": 1282
+      },
+      {
+        "bpb": 1.1544557538696656,
+        "document_id": "doc_wikipedia_en_astronomy_17720227_20231101",
+        "nll_nats": 2900.7530969253726,
+        "targets": 981,
+        "utf8_bytes": 3625
+      },
+      {
+        "bpb": 1.503280303486577,
+        "document_id": "doc_wikipedia_en_astronomy_17780895_20231101",
+        "nll_nats": 1157.655893891805,
+        "targets": 308,
+        "utf8_bytes": 1111
+      },
+      {
+        "bpb": 1.5029208134217922,
+        "document_id": "doc_wikipedia_en_astronomy_1782897_20231101",
+        "nll_nats": 10543.504428537557,
+        "targets": 2599,
+        "utf8_bytes": 10121
+      },
+      {
+        "bpb": 0.6317577375332739,
+        "document_id": "doc_wikipedia_en_astronomy_1786241_20231101",
+        "nll_nats": 229.02227245912613,
+        "targets": 118,
+        "utf8_bytes": 523
+      },
+      {
+        "bpb": 1.2418575148639521,
+        "document_id": "doc_wikipedia_en_astronomy_1789807_20231101",
+        "nll_nats": 726.5067896118487,
+        "targets": 227,
+        "utf8_bytes": 844
+      },
+      {
+        "bpb": 1.0873816192944286,
+        "document_id": "doc_wikipedia_en_astronomy_18132932_20231101",
+        "nll_nats": 1444.8726204139307,
+        "targets": 504,
+        "utf8_bytes": 1917
+      },
+      {
+        "bpb": 0.963988373206471,
+        "document_id": "doc_wikipedia_en_astronomy_1823060_20231101",
+        "nll_nats": 688.8995834930333,
+        "targets": 238,
+        "utf8_bytes": 1031
+      },
+      {
+        "bpb": 1.057984373890978,
+        "document_id": "doc_wikipedia_en_astronomy_18237115_20231101",
+        "nll_nats": 519.9372700598584,
+        "targets": 183,
+        "utf8_bytes": 709
+      },
+      {
+        "bpb": 0.8431841942491931,
+        "document_id": "doc_wikipedia_en_astronomy_1826521_20231101",
+        "nll_nats": 670.3650067362084,
+        "targets": 272,
+        "utf8_bytes": 1147
+      },
+      {
+        "bpb": 1.4061154588906748,
+        "document_id": "doc_wikipedia_en_astronomy_18451343_20231101",
+        "nll_nats": 2360.59010734156,
+        "targets": 617,
+        "utf8_bytes": 2422
+      },
+      {
+        "bpb": 1.3662721677281568,
+        "document_id": "doc_wikipedia_en_astronomy_184527_20231101",
+        "nll_nats": 15631.639231687524,
+        "targets": 3645,
+        "utf8_bytes": 16506
+      },
+      {
+        "bpb": 1.4773428897590235,
+        "document_id": "doc_wikipedia_en_astronomy_186811_20231101",
+        "nll_nats": 9231.504769692094,
+        "targets": 2299,
+        "utf8_bytes": 9015
+      },
+      {
+        "bpb": 1.7005062226934125,
+        "document_id": "doc_wikipedia_en_astronomy_18889068_20231101",
+        "nll_nats": 4365.908851378089,
+        "targets": 1100,
+        "utf8_bytes": 3704
+      },
+      {
+        "bpb": 0.7823918774550715,
+        "document_id": "doc_wikipedia_en_astronomy_18903357_20231101",
+        "nll_nats": 545.02428757074,
+        "targets": 275,
+        "utf8_bytes": 1005
+      },
+      {
+        "bpb": 0.7414415925633394,
+        "document_id": "doc_wikipedia_en_astronomy_19029777_20231101",
+        "nll_nats": 548.3613354473098,
+        "targets": 261,
+        "utf8_bytes": 1067
+      },
+      {
+        "bpb": 1.5271427964734239,
+        "document_id": "doc_wikipedia_en_astronomy_191323_20231101",
+        "nll_nats": 24038.265040230428,
+        "targets": 5876,
+        "utf8_bytes": 22709
+      },
+      {
+        "bpb": 1.2841267816381388,
+        "document_id": "doc_wikipedia_en_astronomy_19167840_20231101",
+        "nll_nats": 51585.98986433191,
+        "targets": 13039,
+        "utf8_bytes": 57956
+      },
+      {
+        "bpb": 1.6160290232663017,
+        "document_id": "doc_wikipedia_en_astronomy_19179706_20231101",
+        "nll_nats": 54437.97356739067,
+        "targets": 12348,
+        "utf8_bytes": 48599
+      },
+      {
+        "bpb": 1.0031337841735724,
+        "document_id": "doc_wikipedia_en_astronomy_19179942_20231101",
+        "nll_nats": 416.4962931803799,
+        "targets": 159,
+        "utf8_bytes": 599
+      },
+      {
+        "bpb": 1.4288128481061366,
+        "document_id": "doc_wikipedia_en_astronomy_19363373_20231101",
+        "nll_nats": 6212.638667314603,
+        "targets": 1648,
+        "utf8_bytes": 6273
+      },
+      {
+        "bpb": 1.573866949985957,
+        "document_id": "doc_wikipedia_en_astronomy_19513545_20231101",
+        "nll_nats": 12096.136915180125,
+        "targets": 2860,
+        "utf8_bytes": 11088
+      },
+      {
+        "bpb": 1.071405153766297,
+        "document_id": "doc_wikipedia_en_astronomy_1957202_20231101",
+        "nll_nats": 388.4014844013733,
+        "targets": 138,
+        "utf8_bytes": 523
+      },
+      {
+        "bpb": 1.2244991579872277,
+        "document_id": "doc_wikipedia_en_astronomy_19680409_20231101",
+        "nll_nats": 306.40168816343146,
+        "targets": 103,
+        "utf8_bytes": 361
+      },
+      {
+        "bpb": 1.5778217525920344,
+        "document_id": "doc_wikipedia_en_astronomy_197175_20231101",
+        "nll_nats": 8050.451129071192,
+        "targets": 2637,
+        "utf8_bytes": 7361
+      },
+      {
+        "bpb": 1.2360188006486281,
+        "document_id": "doc_wikipedia_en_astronomy_197189_20231101",
+        "nll_nats": 1336.5189969903433,
+        "targets": 516,
+        "utf8_bytes": 1560
+      },
+      {
+        "bpb": 1.4694624855729956,
+        "document_id": "doc_wikipedia_en_astronomy_197551_20231101",
+        "nll_nats": 2972.1399265778837,
+        "targets": 864,
+        "utf8_bytes": 2918
+      },
+      {
+        "bpb": 1.325107813350656,
+        "document_id": "doc_wikipedia_en_astronomy_19844906_20231101",
+        "nll_nats": 13267.656588086531,
+        "targets": 3517,
+        "utf8_bytes": 14445
+      },
+      {
+        "bpb": 1.4302465792212802,
+        "document_id": "doc_wikipedia_en_astronomy_20035423_20231101",
+        "nll_nats": 2088.8195058619963,
+        "targets": 479,
+        "utf8_bytes": 2107
+      },
+      {
+        "bpb": 1.381001739248525,
+        "document_id": "doc_wikipedia_en_astronomy_2008319_20231101",
+        "nll_nats": 2707.067542277226,
+        "targets": 653,
+        "utf8_bytes": 2828
+      },
+      {
+        "bpb": 1.6809279995510504,
+        "document_id": "doc_wikipedia_en_astronomy_2011842_20231101",
+        "nll_nats": 4597.604967257212,
+        "targets": 1252,
+        "utf8_bytes": 3946
+      },
+      {
+        "bpb": 1.2581232637270165,
+        "document_id": "doc_wikipedia_en_astronomy_20198736_20231101",
+        "nll_nats": 12075.478419953077,
+        "targets": 3179,
+        "utf8_bytes": 13847
+      },
+      {
+        "bpb": 1.5082437452824473,
+        "document_id": "doc_wikipedia_en_astronomy_203452_20231101",
+        "nll_nats": 14533.63597479112,
+        "targets": 3421,
+        "utf8_bytes": 13902
+      },
+      {
+        "bpb": 1.398784792995373,
+        "document_id": "doc_wikipedia_en_astronomy_205721_20231101",
+        "nll_nats": 7902.914007855662,
+        "targets": 2099,
+        "utf8_bytes": 8151
+      },
+      {
+        "bpb": 1.3556250398055678,
+        "document_id": "doc_wikipedia_en_astronomy_20607372_20231101",
+        "nll_nats": 5209.40670597377,
+        "targets": 1250,
+        "utf8_bytes": 5544
+      },
+      {
+        "bpb": 1.2757030408480088,
+        "document_id": "doc_wikipedia_en_astronomy_206266_20231101",
+        "nll_nats": 839.1532177297731,
+        "targets": 231,
+        "utf8_bytes": 949
+      },
+      {
+        "bpb": 1.4640042442907044,
+        "document_id": "doc_wikipedia_en_astronomy_20653168_20231101",
+        "nll_nats": 14098.205365284939,
+        "targets": 3319,
+        "utf8_bytes": 13893
+      },
+      {
+        "bpb": 1.634381999635883,
+        "document_id": "doc_wikipedia_en_astronomy_20936835_20231101",
+        "nll_nats": 952.7413782796573,
+        "targets": 247,
+        "utf8_bytes": 841
+      },
+      {
+        "bpb": 0.8191418148744074,
+        "document_id": "doc_wikipedia_en_astronomy_2128249_20231101",
+        "nll_nats": 337.2647886386176,
+        "targets": 152,
+        "utf8_bytes": 594
+      },
+      {
+        "bpb": 1.363862363641483,
+        "document_id": "doc_wikipedia_en_astronomy_213468_20231101",
+        "nll_nats": 7856.864952720638,
+        "targets": 2301,
+        "utf8_bytes": 8311
+      },
+      {
+        "bpb": 1.1230940598777344,
+        "document_id": "doc_wikipedia_en_astronomy_21474902_20231101",
+        "nll_nats": 839.190100634288,
+        "targets": 246,
+        "utf8_bytes": 1078
+      },
+      {
+        "bpb": 1.179196988545126,
+        "document_id": "doc_wikipedia_en_astronomy_21480709_20231101",
+        "nll_nats": 550.081306720142,
+        "targets": 176,
+        "utf8_bytes": 673
+      },
+      {
+        "bpb": 1.302694793317263,
+        "document_id": "doc_wikipedia_en_astronomy_21482999_20231101",
+        "nll_nats": 1117.8635182200612,
+        "targets": 334,
+        "utf8_bytes": 1238
+      },
+      {
+        "bpb": 0.7922309975014121,
+        "document_id": "doc_wikipedia_en_astronomy_21550068_20231101",
+        "nll_nats": 6506.124019538477,
+        "targets": 2680,
+        "utf8_bytes": 11848
+      },
+      {
+        "bpb": 0.7325065052279727,
+        "document_id": "doc_wikipedia_en_astronomy_21550209_20231101",
+        "nll_nats": 4712.7945884783385,
+        "targets": 2300,
+        "utf8_bytes": 9282
+      },
+      {
+        "bpb": 1.6394604479641939,
+        "document_id": "doc_wikipedia_en_astronomy_21607455_20231101",
+        "nll_nats": 2970.5166299994503,
+        "targets": 651,
+        "utf8_bytes": 2614
+      },
+      {
+        "bpb": 1.2862503197623298,
+        "document_id": "doc_wikipedia_en_astronomy_21623668_20231101",
+        "nll_nats": 1581.6288283990796,
+        "targets": 481,
+        "utf8_bytes": 1774
+      },
+      {
+        "bpb": 1.570377247928606,
+        "document_id": "doc_wikipedia_en_astronomy_21625558_20231101",
+        "nll_nats": 3309.0477879242862,
+        "targets": 795,
+        "utf8_bytes": 3040
+      },
+      {
+        "bpb": 0.580961560779919,
+        "document_id": "doc_wikipedia_en_astronomy_21972541_20231101",
+        "nll_nats": 312.4888894658056,
+        "targets": 210,
+        "utf8_bytes": 776
+      },
+      {
+        "bpb": 1.0254250368748483,
+        "document_id": "doc_wikipedia_en_astronomy_22042298_20231101",
+        "nll_nats": 869.9830591789039,
+        "targets": 309,
+        "utf8_bytes": 1224
+      },
+      {
+        "bpb": 1.5252147680139896,
+        "document_id": "doc_wikipedia_en_astronomy_2211036_20231101",
+        "nll_nats": 2830.1198924601395,
+        "targets": 752,
+        "utf8_bytes": 2677
+      },
+      {
+        "bpb": 0.9091453766919768,
+        "document_id": "doc_wikipedia_en_astronomy_22138309_20231101",
+        "nll_nats": 736.0403757414427,
+        "targets": 292,
+        "utf8_bytes": 1168
+      },
+      {
+        "bpb": 0.9971962303648817,
+        "document_id": "doc_wikipedia_en_astronomy_22138498_20231101",
+        "nll_nats": 268.1870571504603,
+        "targets": 123,
+        "utf8_bytes": 388
+      },
+      {
+        "bpb": 1.5879196983700417,
+        "document_id": "doc_wikipedia_en_astronomy_2252258_20231101",
+        "nll_nats": 4189.119807518298,
+        "targets": 984,
+        "utf8_bytes": 3806
+      },
+      {
+        "bpb": 1.7501115492670898,
+        "document_id": "doc_wikipedia_en_astronomy_2269349_20231101",
+        "nll_nats": 923.1575982763495,
+        "targets": 205,
+        "utf8_bytes": 761
+      },
+      {
+        "bpb": 0.9983701367963738,
+        "document_id": "doc_wikipedia_en_astronomy_2276153_20231101",
+        "nll_nats": 711.3939339489716,
+        "targets": 303,
+        "utf8_bytes": 1028
+      },
+      {
+        "bpb": 0.7676264120039764,
+        "document_id": "doc_wikipedia_en_astronomy_22963442_20231101",
+        "nll_nats": 479.9344310499207,
+        "targets": 271,
+        "utf8_bytes": 902
+      },
+      {
+        "bpb": 1.34735531869341,
+        "document_id": "doc_wikipedia_en_astronomy_229697_20231101",
+        "nll_nats": 3193.99114804756,
+        "targets": 862,
+        "utf8_bytes": 3420
+      },
+      {
+        "bpb": 0.5533896884385824,
+        "document_id": "doc_wikipedia_en_astronomy_22989666_20231101",
+        "nll_nats": 266.5884490930442,
+        "targets": 229,
+        "utf8_bytes": 695
+      },
+      {
+        "bpb": 1.3187678154749332,
+        "document_id": "doc_wikipedia_en_astronomy_2303438_20231101",
+        "nll_nats": 2857.47720366076,
+        "targets": 765,
+        "utf8_bytes": 3126
+      },
+      {
+        "bpb": 1.5608483110054616,
+        "document_id": "doc_wikipedia_en_astronomy_23230510_20231101",
+        "nll_nats": 3473.97321304321,
+        "targets": 836,
+        "utf8_bytes": 3211
+      },
+      {
+        "bpb": 1.35520649872209,
+        "document_id": "doc_wikipedia_en_astronomy_2333728_20231101",
+        "nll_nats": 22677.970302018097,
+        "targets": 6152,
+        "utf8_bytes": 24142
+      },
+      {
+        "bpb": 1.3325192253566935,
+        "document_id": "doc_wikipedia_en_astronomy_2377615_20231101",
+        "nll_nats": 1499.9782772150133,
+        "targets": 511,
+        "utf8_bytes": 1624
+      },
+      {
+        "bpb": 1.8315307040400035,
+        "document_id": "doc_wikipedia_en_astronomy_23855875_20231101",
+        "nll_nats": 7275.621089253553,
+        "targets": 1578,
+        "utf8_bytes": 5731
+      },
+      {
+        "bpb": 1.3966243478306761,
+        "document_id": "doc_wikipedia_en_astronomy_24084612_20231101",
+        "nll_nats": 3096.8438665716576,
+        "targets": 857,
+        "utf8_bytes": 3199
+      },
+      {
+        "bpb": 1.0806978278841257,
+        "document_id": "doc_wikipedia_en_astronomy_24123147_20231101",
+        "nll_nats": 1161.078111274465,
+        "targets": 366,
+        "utf8_bytes": 1550
+      },
+      {
+        "bpb": 1.2560285824583557,
+        "document_id": "doc_wikipedia_en_astronomy_241298_20231101",
+        "nll_nats": 1040.3821414072884,
+        "targets": 279,
+        "utf8_bytes": 1195
+      },
+      {
+        "bpb": 0.956123984268035,
+        "document_id": "doc_wikipedia_en_astronomy_24163440_20231101",
+        "nll_nats": 404.9308674602504,
+        "targets": 159,
+        "utf8_bytes": 611
+      },
+      {
+        "bpb": 0.29664500516567854,
+        "document_id": "doc_wikipedia_en_astronomy_24514245_20231101",
+        "nll_nats": 438.378959577988,
+        "targets": 519,
+        "utf8_bytes": 2132
+      },
+      {
+        "bpb": 1.2749026865064108,
+        "document_id": "doc_wikipedia_en_astronomy_24551879_20231101",
+        "nll_nats": 2208.354311397906,
+        "targets": 631,
+        "utf8_bytes": 2499
+      },
+      {
+        "bpb": 1.2345510908090667,
+        "document_id": "doc_wikipedia_en_astronomy_2456078_20231101",
+        "nll_nats": 1956.1887395485508,
+        "targets": 526,
+        "utf8_bytes": 2286
+      },
+      {
+        "bpb": 0.5781081259174686,
+        "document_id": "doc_wikipedia_en_astronomy_24725282_20231101",
+        "nll_nats": 412.7354380646418,
+        "targets": 255,
+        "utf8_bytes": 1030
+      },
+      {
+        "bpb": 0.8206529718260325,
+        "document_id": "doc_wikipedia_en_astronomy_2499258_20231101",
+        "nll_nats": 668.3791200262417,
+        "targets": 269,
+        "utf8_bytes": 1175
+      },
+      {
+        "bpb": 0.7124270804244079,
+        "document_id": "doc_wikipedia_en_astronomy_2499361_20231101",
+        "nll_nats": 445.42277357996,
+        "targets": 202,
+        "utf8_bytes": 902
+      },
+      {
+        "bpb": 1.1435342817140974,
+        "document_id": "doc_wikipedia_en_astronomy_2499382_20231101",
+        "nll_nats": 542.1640932587379,
+        "targets": 177,
+        "utf8_bytes": 684
+      },
+      {
+        "bpb": 0.6576309069183761,
+        "document_id": "doc_wikipedia_en_astronomy_25008653_20231101",
+        "nll_nats": 745.290239681568,
+        "targets": 407,
+        "utf8_bytes": 1635
+      },
+      {
+        "bpb": 0.6410653032053394,
+        "document_id": "doc_wikipedia_en_astronomy_25207007_20231101",
+        "nll_nats": 291.49531050136136,
+        "targets": 162,
+        "utf8_bytes": 656
+      },
+      {
+        "bpb": 1.2083641872087956,
+        "document_id": "doc_wikipedia_en_astronomy_252372_20231101",
+        "nll_nats": 15737.18219719968,
+        "targets": 4312,
+        "utf8_bytes": 18789
+      },
+      {
+        "bpb": 0.9196559313029162,
+        "document_id": "doc_wikipedia_en_astronomy_25510720_20231101",
+        "nll_nats": 672.5170462405787,
+        "targets": 303,
+        "utf8_bytes": 1055
+      },
+      {
+        "bpb": 1.3287676887942617,
+        "document_id": "doc_wikipedia_en_astronomy_25598253_20231101",
+        "nll_nats": 5551.978346800377,
+        "targets": 1262,
+        "utf8_bytes": 6028
+      },
+      {
+        "bpb": 1.4407998020121369,
+        "document_id": "doc_wikipedia_en_astronomy_25754526_20231101",
+        "nll_nats": 2838.266522906586,
+        "targets": 782,
+        "utf8_bytes": 2842
+      },
+      {
+        "bpb": 1.3389412837438843,
+        "document_id": "doc_wikipedia_en_astronomy_25864336_20231101",
+        "nll_nats": 1482.1491510925323,
+        "targets": 377,
+        "utf8_bytes": 1597
+      },
+      {
+        "bpb": 1.6759912134789174,
+        "document_id": "doc_wikipedia_en_astronomy_26017726_20231101",
+        "nll_nats": 1404.505678377779,
+        "targets": 386,
+        "utf8_bytes": 1209
+      },
+      {
+        "bpb": 1.0475453044404508,
+        "document_id": "doc_wikipedia_en_astronomy_2621951_20231101",
+        "nll_nats": 456.7188337231943,
+        "targets": 155,
+        "utf8_bytes": 629
+      },
+      {
+        "bpb": 1.4140024407882437,
+        "document_id": "doc_wikipedia_en_astronomy_26434080_20231101",
+        "nll_nats": 408.7066227422341,
+        "targets": 113,
+        "utf8_bytes": 417
+      },
+      {
+        "bpb": 1.1155942840757307,
+        "document_id": "doc_wikipedia_en_astronomy_26460946_20231101",
+        "nll_nats": 661.1467329207803,
+        "targets": 219,
+        "utf8_bytes": 855
+      },
+      {
+        "bpb": 0.6949357436266019,
+        "document_id": "doc_wikipedia_en_astronomy_2649248_20231101",
+        "nll_nats": 414.73745892535806,
+        "targets": 226,
+        "utf8_bytes": 861
+      },
+      {
+        "bpb": 1.7833021600973276,
+        "document_id": "doc_wikipedia_en_astronomy_2650348_20231101",
+        "nll_nats": 4463.524111196459,
+        "targets": 988,
+        "utf8_bytes": 3611
+      },
+      {
+        "bpb": 1.7951553026927378,
+        "document_id": "doc_wikipedia_en_astronomy_26511477_20231101",
+        "nll_nats": 1119.8761530558359,
+        "targets": 302,
+        "utf8_bytes": 900
+      },
+      {
+        "bpb": 1.2164765487085274,
+        "document_id": "doc_wikipedia_en_astronomy_2653867_20231101",
+        "nll_nats": 948.5969511989349,
+        "targets": 264,
+        "utf8_bytes": 1125
+      },
+      {
+        "bpb": 1.578956032628747,
+        "document_id": "doc_wikipedia_en_astronomy_26608926_20231101",
+        "nll_nats": 5896.890793054621,
+        "targets": 1452,
+        "utf8_bytes": 5388
+      },
+      {
+        "bpb": 1.2086829574537674,
+        "document_id": "doc_wikipedia_en_astronomy_2664694_20231101",
+        "nll_nats": 203.58422974843427,
+        "targets": 78,
+        "utf8_bytes": 243
+      },
+      {
+        "bpb": 0.945271311824786,
+        "document_id": "doc_wikipedia_en_astronomy_2665436_20231101",
+        "nll_nats": 1083.0656751156262,
+        "targets": 406,
+        "utf8_bytes": 1653
+      },
+      {
+        "bpb": 0.6104260173910528,
+        "document_id": "doc_wikipedia_en_astronomy_2669024_20231101",
+        "nll_nats": 275.4479124546739,
+        "targets": 175,
+        "utf8_bytes": 651
+      },
+      {
+        "bpb": 0.9946740118476567,
+        "document_id": "doc_wikipedia_en_astronomy_2670439_20231101",
+        "nll_nats": 477.79265241369785,
+        "targets": 180,
+        "utf8_bytes": 693
+      },
+      {
+        "bpb": 1.2752273539378285,
+        "document_id": "doc_wikipedia_en_astronomy_26869391_20231101",
+        "nll_nats": 1305.5502017984247,
+        "targets": 420,
+        "utf8_bytes": 1477
+      },
+      {
+        "bpb": 1.0275195481267618,
+        "document_id": "doc_wikipedia_en_astronomy_2687053_20231101",
+        "nll_nats": 1871.7201459382845,
+        "targets": 710,
+        "utf8_bytes": 2628
+      },
+      {
+        "bpb": 0.7350211041266417,
+        "document_id": "doc_wikipedia_en_astronomy_2687403_20231101",
+        "nll_nats": 520.6863177089433,
+        "targets": 245,
+        "utf8_bytes": 1022
+      },
+      {
+        "bpb": 0.7620305858845273,
+        "document_id": "doc_wikipedia_en_astronomy_2696356_20231101",
+        "nll_nats": 523.4455579373466,
+        "targets": 227,
+        "utf8_bytes": 991
+      },
+      {
+        "bpb": 1.0768559975620147,
+        "document_id": "doc_wikipedia_en_astronomy_2696465_20231101",
+        "nll_nats": 391.87034175406836,
+        "targets": 138,
+        "utf8_bytes": 525
+      },
+      {
+        "bpb": 1.7291480912981312,
+        "document_id": "doc_wikipedia_en_astronomy_2699278_20231101",
+        "nll_nats": 12775.38841042243,
+        "targets": 2822,
+        "utf8_bytes": 10659
+      },
+      {
+        "bpb": 1.1596549036703128,
+        "document_id": "doc_wikipedia_en_astronomy_27193627_20231101",
+        "nll_nats": 259.6311231892143,
+        "targets": 92,
+        "utf8_bytes": 323
+      },
+      {
+        "bpb": 1.259151856748716,
+        "document_id": "doc_wikipedia_en_astronomy_27195707_20231101",
+        "nll_nats": 719.1687089474067,
+        "targets": 216,
+        "utf8_bytes": 824
+      },
+      {
+        "bpb": 1.5023839772212293,
+        "document_id": "doc_wikipedia_en_astronomy_27213579_20231101",
+        "nll_nats": 404.0528085565809,
+        "targets": 97,
+        "utf8_bytes": 388
+      },
+      {
+        "bpb": 0.6549573816756772,
+        "document_id": "doc_wikipedia_en_astronomy_2743949_20231101",
+        "nll_nats": 577.4649290941737,
+        "targets": 322,
+        "utf8_bytes": 1272
+      },
+      {
+        "bpb": 0.9461763678468504,
+        "document_id": "doc_wikipedia_en_astronomy_2772522_20231101",
+        "nll_nats": 1332.0099873032384,
+        "targets": 513,
+        "utf8_bytes": 2031
+      },
+      {
+        "bpb": 1.2695734634054148,
+        "document_id": "doc_wikipedia_en_astronomy_2794117_20231101",
+        "nll_nats": 12673.778242627257,
+        "targets": 3344,
+        "utf8_bytes": 14402
+      },
+      {
+        "bpb": 0.5621266318805284,
+        "document_id": "doc_wikipedia_en_astronomy_27963842_20231101",
+        "nll_nats": 185.07733275268208,
+        "targets": 157,
+        "utf8_bytes": 475
+      },
+      {
+        "bpb": 0.511164989261568,
+        "document_id": "doc_wikipedia_en_astronomy_27972213_20231101",
+        "nll_nats": 172.55022212940634,
+        "targets": 156,
+        "utf8_bytes": 487
+      },
+      {
+        "bpb": 0.6645880823743581,
+        "document_id": "doc_wikipedia_en_astronomy_27974892_20231101",
+        "nll_nats": 195.31871874536742,
+        "targets": 120,
+        "utf8_bytes": 424
+      },
+      {
+        "bpb": 1.1952779149735024,
+        "document_id": "doc_wikipedia_en_astronomy_2797809_20231101",
+        "nll_nats": 3344.6686971175427,
+        "targets": 870,
+        "utf8_bytes": 4037
+      },
+      {
+        "bpb": 0.9996158185108117,
+        "document_id": "doc_wikipedia_en_astronomy_28194870_20231101",
+        "nll_nats": 1173.7402212971515,
+        "targets": 465,
+        "utf8_bytes": 1694
+      },
+      {
+        "bpb": 0.8853249577711966,
+        "document_id": "doc_wikipedia_en_astronomy_2859017_20231101",
+        "nll_nats": 774.4395489283734,
+        "targets": 356,
+        "utf8_bytes": 1262
+      },
+      {
+        "bpb": 1.308341608545128,
+        "document_id": "doc_wikipedia_en_astronomy_2865024_20231101",
+        "nll_nats": 5221.776445118214,
+        "targets": 1239,
+        "utf8_bytes": 5758
+      },
+      {
+        "bpb": 1.4401014951246336,
+        "document_id": "doc_wikipedia_en_astronomy_28650776_20231101",
+        "nll_nats": 745.6571114261538,
+        "targets": 195,
+        "utf8_bytes": 747
+      },
+      {
+        "bpb": 1.4921228283699024,
+        "document_id": "doc_wikipedia_en_astronomy_2865218_20231101",
+        "nll_nats": 2844.2170117177548,
+        "targets": 613,
+        "utf8_bytes": 2750
+      },
+      {
+        "bpb": 0.8120837362604596,
+        "document_id": "doc_wikipedia_en_astronomy_28753975_20231101",
+        "nll_nats": 998.0102679930197,
+        "targets": 513,
+        "utf8_bytes": 1773
+      },
+      {
+        "bpb": 0.6386579503826683,
+        "document_id": "doc_wikipedia_en_astronomy_2879860_20231101",
+        "nll_nats": 407.7119249955947,
+        "targets": 215,
+        "utf8_bytes": 921
+      },
+      {
+        "bpb": 1.610638248357767,
+        "document_id": "doc_wikipedia_en_astronomy_289860_20231101",
+        "nll_nats": 6929.552902182668,
+        "targets": 1464,
+        "utf8_bytes": 6207
+      },
+      {
+        "bpb": 0.7098705640210551,
+        "document_id": "doc_wikipedia_en_astronomy_2902616_20231101",
+        "nll_nats": 620.4684675972662,
+        "targets": 295,
+        "utf8_bytes": 1261
+      },
+      {
+        "bpb": 0.4613966122314321,
+        "document_id": "doc_wikipedia_en_astronomy_2902694_20231101",
+        "nll_nats": 341.24341686763205,
+        "targets": 260,
+        "utf8_bytes": 1067
+      },
+      {
+        "bpb": 0.7203175957323313,
+        "document_id": "doc_wikipedia_en_astronomy_2903099_20231101",
+        "nll_nats": 333.5231218738421,
+        "targets": 175,
+        "utf8_bytes": 668
+      },
+      {
+        "bpb": 0.7627757856868898,
+        "document_id": "doc_wikipedia_en_astronomy_2903106_20231101",
+        "nll_nats": 560.4388383631606,
+        "targets": 261,
+        "utf8_bytes": 1060
+      },
+      {
+        "bpb": 0.47083945590582355,
+        "document_id": "doc_wikipedia_en_astronomy_2903194_20231101",
+        "nll_nats": 310.69571137234027,
+        "targets": 249,
+        "utf8_bytes": 952
+      },
+      {
+        "bpb": 0.5958407937637371,
+        "document_id": "doc_wikipedia_en_astronomy_2903263_20231101",
+        "nll_nats": 404.33225356847555,
+        "targets": 246,
+        "utf8_bytes": 979
+      },
+      {
+        "bpb": 0.5627198715540948,
+        "document_id": "doc_wikipedia_en_astronomy_2903740_20231101",
+        "nll_nats": 313.98839239228414,
+        "targets": 207,
+        "utf8_bytes": 805
+      },
+      {
+        "bpb": 0.6237796235610708,
+        "document_id": "doc_wikipedia_en_astronomy_2910071_20231101",
+        "nll_nats": 368.3801664325093,
+        "targets": 240,
+        "utf8_bytes": 852
+      },
+      {
+        "bpb": 1.4188341684378003,
+        "document_id": "doc_wikipedia_en_astronomy_291234_20231101",
+        "nll_nats": 11145.562419759613,
+        "targets": 2748,
+        "utf8_bytes": 11333
+      },
+      {
+        "bpb": 1.7179430140892578,
+        "document_id": "doc_wikipedia_en_astronomy_291263_20231101",
+        "nll_nats": 2222.0092073757114,
+        "targets": 442,
+        "utf8_bytes": 1866
+      },
+      {
+        "bpb": 0.5771638457189344,
+        "document_id": "doc_wikipedia_en_astronomy_2916920_20231101",
+        "nll_nats": 369.6549709602424,
+        "targets": 242,
+        "utf8_bytes": 924
+      },
+      {
+        "bpb": 0.8218856792072083,
+        "document_id": "doc_wikipedia_en_astronomy_2918119_20231101",
+        "nll_nats": 1576.3259801357945,
+        "targets": 690,
+        "utf8_bytes": 2767
+      },
+      {
+        "bpb": 0.8840903509306318,
+        "document_id": "doc_wikipedia_en_astronomy_2922407_20231101",
+        "nll_nats": 1104.2741308622917,
+        "targets": 512,
+        "utf8_bytes": 1802
+      },
+      {
+        "bpb": 1.3750106039125296,
+        "document_id": "doc_wikipedia_en_astronomy_29486469_20231101",
+        "nll_nats": 9397.415372152096,
+        "targets": 2201,
+        "utf8_bytes": 9860
+      },
+      {
+        "bpb": 1.3330445418390027,
+        "document_id": "doc_wikipedia_en_astronomy_29801708_20231101",
+        "nll_nats": 632.9373050295222,
+        "targets": 175,
+        "utf8_bytes": 685
+      },
+      {
+        "bpb": 1.6764560844640595,
+        "document_id": "doc_wikipedia_en_astronomy_30156590_20231101",
+        "nll_nats": 778.5606415468151,
+        "targets": 179,
+        "utf8_bytes": 670
+      },
+      {
+        "bpb": 1.1097659715549664,
+        "document_id": "doc_wikipedia_en_astronomy_30167156_20231101",
+        "nll_nats": 680.7695715242536,
+        "targets": 227,
+        "utf8_bytes": 885
+      },
+      {
+        "bpb": 1.606617114490957,
+        "document_id": "doc_wikipedia_en_astronomy_30323364_20231101",
+        "nll_nats": 2645.9661646014574,
+        "targets": 741,
+        "utf8_bytes": 2376
+      },
+      {
+        "bpb": 1.5442249299523971,
+        "document_id": "doc_wikipedia_en_astronomy_30549271_20231101",
+        "nll_nats": 996.5192705589482,
+        "targets": 265,
+        "utf8_bytes": 931
+      },
+      {
+        "bpb": 1.545997680315415,
+        "document_id": "doc_wikipedia_en_astronomy_3072_20231101",
+        "nll_nats": 18290.135932930247,
+        "targets": 4816,
+        "utf8_bytes": 17068
+      },
+      {
+        "bpb": 1.7337694607587928,
+        "document_id": "doc_wikipedia_en_astronomy_3085073_20231101",
+        "nll_nats": 14008.886168771925,
+        "targets": 3141,
+        "utf8_bytes": 11657
+      },
+      {
+        "bpb": 1.7651784010295362,
+        "document_id": "doc_wikipedia_en_astronomy_31078679_20231101",
+        "nll_nats": 2978.068203144649,
+        "targets": 679,
+        "utf8_bytes": 2434
+      },
+      {
+        "bpb": 0.6692585890781617,
+        "document_id": "doc_wikipedia_en_astronomy_3110216_20231101",
+        "nll_nats": 1062.3188723547755,
+        "targets": 591,
+        "utf8_bytes": 2290
+      },
+      {
+        "bpb": 1.0112472243079753,
+        "document_id": "doc_wikipedia_en_astronomy_3110306_20231101",
+        "nll_nats": 1136.2288662149708,
+        "targets": 400,
+        "utf8_bytes": 1621
+      },
+      {
+        "bpb": 0.8096193421194738,
+        "document_id": "doc_wikipedia_en_astronomy_3113452_20231101",
+        "nll_nats": 581.9492227966368,
+        "targets": 280,
+        "utf8_bytes": 1037
+      },
+      {
+        "bpb": 1.1235927270569677,
+        "document_id": "doc_wikipedia_en_astronomy_3124840_20231101",
+        "nll_nats": 2765.572529673908,
+        "targets": 835,
+        "utf8_bytes": 3551
+      },
+      {
+        "bpb": 1.489989695408505,
+        "document_id": "doc_wikipedia_en_astronomy_31424468_20231101",
+        "nll_nats": 4750.7979196045735,
+        "targets": 1156,
+        "utf8_bytes": 4600
+      },
+      {
+        "bpb": 1.5468021707678936,
+        "document_id": "doc_wikipedia_en_astronomy_31499094_20231101",
+        "nll_nats": 3573.5144913180443,
+        "targets": 1095,
+        "utf8_bytes": 3333
+      },
+      {
+        "bpb": 1.5123412328309063,
+        "document_id": "doc_wikipedia_en_astronomy_315396_20231101",
+        "nll_nats": 4838.837684259255,
+        "targets": 1274,
+        "utf8_bytes": 4616
+      },
+      {
+        "bpb": 1.4430450150304974,
+        "document_id": "doc_wikipedia_en_astronomy_31578558_20231101",
+        "nll_nats": 927.2248749874417,
+        "targets": 233,
+        "utf8_bytes": 927
+      },
+      {
+        "bpb": 1.7227630165121304,
+        "document_id": "doc_wikipedia_en_astronomy_31644293_20231101",
+        "nll_nats": 703.3415849966461,
+        "targets": 215,
+        "utf8_bytes": 589
+      },
+      {
+        "bpb": 1.5030741245570642,
+        "document_id": "doc_wikipedia_en_astronomy_3168368_20231101",
+        "nll_nats": 9128.703645681011,
+        "targets": 2312,
+        "utf8_bytes": 8762
+      },
+      {
+        "bpb": 1.3689396239960452,
+        "document_id": "doc_wikipedia_en_astronomy_31855509_20231101",
+        "nll_nats": 1351.200336399022,
+        "targets": 333,
+        "utf8_bytes": 1424
+      },
+      {
+        "bpb": 1.4844321588747345,
+        "document_id": "doc_wikipedia_en_astronomy_31883732_20231101",
+        "nll_nats": 28399.495982086024,
+        "targets": 7074,
+        "utf8_bytes": 27601
+      },
+      {
+        "bpb": 1.2990831971999741,
+        "document_id": "doc_wikipedia_en_astronomy_3193012_20231101",
+        "nll_nats": 1988.2065288379308,
+        "targets": 449,
+        "utf8_bytes": 2208
+      },
+      {
+        "bpb": 1.1262056586753664,
+        "document_id": "doc_wikipedia_en_astronomy_31934014_20231101",
+        "nll_nats": 3277.849737297201,
+        "targets": 1082,
+        "utf8_bytes": 4199
+      },
+      {
+        "bpb": 1.4738359721200756,
+        "document_id": "doc_wikipedia_en_astronomy_3214651_20231101",
+        "nll_nats": 4342.758892150823,
+        "targets": 955,
+        "utf8_bytes": 4251
+      },
+      {
+        "bpb": 1.2160427563972793,
+        "document_id": "doc_wikipedia_en_astronomy_33054151_20231101",
+        "nll_nats": 4305.515873853601,
+        "targets": 1306,
+        "utf8_bytes": 5108
+      },
+      {
+        "bpb": 1.559281741970875,
+        "document_id": "doc_wikipedia_en_astronomy_33738074_20231101",
+        "nll_nats": 1100.266354522335,
+        "targets": 265,
+        "utf8_bytes": 1018
+      },
+      {
+        "bpb": 1.5598064775178924,
+        "document_id": "doc_wikipedia_en_astronomy_33962325_20231101",
+        "nll_nats": 5446.961978113539,
+        "targets": 1428,
+        "utf8_bytes": 5038
+      },
+      {
+        "bpb": 0.7698735246871873,
+        "document_id": "doc_wikipedia_en_astronomy_33966388_20231101",
+        "nll_nats": 823.9334637100925,
+        "targets": 368,
+        "utf8_bytes": 1544
+      },
+      {
+        "bpb": 1.751667072864016,
+        "document_id": "doc_wikipedia_en_astronomy_3428791_20231101",
+        "nll_nats": 3164.109019929013,
+        "targets": 671,
+        "utf8_bytes": 2606
+      },
+      {
+        "bpb": 1.1573404030588483,
+        "document_id": "doc_wikipedia_en_astronomy_345332_20231101",
+        "nll_nats": 2740.3399227136483,
+        "targets": 865,
+        "utf8_bytes": 3416
+      },
+      {
+        "bpb": 0.9530281314161413,
+        "document_id": "doc_wikipedia_en_astronomy_34627824_20231101",
+        "nll_nats": 161.84424675992577,
+        "targets": 71,
+        "utf8_bytes": 245
+      },
+      {
+        "bpb": 2.0505239876790915,
+        "document_id": "doc_wikipedia_en_astronomy_34736281_20231101",
+        "nll_nats": 1345.9852299315926,
+        "targets": 300,
+        "utf8_bytes": 947
+      },
+      {
+        "bpb": 1.8856465555349446,
+        "document_id": "doc_wikipedia_en_astronomy_34761113_20231101",
+        "nll_nats": 6459.345193085002,
+        "targets": 1371,
+        "utf8_bytes": 4942
+      },
+      {
+        "bpb": 1.5842763909042434,
+        "document_id": "doc_wikipedia_en_astronomy_357353_20231101",
+        "nll_nats": 43359.928135823255,
+        "targets": 10436,
+        "utf8_bytes": 39485
+      },
+      {
+        "bpb": 0.8640400894466291,
+        "document_id": "doc_wikipedia_en_astronomy_36008648_20231101",
+        "nll_nats": 573.7528599112848,
+        "targets": 265,
+        "utf8_bytes": 958
+      },
+      {
+        "bpb": 1.7925610475658518,
+        "document_id": "doc_wikipedia_en_astronomy_3605768_20231101",
+        "nll_nats": 5867.125779672946,
+        "targets": 1248,
+        "utf8_bytes": 4722
+      },
+      {
+        "bpb": 1.4961745581791441,
+        "document_id": "doc_wikipedia_en_astronomy_36104002_20231101",
+        "nll_nats": 4507.102641622661,
+        "targets": 1094,
+        "utf8_bytes": 4346
+      },
+      {
+        "bpb": 0.44816115465435064,
+        "document_id": "doc_wikipedia_en_astronomy_36132862_20231101",
+        "nll_nats": 260.62833661874316,
+        "targets": 228,
+        "utf8_bytes": 839
+      },
+      {
+        "bpb": 1.1761817062485318,
+        "document_id": "doc_wikipedia_en_astronomy_36300086_20231101",
+        "nll_nats": 387.2518409183689,
+        "targets": 149,
+        "utf8_bytes": 475
+      },
+      {
+        "bpb": 1.4616256944534667,
+        "document_id": "doc_wikipedia_en_astronomy_36312171_20231101",
+        "nll_nats": 465.02287367727615,
+        "targets": 160,
+        "utf8_bytes": 459
+      },
+      {
+        "bpb": 1.226885213038751,
+        "document_id": "doc_wikipedia_en_astronomy_36312201_20231101",
+        "nll_nats": 226.20959899274052,
+        "targets": 81,
+        "utf8_bytes": 266
+      },
+      {
+        "bpb": 1.2413792331829763,
+        "document_id": "doc_wikipedia_en_astronomy_36322137_20231101",
+        "nll_nats": 283.090851595041,
+        "targets": 94,
+        "utf8_bytes": 329
+      },
+      {
+        "bpb": 2.312260479778078,
+        "document_id": "doc_wikipedia_en_astronomy_36554050_20231101",
+        "nll_nats": 8795.819735543646,
+        "targets": 1764,
+        "utf8_bytes": 5488
+      },
+      {
+        "bpb": 1.6829190531864007,
+        "document_id": "doc_wikipedia_en_astronomy_36649174_20231101",
+        "nll_nats": 7997.596651844309,
+        "targets": 1723,
+        "utf8_bytes": 6856
+      },
+      {
+        "bpb": 0.5797572825276865,
+        "document_id": "doc_wikipedia_en_astronomy_36671980_20231101",
+        "nll_nats": 681.5496853452021,
+        "targets": 497,
+        "utf8_bytes": 1696
+      },
+      {
+        "bpb": 0.5145017792498418,
+        "document_id": "doc_wikipedia_en_astronomy_36672538_20231101",
+        "nll_nats": 282.8039879403218,
+        "targets": 196,
+        "utf8_bytes": 793
+      },
+      {
+        "bpb": 1.5387201468061564,
+        "document_id": "doc_wikipedia_en_astronomy_36694809_20231101",
+        "nll_nats": 34839.16709414372,
+        "targets": 8213,
+        "utf8_bytes": 32665
+      },
+      {
+        "bpb": 0.6653518248942686,
+        "document_id": "doc_wikipedia_en_astronomy_36706692_20231101",
+        "nll_nats": 668.7207751835213,
+        "targets": 375,
+        "utf8_bytes": 1450
+      },
+      {
+        "bpb": 0.660386487994186,
+        "document_id": "doc_wikipedia_en_astronomy_36846724_20231101",
+        "nll_nats": 391.3720025592613,
+        "targets": 210,
+        "utf8_bytes": 855
+      },
+      {
+        "bpb": 0.923310015185597,
+        "document_id": "doc_wikipedia_en_astronomy_36855584_20231101",
+        "nll_nats": 1113.5821368270629,
+        "targets": 460,
+        "utf8_bytes": 1740
+      },
+      {
+        "bpb": 0.6292086871645153,
+        "document_id": "doc_wikipedia_en_astronomy_36949612_20231101",
+        "nll_nats": 467.9720260988177,
+        "targets": 277,
+        "utf8_bytes": 1073
+      },
+      {
+        "bpb": 0.6037748133444905,
+        "document_id": "doc_wikipedia_en_astronomy_37018993_20231101",
+        "nll_nats": 390.8834921316933,
+        "targets": 233,
+        "utf8_bytes": 934
+      },
+      {
+        "bpb": 0.5533425256484094,
+        "document_id": "doc_wikipedia_en_astronomy_37025934_20231101",
+        "nll_nats": 434.94321828308745,
+        "targets": 298,
+        "utf8_bytes": 1134
+      },
+      {
+        "bpb": 1.2247636635646215,
+        "document_id": "doc_wikipedia_en_astronomy_37102956_20231101",
+        "nll_nats": 6944.34130846207,
+        "targets": 2057,
+        "utf8_bytes": 8180
+      },
+      {
+        "bpb": 0.9773298285858582,
+        "document_id": "doc_wikipedia_en_astronomy_37121968_20231101",
+        "nll_nats": 1324.3823266405805,
+        "targets": 591,
+        "utf8_bytes": 1955
+      },
+      {
+        "bpb": 0.3731198344812139,
+        "document_id": "doc_wikipedia_en_astronomy_37177807_20231101",
+        "nll_nats": 217.24664747658338,
+        "targets": 201,
+        "utf8_bytes": 840
+      },
+      {
+        "bpb": 1.7544251988532593,
+        "document_id": "doc_wikipedia_en_astronomy_37190553_20231101",
+        "nll_nats": 3200.7090843928218,
+        "targets": 774,
+        "utf8_bytes": 2632
+      },
+      {
+        "bpb": 1.517251574987532,
+        "document_id": "doc_wikipedia_en_astronomy_372302_20231101",
+        "nll_nats": 361.77745608254395,
+        "targets": 82,
+        "utf8_bytes": 344
+      },
+      {
+        "bpb": 1.161673591108501,
+        "document_id": "doc_wikipedia_en_astronomy_3728878_20231101",
+        "nll_nats": 2354.4363043684193,
+        "targets": 675,
+        "utf8_bytes": 2924
+      },
+      {
+        "bpb": 1.5258351039013964,
+        "document_id": "doc_wikipedia_en_astronomy_37356142_20231101",
+        "nll_nats": 3106.254317889008,
+        "targets": 772,
+        "utf8_bytes": 2937
+      },
+      {
+        "bpb": 1.418436546493705,
+        "document_id": "doc_wikipedia_en_astronomy_37386236_20231101",
+        "nll_nats": 9678.476024344147,
+        "targets": 2520,
+        "utf8_bytes": 9844
+      },
+      {
+        "bpb": 0.678367734436663,
+        "document_id": "doc_wikipedia_en_astronomy_37625703_20231101",
+        "nll_nats": 539.3293588362294,
+        "targets": 323,
+        "utf8_bytes": 1147
+      },
+      {
+        "bpb": 0.9333346033089511,
+        "document_id": "doc_wikipedia_en_astronomy_37690661_20231101",
+        "nll_nats": 806.7319962568852,
+        "targets": 357,
+        "utf8_bytes": 1247
+      },
+      {
+        "bpb": 1.685014554120833,
+        "document_id": "doc_wikipedia_en_astronomy_37708243_20231101",
+        "nll_nats": 6493.874765895787,
+        "targets": 1406,
+        "utf8_bytes": 5560
+      },
+      {
+        "bpb": 0.4187378533066824,
+        "document_id": "doc_wikipedia_en_astronomy_37866225_20231101",
+        "nll_nats": 186.9190437941336,
+        "targets": 163,
+        "utf8_bytes": 644
+      },
+      {
+        "bpb": 0.4560348298571406,
+        "document_id": "doc_wikipedia_en_astronomy_37866250_20231101",
+        "nll_nats": 234.86174761859027,
+        "targets": 187,
+        "utf8_bytes": 743
+      },
+      {
+        "bpb": 1.375191507562746,
+        "document_id": "doc_wikipedia_en_astronomy_3790398_20231101",
+        "nll_nats": 20444.45057219536,
+        "targets": 5030,
+        "utf8_bytes": 21448
+      },
+      {
+        "bpb": 1.3512748071154206,
+        "document_id": "doc_wikipedia_en_astronomy_3791086_20231101",
+        "nll_nats": 753.0523874618451,
+        "targets": 168,
+        "utf8_bytes": 804
+      },
+      {
+        "bpb": 1.3609758179219986,
+        "document_id": "doc_wikipedia_en_astronomy_379368_20231101",
+        "nll_nats": 7236.488102743237,
+        "targets": 1803,
+        "utf8_bytes": 7671
+      },
+      {
+        "bpb": 1.508346689129762,
+        "document_id": "doc_wikipedia_en_astronomy_3801543_20231101",
+        "nll_nats": 5476.361763046893,
+        "targets": 1380,
+        "utf8_bytes": 5238
+      },
+      {
+        "bpb": 1.0273628505385128,
+        "document_id": "doc_wikipedia_en_astronomy_38068459_20231101",
+        "nll_nats": 880.1724877928191,
+        "targets": 318,
+        "utf8_bytes": 1236
+      },
+      {
+        "bpb": 0.8011409282948162,
+        "document_id": "doc_wikipedia_en_astronomy_38182078_20231101",
+        "nll_nats": 2664.3705461065424,
+        "targets": 1200,
+        "utf8_bytes": 4798
+      },
+      {
+        "bpb": 0.6198964724653686,
+        "document_id": "doc_wikipedia_en_astronomy_38211950_20231101",
+        "nll_nats": 424.52333822288495,
+        "targets": 240,
+        "utf8_bytes": 988
+      },
+      {
+        "bpb": 1.4469445455550847,
+        "document_id": "doc_wikipedia_en_astronomy_38223475_20231101",
+        "nll_nats": 699.0530359281345,
+        "targets": 178,
+        "utf8_bytes": 697
+      },
+      {
+        "bpb": 0.6796515028250958,
+        "document_id": "doc_wikipedia_en_astronomy_38292791_20231101",
+        "nll_nats": 685.4483508872227,
+        "targets": 349,
+        "utf8_bytes": 1455
+      },
+      {
+        "bpb": 1.3089578234191697,
+        "document_id": "doc_wikipedia_en_astronomy_38324358_20231101",
+        "nll_nats": 715.8600351473805,
+        "targets": 203,
+        "utf8_bytes": 789
+      },
+      {
+        "bpb": 1.2715686325024333,
+        "document_id": "doc_wikipedia_en_astronomy_3843755_20231101",
+        "nll_nats": 4720.693842190314,
+        "targets": 1430,
+        "utf8_bytes": 5356
+      },
+      {
+        "bpb": 1.26892199183202,
+        "document_id": "doc_wikipedia_en_astronomy_3847721_20231101",
+        "nll_nats": 3122.4014385105047,
+        "targets": 884,
+        "utf8_bytes": 3550
+      },
+      {
+        "bpb": 1.1781983488976628,
+        "document_id": "doc_wikipedia_en_astronomy_3854080_20231101",
+        "nll_nats": 357.6992102913134,
+        "targets": 133,
+        "utf8_bytes": 438
+      },
+      {
+        "bpb": 0.7981164385121824,
+        "document_id": "doc_wikipedia_en_astronomy_38618650_20231101",
+        "nll_nats": 742.4107175300005,
+        "targets": 348,
+        "utf8_bytes": 1342
+      },
+      {
+        "bpb": 0.5741263318422829,
+        "document_id": "doc_wikipedia_en_astronomy_38664841_20231101",
+        "nll_nats": 188.23226479940502,
+        "targets": 155,
+        "utf8_bytes": 473
+      },
+      {
+        "bpb": 1.3965937702191262,
+        "document_id": "doc_wikipedia_en_astronomy_3876831_20231101",
+        "nll_nats": 1726.024296005294,
+        "targets": 520,
+        "utf8_bytes": 1783
+      },
+      {
+        "bpb": 0.5516430390611027,
+        "document_id": "doc_wikipedia_en_astronomy_38826716_20231101",
+        "nll_nats": 291.7481705241517,
+        "targets": 190,
+        "utf8_bytes": 763
+      },
+      {
+        "bpb": 1.426928511644923,
+        "document_id": "doc_wikipedia_en_astronomy_392159_20231101",
+        "nll_nats": 3307.455011421136,
+        "targets": 832,
+        "utf8_bytes": 3344
+      },
+      {
+        "bpb": 1.0160111092058066,
+        "document_id": "doc_wikipedia_en_astronomy_39437938_20231101",
+        "nll_nats": 519.7329839935276,
+        "targets": 218,
+        "utf8_bytes": 738
+      },
+      {
+        "bpb": 1.6450958643879188,
+        "document_id": "doc_wikipedia_en_astronomy_39672605_20231101",
+        "nll_nats": 7906.795546089197,
+        "targets": 1786,
+        "utf8_bytes": 6934
+      },
+      {
+        "bpb": 0.6207007877984109,
+        "document_id": "doc_wikipedia_en_astronomy_39950378_20231101",
+        "nll_nats": 1111.3021736703192,
+        "targets": 678,
+        "utf8_bytes": 2583
+      },
+      {
+        "bpb": 1.3039531041371961,
+        "document_id": "doc_wikipedia_en_astronomy_3998066_20231101",
+        "nll_nats": 2689.802299120097,
+        "targets": 669,
+        "utf8_bytes": 2976
+      },
+      {
+        "bpb": 1.1083345053339189,
+        "document_id": "doc_wikipedia_en_astronomy_40058907_20231101",
+        "nll_nats": 910.3631409250663,
+        "targets": 287,
+        "utf8_bytes": 1185
+      },
+      {
+        "bpb": 1.8582926300765155,
+        "document_id": "doc_wikipedia_en_astronomy_4029748_20231101",
+        "nll_nats": 3148.043806339355,
+        "targets": 762,
+        "utf8_bytes": 2444
+      },
+      {
+        "bpb": 1.2374455429049251,
+        "document_id": "doc_wikipedia_en_astronomy_40351604_20231101",
+        "nll_nats": 1460.7174072412163,
+        "targets": 409,
+        "utf8_bytes": 1703
+      },
+      {
+        "bpb": 1.1345663895846114,
+        "document_id": "doc_wikipedia_en_astronomy_40502503_20231101",
+        "nll_nats": 3461.8274170222567,
+        "targets": 1066,
+        "utf8_bytes": 4402
+      },
+      {
+        "bpb": 1.5500477674239312,
+        "document_id": "doc_wikipedia_en_astronomy_407982_20231101",
+        "nll_nats": 26300.51273718264,
+        "targets": 6268,
+        "utf8_bytes": 24479
+      },
+      {
+        "bpb": 0.8941149580712292,
+        "document_id": "doc_wikipedia_en_astronomy_40806498_20231101",
+        "nll_nats": 989.7459598668233,
+        "targets": 387,
+        "utf8_bytes": 1597
+      },
+      {
+        "bpb": 1.4937175666050617,
+        "document_id": "doc_wikipedia_en_astronomy_4087645_20231101",
+        "nll_nats": 3444.6630807248503,
+        "targets": 876,
+        "utf8_bytes": 3327
+      },
+      {
+        "bpb": 1.3442602565793174,
+        "document_id": "doc_wikipedia_en_astronomy_41071610_20231101",
+        "nll_nats": 3141.929137284895,
+        "targets": 820,
+        "utf8_bytes": 3372
+      },
+      {
+        "bpb": 1.3737236553928553,
+        "document_id": "doc_wikipedia_en_astronomy_41229964_20231101",
+        "nll_nats": 1758.6998773816981,
+        "targets": 494,
+        "utf8_bytes": 1847
+      },
+      {
+        "bpb": 0.7956073646173785,
+        "document_id": "doc_wikipedia_en_astronomy_41477875_20231101",
+        "nll_nats": 944.1217787687564,
+        "targets": 429,
+        "utf8_bytes": 1712
+      },
+      {
+        "bpb": 1.1074532182872174,
+        "document_id": "doc_wikipedia_en_astronomy_41729693_20231101",
+        "nll_nats": 836.7146026850264,
+        "targets": 315,
+        "utf8_bytes": 1090
+      },
+      {
+        "bpb": 0.54399131911607,
+        "document_id": "doc_wikipedia_en_astronomy_41785015_20231101",
+        "nll_nats": 268.4710269552052,
+        "targets": 196,
+        "utf8_bytes": 712
+      },
+      {
+        "bpb": 1.2682052205432937,
+        "document_id": "doc_wikipedia_en_astronomy_4180667_20231101",
+        "nll_nats": 4727.546350945531,
+        "targets": 1260,
+        "utf8_bytes": 5378
+      },
+      {
+        "bpb": 1.4320254706017972,
+        "document_id": "doc_wikipedia_en_astronomy_4206717_20231101",
+        "nll_nats": 1981.2384172055783,
+        "targets": 444,
+        "utf8_bytes": 1996
+      },
+      {
+        "bpb": 1.5693884601798183,
+        "document_id": "doc_wikipedia_en_astronomy_4259939_20231101",
+        "nll_nats": 14187.311744728246,
+        "targets": 3162,
+        "utf8_bytes": 13042
+      },
+      {
+        "bpb": 1.3393779479495478,
+        "document_id": "doc_wikipedia_en_astronomy_428062_20231101",
+        "nll_nats": 3547.3630906513313,
+        "targets": 1104,
+        "utf8_bytes": 3821
+      },
+      {
+        "bpb": 1.279859843303363,
+        "document_id": "doc_wikipedia_en_astronomy_42975_20231101",
+        "nll_nats": 28728.858137612504,
+        "targets": 7323,
+        "utf8_bytes": 32384
+      },
+      {
+        "bpb": 1.6203745557798264,
+        "document_id": "doc_wikipedia_en_astronomy_43317149_20231101",
+        "nll_nats": 2293.488747880895,
+        "targets": 550,
+        "utf8_bytes": 2042
+      },
+      {
+        "bpb": 1.7747538236695513,
+        "document_id": "doc_wikipedia_en_astronomy_4349040_20231101",
+        "nll_nats": 504.36789971645806,
+        "targets": 167,
+        "utf8_bytes": 410
+      },
+      {
+        "bpb": 0.5718836984456698,
+        "document_id": "doc_wikipedia_en_astronomy_4361939_20231101",
+        "nll_nats": 405.9131629422694,
+        "targets": 264,
+        "utf8_bytes": 1024
+      },
+      {
+        "bpb": 1.226587064424895,
+        "document_id": "doc_wikipedia_en_astronomy_43662164_20231101",
+        "nll_nats": 2438.388988017149,
+        "targets": 729,
+        "utf8_bytes": 2868
+      },
+      {
+        "bpb": 1.379082107022964,
+        "document_id": "doc_wikipedia_en_astronomy_4377675_20231101",
+        "nll_nats": 966.4218498603161,
+        "targets": 258,
+        "utf8_bytes": 1011
+      },
+      {
+        "bpb": 0.5663526515091647,
+        "document_id": "doc_wikipedia_en_astronomy_43833681_20231101",
+        "nll_nats": 351.346340518623,
+        "targets": 227,
+        "utf8_bytes": 895
+      },
+      {
+        "bpb": 1.397612723269209,
+        "document_id": "doc_wikipedia_en_astronomy_4385475_20231101",
+        "nll_nats": 21402.62288290704,
+        "targets": 5484,
+        "utf8_bytes": 22093
+      },
+      {
+        "bpb": 1.3517834798188533,
+        "document_id": "doc_wikipedia_en_astronomy_44256014_20231101",
+        "nll_nats": 2406.177243137823,
+        "targets": 599,
+        "utf8_bytes": 2568
+      },
+      {
+        "bpb": 1.5389921750362074,
+        "document_id": "doc_wikipedia_en_astronomy_44309868_20231101",
+        "nll_nats": 7567.510929391991,
+        "targets": 1739,
+        "utf8_bytes": 7094
+      },
+      {
+        "bpb": 1.368130853676457,
+        "document_id": "doc_wikipedia_en_astronomy_44401_20231101",
+        "nll_nats": 51379.76325649232,
+        "targets": 13407,
+        "utf8_bytes": 54180
+      },
+      {
+        "bpb": 1.2115504406604833,
+        "document_id": "doc_wikipedia_en_astronomy_44777064_20231101",
+        "nll_nats": 741.5281877201264,
+        "targets": 206,
+        "utf8_bytes": 883
+      },
+      {
+        "bpb": 1.4618962878774995,
+        "document_id": "doc_wikipedia_en_astronomy_44816446_20231101",
+        "nll_nats": 1207.8646739342998,
+        "targets": 325,
+        "utf8_bytes": 1192
+      },
+      {
+        "bpb": 1.001139242114088,
+        "document_id": "doc_wikipedia_en_astronomy_4494960_20231101",
+        "nll_nats": 2618.2237087118206,
+        "targets": 931,
+        "utf8_bytes": 3773
+      },
+      {
+        "bpb": 0.8182977194743594,
+        "document_id": "doc_wikipedia_en_astronomy_44982094_20231101",
+        "nll_nats": 535.4375147139972,
+        "targets": 234,
+        "utf8_bytes": 944
+      },
+      {
+        "bpb": 1.3785631314990898,
+        "document_id": "doc_wikipedia_en_astronomy_45004286_20231101",
+        "nll_nats": 2970.7960825801,
+        "targets": 759,
+        "utf8_bytes": 3109
+      },
+      {
+        "bpb": 0.6174505297648886,
+        "document_id": "doc_wikipedia_en_astronomy_45115692_20231101",
+        "nll_nats": 464.3627418183282,
+        "targets": 258,
+        "utf8_bytes": 1085
+      },
+      {
+        "bpb": 1.8315704955322978,
+        "document_id": "doc_wikipedia_en_astronomy_451261_20231101",
+        "nll_nats": 5677.418320488174,
+        "targets": 1272,
+        "utf8_bytes": 4472
+      },
+      {
+        "bpb": 1.2446784294222288,
+        "document_id": "doc_wikipedia_en_astronomy_45280259_20231101",
+        "nll_nats": 711.764908847684,
+        "targets": 224,
+        "utf8_bytes": 825
+      },
+      {
+        "bpb": 1.5663160654990045,
+        "document_id": "doc_wikipedia_en_astronomy_45294_20231101",
+        "nll_nats": 62926.45124806347,
+        "targets": 14295,
+        "utf8_bytes": 57960
+      },
+      {
+        "bpb": 1.5577466289795083,
+        "document_id": "doc_wikipedia_en_astronomy_45315837_20231101",
+        "nll_nats": 7397.351382425655,
+        "targets": 1685,
+        "utf8_bytes": 6851
+      },
+      {
+        "bpb": 1.4878745879442854,
+        "document_id": "doc_wikipedia_en_astronomy_4600813_20231101",
+        "nll_nats": 4216.0201172996,
+        "targets": 1045,
+        "utf8_bytes": 4088
+      },
+      {
+        "bpb": 1.0928547914244813,
+        "document_id": "doc_wikipedia_en_astronomy_46471596_20231101",
+        "nll_nats": 739.328996218811,
+        "targets": 224,
+        "utf8_bytes": 976
+      },
+      {
+        "bpb": 0.9790664175173229,
+        "document_id": "doc_wikipedia_en_astronomy_47318223_20231101",
+        "nll_nats": 4628.30520534246,
+        "targets": 1714,
+        "utf8_bytes": 6820
+      },
+      {
+        "bpb": 1.3480187908391572,
+        "document_id": "doc_wikipedia_en_astronomy_47349966_20231101",
+        "nll_nats": 614.8190291314884,
+        "targets": 172,
+        "utf8_bytes": 658
+      },
+      {
+        "bpb": 1.2738814083604246,
+        "document_id": "doc_wikipedia_en_astronomy_47501_20231101",
+        "nll_nats": 3742.1002052553595,
+        "targets": 919,
+        "utf8_bytes": 4238
+      },
+      {
+        "bpb": 1.4164447180187196,
+        "document_id": "doc_wikipedia_en_astronomy_4756732_20231101",
+        "nll_nats": 6215.805319640449,
+        "targets": 1386,
+        "utf8_bytes": 6331
+      },
+      {
+        "bpb": 1.075934132863204,
+        "document_id": "doc_wikipedia_en_astronomy_47570772_20231101",
+        "nll_nats": 310.99055634619555,
+        "targets": 102,
+        "utf8_bytes": 417
+      },
+      {
+        "bpb": 1.1798033438494906,
+        "document_id": "doc_wikipedia_en_astronomy_47735568_20231101",
+        "nll_nats": 293.58207274420477,
+        "targets": 104,
+        "utf8_bytes": 359
+      },
+      {
+        "bpb": 1.3549739094483317,
+        "document_id": "doc_wikipedia_en_astronomy_478224_20231101",
+        "nll_nats": 11459.134606155118,
+        "targets": 3051,
+        "utf8_bytes": 12201
+      },
+      {
+        "bpb": 1.2325900678117672,
+        "document_id": "doc_wikipedia_en_astronomy_4847805_20231101",
+        "nll_nats": 921.8612703828217,
+        "targets": 258,
+        "utf8_bytes": 1079
+      },
+      {
+        "bpb": 1.2681978636253897,
+        "document_id": "doc_wikipedia_en_astronomy_48510_20231101",
+        "nll_nats": 11558.599174594152,
+        "targets": 3128,
+        "utf8_bytes": 13149
+      },
+      {
+        "bpb": 1.2397189188888784,
+        "document_id": "doc_wikipedia_en_astronomy_48908_20231101",
+        "nll_nats": 6862.431079090791,
+        "targets": 1747,
+        "utf8_bytes": 7986
+      },
+      {
+        "bpb": 0.6734999624968213,
+        "document_id": "doc_wikipedia_en_astronomy_4918069_20231101",
+        "nll_nats": 609.2191531460303,
+        "targets": 364,
+        "utf8_bytes": 1305
+      },
+      {
+        "bpb": 0.7789306314375478,
+        "document_id": "doc_wikipedia_en_astronomy_49585480_20231101",
+        "nll_nats": 221.3645641234128,
+        "targets": 112,
+        "utf8_bytes": 410
+      },
+      {
+        "bpb": 1.1219220581126934,
+        "document_id": "doc_wikipedia_en_astronomy_4971620_20231101",
+        "nll_nats": 647.010716675502,
+        "targets": 254,
+        "utf8_bytes": 832
+      },
+      {
+        "bpb": 0.6599502339907691,
+        "document_id": "doc_wikipedia_en_astronomy_4989469_20231101",
+        "nll_nats": 537.4951067006789,
+        "targets": 279,
+        "utf8_bytes": 1175
+      },
+      {
+        "bpb": 1.4357101883500005,
+        "document_id": "doc_wikipedia_en_astronomy_4998991_20231101",
+        "nll_nats": 216.94454627600604,
+        "targets": 75,
+        "utf8_bytes": 218
+      },
+      {
+        "bpb": 1.4948973193791077,
+        "document_id": "doc_wikipedia_en_astronomy_50117057_20231101",
+        "nll_nats": 1287.976540657731,
+        "targets": 291,
+        "utf8_bytes": 1243
+      },
+      {
+        "bpb": 1.0162406930796217,
+        "document_id": "doc_wikipedia_en_astronomy_5031114_20231101",
+        "nll_nats": 510.69316910435776,
+        "targets": 189,
+        "utf8_bytes": 725
+      },
+      {
+        "bpb": 0.44373593535911193,
+        "document_id": "doc_wikipedia_en_astronomy_5056175_20231101",
+        "nll_nats": 285.12138769426576,
+        "targets": 231,
+        "utf8_bytes": 927
+      },
+      {
+        "bpb": 0.7309767417056388,
+        "document_id": "doc_wikipedia_en_astronomy_5067581_20231101",
+        "nll_nats": 632.8364099926305,
+        "targets": 308,
+        "utf8_bytes": 1249
+      },
+      {
+        "bpb": 1.3260593533834255,
+        "document_id": "doc_wikipedia_en_astronomy_507854_20231101",
+        "nll_nats": 6867.920944939012,
+        "targets": 1603,
+        "utf8_bytes": 7472
+      },
+      {
+        "bpb": 0.659135173754851,
+        "document_id": "doc_wikipedia_en_astronomy_5094833_20231101",
+        "nll_nats": 374.18282589547687,
+        "targets": 191,
+        "utf8_bytes": 819
+      },
+      {
+        "bpb": 1.295732656558737,
+        "document_id": "doc_wikipedia_en_astronomy_5095871_20231101",
+        "nll_nats": 1983.9767637757782,
+        "targets": 550,
+        "utf8_bytes": 2209
+      },
+      {
+        "bpb": 1.2125742850345378,
+        "document_id": "doc_wikipedia_en_astronomy_51076929_20231101",
+        "nll_nats": 817.7991508251196,
+        "targets": 240,
+        "utf8_bytes": 973
+      },
+      {
+        "bpb": 1.1819412042282584,
+        "document_id": "doc_wikipedia_en_astronomy_51296109_20231101",
+        "nll_nats": 1817.1169350959483,
+        "targets": 569,
+        "utf8_bytes": 2218
+      },
+      {
+        "bpb": 0.6612879985050467,
+        "document_id": "doc_wikipedia_en_astronomy_51535723_20231101",
+        "nll_nats": 432.24282673489404,
+        "targets": 243,
+        "utf8_bytes": 943
+      },
+      {
+        "bpb": 1.4887604349147128,
+        "document_id": "doc_wikipedia_en_astronomy_51637858_20231101",
+        "nll_nats": 15021.80643644525,
+        "targets": 3604,
+        "utf8_bytes": 14557
+      },
+      {
+        "bpb": 1.4893205695732585,
+        "document_id": "doc_wikipedia_en_astronomy_51892519_20231101",
+        "nll_nats": 2369.1706218554145,
+        "targets": 558,
+        "utf8_bytes": 2295
+      },
+      {
+        "bpb": 1.0382126971612748,
+        "document_id": "doc_wikipedia_en_astronomy_52324574_20231101",
+        "nll_nats": 338.2280758136708,
+        "targets": 141,
+        "utf8_bytes": 470
+      },
+      {
+        "bpb": 1.0829703030647413,
+        "document_id": "doc_wikipedia_en_astronomy_52452581_20231101",
+        "nll_nats": 598.2742763229816,
+        "targets": 209,
+        "utf8_bytes": 797
+      },
+      {
+        "bpb": 1.4905459925820543,
+        "document_id": "doc_wikipedia_en_astronomy_52566668_20231101",
+        "nll_nats": 13567.558922588709,
+        "targets": 3253,
+        "utf8_bytes": 13132
+      },
+      {
+        "bpb": 1.3150468832971562,
+        "document_id": "doc_wikipedia_en_astronomy_52654733_20231101",
+        "nll_nats": 6088.049022563807,
+        "targets": 1503,
+        "utf8_bytes": 6679
+      },
+      {
+        "bpb": 1.5111325675238294,
+        "document_id": "doc_wikipedia_en_astronomy_52941633_20231101",
+        "nll_nats": 4991.038632678876,
+        "targets": 1375,
+        "utf8_bytes": 4765
+      },
+      {
+        "bpb": 1.645175430140205,
+        "document_id": "doc_wikipedia_en_astronomy_53330322_20231101",
+        "nll_nats": 1119.8224341314713,
+        "targets": 265,
+        "utf8_bytes": 982
+      },
+      {
+        "bpb": 0.47309030732076784,
+        "document_id": "doc_wikipedia_en_astronomy_53862141_20231101",
+        "nll_nats": 401.375564307625,
+        "targets": 352,
+        "utf8_bytes": 1224
+      },
+      {
+        "bpb": 0.8833756900262834,
+        "document_id": "doc_wikipedia_en_astronomy_53862319_20231101",
+        "nll_nats": 603.1247283831608,
+        "targets": 308,
+        "utf8_bytes": 985
+      },
+      {
+        "bpb": 1.0977247585256051,
+        "document_id": "doc_wikipedia_en_astronomy_53883393_20231101",
+        "nll_nats": 539.4673383746349,
+        "targets": 183,
+        "utf8_bytes": 709
+      },
+      {
+        "bpb": 1.3201585659080595,
+        "document_id": "doc_wikipedia_en_astronomy_54225599_20231101",
+        "nll_nats": 1566.5898896013096,
+        "targets": 437,
+        "utf8_bytes": 1712
+      },
+      {
+        "bpb": 1.155922458816487,
+        "document_id": "doc_wikipedia_en_astronomy_54589355_20231101",
+        "nll_nats": 1145.7508823826313,
+        "targets": 397,
+        "utf8_bytes": 1430
+      },
+      {
+        "bpb": 1.3307059878870018,
+        "document_id": "doc_wikipedia_en_astronomy_547187_20231101",
+        "nll_nats": 3881.3544361933355,
+        "targets": 1203,
+        "utf8_bytes": 4208
+      },
+      {
+        "bpb": 1.3890839905359624,
+        "document_id": "doc_wikipedia_en_astronomy_547200_20231101",
+        "nll_nats": 5619.132206743203,
+        "targets": 1709,
+        "utf8_bytes": 5836
+      },
+      {
+        "bpb": 1.2197426109621803,
+        "document_id": "doc_wikipedia_en_astronomy_55262122_20231101",
+        "nll_nats": 2362.2184581215483,
+        "targets": 591,
+        "utf8_bytes": 2794
+      },
+      {
+        "bpb": 1.1937822661000648,
+        "document_id": "doc_wikipedia_en_astronomy_55326832_20231101",
+        "nll_nats": 2444.3369624994793,
+        "targets": 727,
+        "utf8_bytes": 2954
+      },
+      {
+        "bpb": 1.4809593745294503,
+        "document_id": "doc_wikipedia_en_astronomy_55863358_20231101",
+        "nll_nats": 2759.2933266633063,
+        "targets": 810,
+        "utf8_bytes": 2688
+      },
+      {
+        "bpb": 1.0671759486896062,
+        "document_id": "doc_wikipedia_en_astronomy_55971874_20231101",
+        "nll_nats": 329.91065999803106,
+        "targets": 140,
+        "utf8_bytes": 446
+      },
+      {
+        "bpb": 1.2091602412096056,
+        "document_id": "doc_wikipedia_en_astronomy_55979986_20231101",
+        "nll_nats": 751.7990327995406,
+        "targets": 241,
+        "utf8_bytes": 897
+      },
+      {
+        "bpb": 1.2670609474555459,
+        "document_id": "doc_wikipedia_en_astronomy_56098061_20231101",
+        "nll_nats": 620.0513646684558,
+        "targets": 173,
+        "utf8_bytes": 706
+      },
+      {
+        "bpb": 1.4410839360071845,
+        "document_id": "doc_wikipedia_en_astronomy_56120104_20231101",
+        "nll_nats": 2078.6760790298995,
+        "targets": 553,
+        "utf8_bytes": 2081
+      },
+      {
+        "bpb": 0.7032326886734126,
+        "document_id": "doc_wikipedia_en_astronomy_56286683_20231101",
+        "nll_nats": 577.1334064309738,
+        "targets": 285,
+        "utf8_bytes": 1184
+      },
+      {
+        "bpb": 1.1336231229648837,
+        "document_id": "doc_wikipedia_en_astronomy_5642715_20231101",
+        "nll_nats": 554.7519760794726,
+        "targets": 179,
+        "utf8_bytes": 706
+      },
+      {
+        "bpb": 1.2643477050532275,
+        "document_id": "doc_wikipedia_en_astronomy_56437_20231101",
+        "nll_nats": 10886.380521897127,
+        "targets": 2853,
+        "utf8_bytes": 12422
+      },
+      {
+        "bpb": 1.5028154118577692,
+        "document_id": "doc_wikipedia_en_astronomy_56497087_20231101",
+        "nll_nats": 10517.764866078689,
+        "targets": 2496,
+        "utf8_bytes": 10097
+      },
+      {
+        "bpb": 1.6956013461753705,
+        "document_id": "doc_wikipedia_en_astronomy_56827999_20231101",
+        "nll_nats": 323.2078554251541,
+        "targets": 89,
+        "utf8_bytes": 275
+      },
+      {
+        "bpb": 0.7187820341180867,
+        "document_id": "doc_wikipedia_en_astronomy_56910238_20231101",
+        "nll_nats": 623.2753972230039,
+        "targets": 334,
+        "utf8_bytes": 1251
+      },
+      {
+        "bpb": 1.4181290616383866,
+        "document_id": "doc_wikipedia_en_astronomy_56913000_20231101",
+        "nll_nats": 462.97988771078604,
+        "targets": 93,
+        "utf8_bytes": 471
+      },
+      {
+        "bpb": 1.739730965474103,
+        "document_id": "doc_wikipedia_en_astronomy_57305294_20231101",
+        "nll_nats": 6996.571538404298,
+        "targets": 1542,
+        "utf8_bytes": 5802
+      },
+      {
+        "bpb": 2.0361970783339562,
+        "document_id": "doc_wikipedia_en_astronomy_57570721_20231101",
+        "nll_nats": 11639.686024478799,
+        "targets": 2489,
+        "utf8_bytes": 8247
+      },
+      {
+        "bpb": 1.4572287408110627,
+        "document_id": "doc_wikipedia_en_astronomy_58163551_20231101",
+        "nll_nats": 1866.6167392933505,
+        "targets": 543,
+        "utf8_bytes": 1848
+      },
+      {
+        "bpb": 1.4647691873020185,
+        "document_id": "doc_wikipedia_en_astronomy_5839553_20231101",
+        "nll_nats": 1871.1990654200854,
+        "targets": 489,
+        "utf8_bytes": 1843
+      },
+      {
+        "bpb": 1.348473487730918,
+        "document_id": "doc_wikipedia_en_astronomy_58677840_20231101",
+        "nll_nats": 2374.114114044525,
+        "targets": 628,
+        "utf8_bytes": 2540
+      },
+      {
+        "bpb": 1.485132150188323,
+        "document_id": "doc_wikipedia_en_astronomy_58753904_20231101",
+        "nll_nats": 2632.214570926645,
+        "targets": 740,
+        "utf8_bytes": 2557
+      },
+      {
+        "bpb": 1.0527065105567097,
+        "document_id": "doc_wikipedia_en_astronomy_589797_20231101",
+        "nll_nats": 682.2513140157653,
+        "targets": 283,
+        "utf8_bytes": 935
+      },
+      {
+        "bpb": 1.1009653700967676,
+        "document_id": "doc_wikipedia_en_astronomy_59019901_20231101",
+        "nll_nats": 489.16699803527194,
+        "targets": 163,
+        "utf8_bytes": 641
+      },
+      {
+        "bpb": 1.2747775853312107,
+        "document_id": "doc_wikipedia_en_astronomy_59401999_20231101",
+        "nll_nats": 4742.326761071316,
+        "targets": 1497,
+        "utf8_bytes": 5367
+      },
+      {
+        "bpb": 1.508205374576042,
+        "document_id": "doc_wikipedia_en_astronomy_5953552_20231101",
+        "nll_nats": 3924.4627698101444,
+        "targets": 807,
+        "utf8_bytes": 3754
+      },
+      {
+        "bpb": 1.1581530171318417,
+        "document_id": "doc_wikipedia_en_astronomy_59576617_20231101",
+        "nll_nats": 772.2652195396166,
+        "targets": 295,
+        "utf8_bytes": 962
+      },
+      {
+        "bpb": 1.077755363762943,
+        "document_id": "doc_wikipedia_en_astronomy_59921609_20231101",
+        "nll_nats": 936.7920370239552,
+        "targets": 344,
+        "utf8_bytes": 1254
+      },
+      {
+        "bpb": 0.8755203346742219,
+        "document_id": "doc_wikipedia_en_astronomy_60120651_20231101",
+        "nll_nats": 281.58510549708416,
+        "targets": 124,
+        "utf8_bytes": 464
+      },
+      {
+        "bpb": 1.5870563447556836,
+        "document_id": "doc_wikipedia_en_astronomy_60205662_20231101",
+        "nll_nats": 269.5155895355078,
+        "targets": 72,
+        "utf8_bytes": 245
+      },
+      {
+        "bpb": 1.1747427742152508,
+        "document_id": "doc_wikipedia_en_astronomy_60307333_20231101",
+        "nll_nats": 245.09516219097128,
+        "targets": 99,
+        "utf8_bytes": 301
+      },
+      {
+        "bpb": 1.57592658117234,
+        "document_id": "doc_wikipedia_en_astronomy_60549_20231101",
+        "nll_nats": 13268.764110885808,
+        "targets": 3167,
+        "utf8_bytes": 12147
+      },
+      {
+        "bpb": 1.4244438818251837,
+        "document_id": "doc_wikipedia_en_astronomy_6146346_20231101",
+        "nll_nats": 3768.7121275307627,
+        "targets": 896,
+        "utf8_bytes": 3817
+      },
+      {
+        "bpb": 1.0032615251051804,
+        "document_id": "doc_wikipedia_en_astronomy_6160585_20231101",
+        "nll_nats": 591.7921207647785,
+        "targets": 210,
+        "utf8_bytes": 851
+      },
+      {
+        "bpb": 1.3334143307643562,
+        "document_id": "doc_wikipedia_en_astronomy_62085151_20231101",
+        "nll_nats": 4190.560308546106,
+        "targets": 1061,
+        "utf8_bytes": 4534
+      },
+      {
+        "bpb": 1.2851446653831842,
+        "document_id": "doc_wikipedia_en_astronomy_630088_20231101",
+        "nll_nats": 7659.0502634264285,
+        "targets": 2208,
+        "utf8_bytes": 8598
+      },
+      {
+        "bpb": 1.2727679797123324,
+        "document_id": "doc_wikipedia_en_astronomy_63096410_20231101",
+        "nll_nats": 3010.11941103131,
+        "targets": 1005,
+        "utf8_bytes": 3412
+      },
+      {
+        "bpb": 1.4657025909582977,
+        "document_id": "doc_wikipedia_en_astronomy_63102592_20231101",
+        "nll_nats": 3104.735922020333,
+        "targets": 843,
+        "utf8_bytes": 3056
+      },
+      {
+        "bpb": 1.4814904038201406,
+        "document_id": "doc_wikipedia_en_astronomy_632331_20231101",
+        "nll_nats": 27463.17013424548,
+        "targets": 6788,
+        "utf8_bytes": 26744
+      },
+      {
+        "bpb": 1.648253347737938,
+        "document_id": "doc_wikipedia_en_astronomy_632456_20231101",
+        "nll_nats": 5150.309581035357,
+        "targets": 1255,
+        "utf8_bytes": 4508
+      },
+      {
+        "bpb": 1.311738928782208,
+        "document_id": "doc_wikipedia_en_astronomy_63256637_20231101",
+        "nll_nats": 4032.4268014149498,
+        "targets": 1118,
+        "utf8_bytes": 4435
+      },
+      {
+        "bpb": 1.5537717148803374,
+        "document_id": "doc_wikipedia_en_astronomy_634792_20231101",
+        "nll_nats": 3907.328729786436,
+        "targets": 905,
+        "utf8_bytes": 3628
+      },
+      {
+        "bpb": 1.447516143404181,
+        "document_id": "doc_wikipedia_en_astronomy_63615_20231101",
+        "nll_nats": 2558.521420719814,
+        "targets": 650,
+        "utf8_bytes": 2550
+      },
+      {
+        "bpb": 1.268325930532354,
+        "document_id": "doc_wikipedia_en_astronomy_63699522_20231101",
+        "nll_nats": 283.9611033178012,
+        "targets": 98,
+        "utf8_bytes": 323
+      },
+      {
+        "bpb": 1.2184176004239065,
+        "document_id": "doc_wikipedia_en_astronomy_64296731_20231101",
+        "nll_nats": 203.5347965993052,
+        "targets": 77,
+        "utf8_bytes": 241
+      },
+      {
+        "bpb": 1.5464565021302883,
+        "document_id": "doc_wikipedia_en_astronomy_64317597_20231101",
+        "nll_nats": 3042.11453471236,
+        "targets": 790,
+        "utf8_bytes": 2838
+      },
+      {
+        "bpb": 1.6733193186034374,
+        "document_id": "doc_wikipedia_en_astronomy_64333870_20231101",
+        "nll_nats": 3313.7102143944803,
+        "targets": 749,
+        "utf8_bytes": 2857
+      },
+      {
+        "bpb": 0.8818720469003142,
+        "document_id": "doc_wikipedia_en_astronomy_64384000_20231101",
+        "nll_nats": 270.7913354551462,
+        "targets": 112,
+        "utf8_bytes": 443
+      },
+      {
+        "bpb": 1.5306639807359883,
+        "document_id": "doc_wikipedia_en_astronomy_64642851_20231101",
+        "nll_nats": 3502.279870107614,
+        "targets": 907,
+        "utf8_bytes": 3301
+      },
+      {
+        "bpb": 0.7966451009285214,
+        "document_id": "doc_wikipedia_en_astronomy_6486725_20231101",
+        "nll_nats": 579.8019208962725,
+        "targets": 296,
+        "utf8_bytes": 1050
+      },
+      {
+        "bpb": 1.6174170756010307,
+        "document_id": "doc_wikipedia_en_astronomy_65564269_20231101",
+        "nll_nats": 2004.5412573073509,
+        "targets": 485,
+        "utf8_bytes": 1788
+      },
+      {
+        "bpb": 1.6946253103650368,
+        "document_id": "doc_wikipedia_en_astronomy_6558936_20231101",
+        "nll_nats": 1262.7216126839262,
+        "targets": 305,
+        "utf8_bytes": 1075
+      },
+      {
+        "bpb": 1.549512537517027,
+        "document_id": "doc_wikipedia_en_astronomy_66436172_20231101",
+        "nll_nats": 11033.615453550003,
+        "targets": 2604,
+        "utf8_bytes": 10273
+      },
+      {
+        "bpb": 1.584391394487731,
+        "document_id": "doc_wikipedia_en_astronomy_67188634_20231101",
+        "nll_nats": 9701.643924886725,
+        "targets": 2306,
+        "utf8_bytes": 8834
+      },
+      {
+        "bpb": 1.1048019818240458,
+        "document_id": "doc_wikipedia_en_astronomy_67472636_20231101",
+        "nll_nats": 1585.9518744500192,
+        "targets": 516,
+        "utf8_bytes": 2071
+      },
+      {
+        "bpb": 1.3504564506509191,
+        "document_id": "doc_wikipedia_en_astronomy_67994869_20231101",
+        "nll_nats": 13937.07299454775,
+        "targets": 3669,
+        "utf8_bytes": 14889
+      },
+      {
+        "bpb": 1.4122307283159004,
+        "document_id": "doc_wikipedia_en_astronomy_68281_20231101",
+        "nll_nats": 11791.633623978498,
+        "targets": 3004,
+        "utf8_bytes": 12046
+      },
+      {
+        "bpb": 0.9712535383810591,
+        "document_id": "doc_wikipedia_en_astronomy_68486117_20231101",
+        "nll_nats": 445.6727334503585,
+        "targets": 187,
+        "utf8_bytes": 662
+      },
+      {
+        "bpb": 1.26289496275041,
+        "document_id": "doc_wikipedia_en_astronomy_6849465_20231101",
+        "nll_nats": 1300.8029150018724,
+        "targets": 355,
+        "utf8_bytes": 1486
+      },
+      {
+        "bpb": 1.2804236290875903,
+        "document_id": "doc_wikipedia_en_astronomy_69005591_20231101",
+        "nll_nats": 908.8225571065818,
+        "targets": 263,
+        "utf8_bytes": 1024
+      },
+      {
+        "bpb": 0.6922663123866639,
+        "document_id": "doc_wikipedia_en_astronomy_69264636_20231101",
+        "nll_nats": 475.0440182011719,
+        "targets": 247,
+        "utf8_bytes": 990
+      },
+      {
+        "bpb": 1.421912511539535,
+        "document_id": "doc_wikipedia_en_astronomy_70114339_20231101",
+        "nll_nats": 959.9691875187493,
+        "targets": 305,
+        "utf8_bytes": 974
+      },
+      {
+        "bpb": 1.331980887014902,
+        "document_id": "doc_wikipedia_en_astronomy_7024269_20231101",
+        "nll_nats": 1768.040595094729,
+        "targets": 468,
+        "utf8_bytes": 1915
+      },
+      {
+        "bpb": 0.9625366492014367,
+        "document_id": "doc_wikipedia_en_astronomy_70956993_20231101",
+        "nll_nats": 1970.1812542035377,
+        "targets": 767,
+        "utf8_bytes": 2953
+      },
+      {
+        "bpb": 0.5995382766317393,
+        "document_id": "doc_wikipedia_en_astronomy_71098039_20231101",
+        "nll_nats": 314.16960916030433,
+        "targets": 199,
+        "utf8_bytes": 756
+      },
+      {
+        "bpb": 1.2991413669373406,
+        "document_id": "doc_wikipedia_en_astronomy_71225603_20231101",
+        "nll_nats": 940.118007369633,
+        "targets": 273,
+        "utf8_bytes": 1044
+      },
+      {
+        "bpb": 1.7059584294605568,
+        "document_id": "doc_wikipedia_en_astronomy_71440032_20231101",
+        "nll_nats": 2337.763504728854,
+        "targets": 567,
+        "utf8_bytes": 1977
+      },
+      {
+        "bpb": 1.6769045354528123,
+        "document_id": "doc_wikipedia_en_astronomy_71743947_20231101",
+        "nll_nats": 2081.753896613787,
+        "targets": 445,
+        "utf8_bytes": 1791
+      },
+      {
+        "bpb": 0.8822498939654898,
+        "document_id": "doc_wikipedia_en_astronomy_71875354_20231101",
+        "nll_nats": 933.1932945175736,
+        "targets": 384,
+        "utf8_bytes": 1526
+      },
+      {
+        "bpb": 1.349719880590875,
+        "document_id": "doc_wikipedia_en_astronomy_71922657_20231101",
+        "nll_nats": 928.0700935390528,
+        "targets": 243,
+        "utf8_bytes": 992
+      },
+      {
+        "bpb": 1.2111694042673509,
+        "document_id": "doc_wikipedia_en_astronomy_7195427_20231101",
+        "nll_nats": 4343.669535190133,
+        "targets": 1128,
+        "utf8_bytes": 5174
+      },
+      {
+        "bpb": 1.414383748332595,
+        "document_id": "doc_wikipedia_en_astronomy_72004229_20231101",
+        "nll_nats": 7502.818349829233,
+        "targets": 1910,
+        "utf8_bytes": 7653
+      },
+      {
+        "bpb": 1.4773337513808318,
+        "document_id": "doc_wikipedia_en_astronomy_7205947_20231101",
+        "nll_nats": 2243.6053064138346,
+        "targets": 525,
+        "utf8_bytes": 2191
+      },
+      {
+        "bpb": 1.4950666866398825,
+        "document_id": "doc_wikipedia_en_astronomy_72171154_20231101",
+        "nll_nats": 1439.4224481864185,
+        "targets": 370,
+        "utf8_bytes": 1389
+      },
+      {
+        "bpb": 0.8873885710409113,
+        "document_id": "doc_wikipedia_en_astronomy_72261250_20231101",
+        "nll_nats": 933.0928741805178,
+        "targets": 370,
+        "utf8_bytes": 1517
+      },
+      {
+        "bpb": 1.027398939480013,
+        "document_id": "doc_wikipedia_en_astronomy_72733540_20231101",
+        "nll_nats": 828.2172827592171,
+        "targets": 272,
+        "utf8_bytes": 1163
+      },
+      {
+        "bpb": 0.9987194907913022,
+        "document_id": "doc_wikipedia_en_astronomy_73041563_20231101",
+        "nll_nats": 1261.9892493639416,
+        "targets": 482,
+        "utf8_bytes": 1823
+      },
+      {
+        "bpb": 1.1866004061777056,
+        "document_id": "doc_wikipedia_en_astronomy_7309383_20231101",
+        "nll_nats": 496.7831904999909,
+        "targets": 153,
+        "utf8_bytes": 604
+      },
+      {
+        "bpb": 0.7081760454625455,
+        "document_id": "doc_wikipedia_en_astronomy_74242529_20231101",
+        "nll_nats": 572.3546873083626,
+        "targets": 319,
+        "utf8_bytes": 1166
+      },
+      {
+        "bpb": 1.3516447533519782,
+        "document_id": "doc_wikipedia_en_astronomy_74628986_20231101",
+        "nll_nats": 2925.9035659519604,
+        "targets": 812,
+        "utf8_bytes": 3123
+      },
+      {
+        "bpb": 1.4632679781995324,
+        "document_id": "doc_wikipedia_en_astronomy_7621850_20231101",
+        "nll_nats": 1557.9034728847219,
+        "targets": 369,
+        "utf8_bytes": 1536
+      },
+      {
+        "bpb": 1.6740675477634506,
+        "document_id": "doc_wikipedia_en_astronomy_8219303_20231101",
+        "nll_nats": 698.5458708810806,
+        "targets": 169,
+        "utf8_bytes": 602
+      },
+      {
+        "bpb": 1.5813036755820447,
+        "document_id": "doc_wikipedia_en_astronomy_8632578_20231101",
+        "nll_nats": 5205.265799424831,
+        "targets": 1183,
+        "utf8_bytes": 4749
+      },
+      {
+        "bpb": 1.468404937636109,
+        "document_id": "doc_wikipedia_en_astronomy_8665254_20231101",
+        "nll_nats": 1268.204645083693,
+        "targets": 408,
+        "utf8_bytes": 1246
+      },
+      {
+        "bpb": 0.5611036512032145,
+        "document_id": "doc_wikipedia_en_astronomy_8761679_20231101",
+        "nll_nats": 581.4464836809316,
+        "targets": 363,
+        "utf8_bytes": 1495
+      },
+      {
+        "bpb": 1.2417492273073554,
+        "document_id": "doc_wikipedia_en_astronomy_9074462_20231101",
+        "nll_nats": 21809.656773584727,
+        "targets": 5995,
+        "utf8_bytes": 25339
+      },
+      {
+        "bpb": 1.7527465386696637,
+        "document_id": "doc_wikipedia_en_astronomy_93821_20231101",
+        "nll_nats": 10751.965195408462,
+        "targets": 2629,
+        "utf8_bytes": 8850
+      },
+      {
+        "bpb": 1.3652568379615604,
+        "document_id": "doc_wikipedia_en_astronomy_9592931_20231101",
+        "nll_nats": 550.7605260804266,
+        "targets": 151,
+        "utf8_bytes": 582
+      },
+      {
+        "bpb": 1.5246647221999536,
+        "document_id": "doc_wikipedia_en_astronomy_962130_20231101",
+        "nll_nats": 1222.7373308903714,
+        "targets": 318,
+        "utf8_bytes": 1157
+      },
+      {
+        "bpb": 1.3527775952810417,
+        "document_id": "doc_wikipedia_en_astronomy_963711_20231101",
+        "nll_nats": 1867.846560378684,
+        "targets": 480,
+        "utf8_bytes": 1992
+      },
+      {
+        "bpb": 1.3087997668138731,
+        "document_id": "doc_wikipedia_en_astronomy_968133_20231101",
+        "nll_nats": 1444.2478623090037,
+        "targets": 400,
+        "utf8_bytes": 1592
+      },
+      {
+        "bpb": 1.2316933741911593,
+        "document_id": "doc_wikipedia_en_astronomy_972070_20231101",
+        "nll_nats": 1127.7968671077924,
+        "targets": 325,
+        "utf8_bytes": 1321
+      },
+      {
+        "bpb": 1.2089710078269766,
+        "document_id": "doc_wikipedia_en_astronomy_974942_20231101",
+        "nll_nats": 1207.5505722991916,
+        "targets": 384,
+        "utf8_bytes": 1441
+      },
+      {
+        "bpb": 1.2041544963377464,
+        "document_id": "doc_wikipedia_en_astronomy_978464_20231101",
+        "nll_nats": 917.2872672105038,
+        "targets": 298,
+        "utf8_bytes": 1099
+      },
+      {
+        "bpb": 1.0489559734945781,
+        "document_id": "doc_wikipedia_en_astronomy_983901_20231101",
+        "nll_nats": 653.6457071277923,
+        "targets": 228,
+        "utf8_bytes": 899
+      },
+      {
+        "bpb": 1.3336798365985265,
+        "document_id": "doc_wikipedia_en_astronomy_99164_20231101",
+        "nll_nats": 2465.4719281606153,
+        "targets": 696,
+        "utf8_bytes": 2667
+      },
+      {
+        "bpb": 0.8990255948471799,
+        "document_id": "doc_wikipedia_en_astronomy_999444_20231101",
+        "nll_nats": 405.67524366402733,
+        "targets": 161,
+        "utf8_bytes": 651
+      },
+      {
+        "bpb": 0.8449580752259491,
+        "document_id": "doc_wikipedia_en_astronomy_999861_20231101",
+        "nll_nats": 579.8235044588826,
+        "targets": 250,
+        "utf8_bytes": 990
+      }
+    ],
+    "order": 5,
+    "test_bpb": 1.379236684527554
+  },
+  "train_tokens": 14816919,
+  "vocab_size": 8000
+}
