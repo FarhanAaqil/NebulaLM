@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NebulaLM</title>
+<style>
+  :root {
+    --ink: #eef0ff;
+    --muted: #a8adc9;
+    --faint: #6f7596;
+    --glass: rgba(8, 10, 26, 0.72);
+    --glass-strong: rgba(8, 10, 26, 0.82);
+    --edge: rgba(180, 190, 255, 0.16);
+    --edge-strong: rgba(200, 210, 255, 0.32);
+    --halpha: #ff5c8a;
+    --oiii: #3fd6c8;
+    --sii: #ffb454;
+    --accent: #9fb4ff;
+    --space: #04050d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--space); color: var(--ink);
+    font: 16px/1.6 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif; }
+  #sky { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; z-index: 0; }
+  /* Darker behind the content column so text stays readable; the nebula stays bright at the edges. */
+  .veil { position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(4,5,13,0.42) 26%, rgba(4,5,13,0.52) 50%, rgba(4,5,13,0.42) 74%, transparent 100%),
+      radial-gradient(ellipse at 50% 35%, transparent 0%, rgba(4,5,13,0.1) 60%, rgba(4,5,13,0.6) 100%); }
+  main { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 40px 16px 80px; }
+
+  header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .brand h1 { margin: 0; font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1; letter-spacing: -0.02em; font-weight: 700;
+    background: linear-gradient(100deg, #ffd1e0 0%, var(--halpha) 28%, #c79bff 52%, var(--oiii) 76%, var(--sii) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255, 92, 138, 0.25)); }
+  .brand p { margin: 10px 0 0; color: #d4d8f0; max-width: 520px; text-shadow: 0 1px 12px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.8); }
+  .toggles { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .pill { appearance: none; border: 1px solid var(--edge); background: var(--glass); color: var(--muted);
+    border-radius: 999px; padding: 6px 14px; font: inherit; font-size: .85rem; cursor: pointer;
+    backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%); transition: .2s; }
+  .pill:hover { color: var(--ink); border-color: var(--edge-strong); }
+  .pill[aria-pressed="true"] { color: var(--ink); border-color: var(--edge-strong); background: rgba(159, 180, 255, 0.14); }
+
+  .panel { background: var(--glass); border: 1px solid var(--edge); border-radius: 20px; padding: 22px;
+    backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06); }
+  .label { display: block; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 0 0 8px; }
+
+  .pickers { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .pickers { grid-template-columns: 1fr; } }
+  .segmented { display: flex; gap: 6px; flex-wrap: wrap; }
+  .seg { flex: 1; min-width: 64px; appearance: none; border: 1px solid var(--edge); background: rgba(2,3,12,0.45);
+    color: #c9cde6; border-radius: 12px; padding: 10px 8px; font: inherit; cursor: pointer; transition: .2s; text-align: center; }
+  .seg small { display: block; font-size: .72rem; color: #8a90b3; }
+  .seg:hover { border-color: var(--edge-strong); color: var(--ink); }
+  .seg[aria-pressed="true"] { color: #fff; border-color: rgba(255, 140, 180, 0.6);
+    background: linear-gradient(135deg, rgba(255, 92, 138, 0.22), rgba(63, 214, 200, 0.14));
+    box-shadow: 0 0 22px rgba(255, 92, 138, 0.18); }
+  .seg[aria-pressed="true"] small { color: var(--muted); }
+  .meter { margin-top: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: .9rem; }
+  .meter b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .bar { flex: 1; min-width: 160px; height: 6px; border-radius: 99px; background: rgba(255,255,255,0.07); overflow: hidden; }
+  .bar span { display: block; height: 100%; border-radius: 99px; transition: width .5s ease;
+    background: linear-gradient(90deg, var(--sii), var(--halpha), var(--oiii)); }
+
+  textarea { width: 100%; min-height: 110px; margin-top: 4px; resize: vertical; font: inherit; font-size: 1.08rem; color: var(--ink);
+    background: rgba(2, 3, 12, 0.55); border: 1px solid var(--edge); border-radius: 14px; padding: 14px 16px; outline: none; transition: .2s; }
+  textarea:focus { border-color: rgba(159, 180, 255, 0.55); box-shadow: 0 0 0 4px rgba(159, 180, 255, 0.10); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { appearance: none; border: 1px solid var(--edge); background: rgba(255,255,255,0.03); color: var(--muted);
+    border-radius: 999px; padding: 4px 12px; font: inherit; font-size: .84rem; cursor: pointer; transition: .2s; }
+  .chip:hover { color: var(--ink); border-color: rgba(63, 214, 200, 0.5); }
+
+  details { margin-top: 16px; border-top: 1px solid var(--edge); padding-top: 12px; }
+  summary { cursor: pointer; color: var(--muted); font-size: .9rem; list-style: none; user-select: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "▸ "; color: var(--faint); }
+  details[open] summary::before { content: "▾ "; }
+  .knobs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 14px; }
+  @media (max-width: 640px) { .knobs { grid-template-columns: repeat(2, 1fr); } }
+  .knob label { display: flex; justify-content: space-between; font-size: .82rem; color: var(--muted); margin-bottom: 6px; }
+  .knob output { color: var(--ink); font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; accent-color: var(--halpha); }
+  .check { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .86rem; margin-top: 14px; }
+
+  .actions { display: flex; align-items: center; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+  .ignite { position: relative; appearance: none; border: 0; border-radius: 14px; padding: 12px 26px; font: inherit; font-weight: 650;
+    color: #13061a; cursor: pointer; letter-spacing: .01em;
+    background: linear-gradient(110deg, #ffd6a0, var(--halpha) 45%, #b48cff 75%, var(--oiii));
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset, 0 8px 30px rgba(255, 92, 138, 0.35); transition: transform .15s, box-shadow .2s; }
+  .ignite:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,255,255,0.25) inset, 0 10px 40px rgba(255, 92, 138, 0.5); }
+  .ignite.stop { background: rgba(255,255,255,0.08); color: var(--ink); box-shadow: 0 0 0 1px var(--edge-strong) inset; }
+  .hint { color: var(--faint); font-size: .82rem; }
+  .status { color: var(--muted); font-size: .88rem; min-height: 1.4em; margin-top: 10px; }
+
+  .out { margin-top: 22px; display: grid; gap: 14px; }
+  .sample { background: var(--glass-strong); border: 1px solid var(--edge); border-radius: 18px; padding: 18px 20px 16px;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); animation: rise .5s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .sample-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .tag { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+  .copy { appearance: none; border: 1px solid var(--edge); background: transparent; color: var(--faint); border-radius: 8px;
+    padding: 2px 10px; font: inherit; font-size: .78rem; cursor: pointer; }
+  .copy:hover { color: var(--ink); border-color: var(--edge-strong); }
+  .text { white-space: pre-wrap; font-size: 1.05rem; line-height: 1.7; }
+  .text .prompt { color: var(--accent); }
+  .text .tok { animation: ignite 1.1s ease-out both; }
+  @keyframes ignite {
+    0% { color: #fff; text-shadow: 0 0 12px rgba(255, 180, 210, 0.95), 0 0 24px rgba(63, 214, 200, 0.6); }
+    100% { color: var(--ink); text-shadow: none; }
+  }
+  .cursor { display: inline-block; width: .55em; height: .55em; margin-left: 3px; border-radius: 50%; vertical-align: middle;
+    background: radial-gradient(circle, #fff 0%, var(--halpha) 45%, transparent 72%); animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.5); opacity: .55; } }
+  .stats { margin-top: 10px; font-size: .78rem; color: var(--faint); font-variant-numeric: tabular-nums; }
+
+  footer { margin-top: 34px; color: var(--faint); font-size: .8rem; line-height: 1.6; }
+  footer b { color: var(--muted); font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) { .text .tok, .sample, .cursor { animation: none; } }
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="veil"></div>
+<main>
+  <header>
+    <div class="brand">
+      <h1>NebulaLM</h1>
+      <p>A small astronomy language model trained from scratch on Wikipedia. Give it the start of a sentence and watch it write the rest.</p>
+    </div>
+    <div class="toggles">
+      <button class="pill" id="palette" aria-pressed="true" title="Hubble palette: sulfur gold, hydrogen, oxygen teal">Hubble palette</button>
+      <button class="pill" id="motion" aria-pressed="true" title="Pause or resume the nebula">Drift</button>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="pickers">
+      <div>
+        <span class="label">Model size</span>
+        <div class="segmented" id="sizes"></div>
+      </div>
+      <div>
+        <span class="label">Training passes</span>
+        <div class="segmented" id="passes"></div>
+      </div>
+    </div>
+    <div class="meter" id="meter"></div>
+
+    <label class="label" for="prompt" style="margin-top:20px">Prompt</label>
+    <textarea id="prompt" spellcheck="false">The Andromeda Galaxy is</textarea>
+    <div class="chips" id="chips"></div>
+
+    <details>
+      <summary>Sampling controls</summary>
+      <div class="knobs">
+        <div class="knob"><label for="temperature">Temperature <output id="temperature-v">0.80</output></label>
+          <input id="temperature" type="range" min="0.1" max="1.6" step="0.05" value="0.8"></div>
+        <div class="knob"><label for="top_k">Top-k <output id="top_k-v">40</output></label>
+          <input id="top_k" type="range" min="1" max="200" step="1" value="40"></div>
+        <div class="knob"><label for="max_new">Length <output id="max_new-v">150</output></label>
+          <input id="max_new" type="range" min="10" max="200" step="10" value="150"></div>
+        <div class="knob"><label for="samples">Samples <output id="samples-v">1</output></label>
+          <input id="samples" type="range" min="1" max="3" step="1" value="1"></div>
+      </div>
+      <div class="check"><input type="checkbox" id="greedy"><label for="greedy">Greedy: always take the single most likely token</label></div>
+    </details>
+
+    <div class="actions">
+      <button class="ignite" id="go">Ignite</button>
+      <span class="hint">Ctrl + Enter</span>
+    </div>
+    <div class="status" id="status" role="status"></div>
+  </section>
+
+  <section class="out" id="out" aria-live="polite"></section>
+
+  <footer>
+    <b>Read this as fiction.</b> These models have 4 to 30 million parameters: they write fluent astronomy that is often wrong.
+    Bits per byte is the model's measured loss on held-out articles; lower is better. The nebula behind this page is generated
+    in your browser from noise, coloured the way telescope images are: hydrogen-alpha in rose and crimson, doubly ionised oxygen in teal,
+    sulfur in gold, with dust lanes absorbing the light. Click the sky to light a star.
+  </footer>
+</main>
+
+<script>
+/* ---------- Nebula and starfield ---------- */
+const sky = document.getElementById("sky");
+const ctx = sky.getContext("2d");
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let palette = "hubble";
+let drifting = !reduceMotion;
+let excitation = 0, excitationTarget = 0;
+let pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+let layers = [];
+let stars = [], beacons = [], births = [];
+let dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+function rng(seed) {
+  return function () {
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function makeNoise(seed) {
+  const r = rng(seed), perm = new Uint8Array(512), grid = new Float32Array(256);
+  for (let i = 0; i < 256; i++) { perm[i] = i; grid[i] = r(); }
+  for (let i = 255; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+  for (let i = 0; i < 256; i++) perm[i + 256] = perm[i];
+  const fade = t => t * t * (3 - 2 * t);
+  function value(x, y) {
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    const X = xi & 255, Y = yi & 255;
+    const a = grid[perm[X + perm[Y]]], b = grid[perm[X + 1 + perm[Y]]];
+    const c = grid[perm[X + perm[Y + 1]]], d = grid[perm[X + 1 + perm[Y + 1]]];
+    const u = fade(xf), v = fade(yf);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y, octaves = 5) {
+    let sum = 0, amp = 0.5, freq = 1, norm = 0;
+    for (let i = 0; i < octaves; i++) { sum += amp * value(x * freq, y * freq); norm += amp; amp *= 0.5; freq *= 2.03; }
+    return sum / norm;
+  }
+  function ridged(x, y, octaves = 4) {
+    let sum = 0, amp = 0.5, freq = 1, norm = 0;
+    for (let i = 0; i < octaves; i++) { const n = 1 - Math.abs(value(x * freq, y * freq) * 2 - 1); sum += amp * n * n; norm += amp; amp *= 0.5; freq *= 2.1; }
+    return sum / norm;
+  }
+  return { fbm, ridged };
+}
+const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+
+const PALETTES = {
+  // Hubble (SHO): sulfur mapped to red, hydrogen to green, oxygen to blue. Gold wisps around teal cores.
+  hubble: { core: [0.20, 0.78, 0.74], rim: [1.00, 0.70, 0.30], wisp: [1.00, 0.80, 0.45], halo: [0.16, 0.30, 0.85], hot: [0.85, 1.0, 0.95] },
+  // True colour: hydrogen-alpha crimson and rose, blue reflection nebulosity.
+  natural: { core: [1.00, 0.40, 0.58], rim: [0.72, 0.10, 0.26], wisp: [1.00, 0.55, 0.70], halo: [0.28, 0.40, 0.95], hot: [1.0, 0.86, 0.92] },
+};
+
+function buildLayer(seed, w, h, scale, opts) {
+  const n = makeNoise(seed), dust = makeNoise(seed * 7 + 3), wisps = makeNoise(seed * 13 + 11);
+  const canvas = document.createElement("canvas"); canvas.width = w; canvas.height = h;
+  const g = canvas.getContext("2d"), img = g.createImageData(w, h), px = img.data;
+  const p = PALETTES[palette];
+  const cx = opts.cx, cy = opts.cy;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const u = x / w * scale, v = y / h * scale * (h / w);
+      const qx = n.fbm(u + 1.7, v + 9.2, 4), qy = n.fbm(u + 8.3, v + 2.8, 4);
+      const field = n.fbm(u + 2.2 * qx, v + 2.2 * qy, 6);
+      const dx = x / w - cx, dy = (y / h - cy) * (h / w);
+      const falloff = Math.exp(-(dx * dx + dy * dy) / opts.spread);
+      const density = smooth(0.34, 0.80, field) * falloff;
+      const fil = Math.pow(wisps.ridged(u * 1.8 + qx, v * 1.8 + qy, 4), 2.6) * falloff;
+      // Gold rims around teal cores (Hubble) or crimson rims around rose cores (true colour).
+      let col = mix(p.rim, p.core, smooth(0.55, 0.92, field + 0.12 * qx));
+      col = col.map(c => c * density * 1.9);
+      col = col.map((c, i) => c + p.wisp[i] * fil * 1.3 + p.halo[i] * smooth(0.2, 0.7, field) * falloff * 0.3);
+      const hot = smooth(0.76, 0.95, field) * falloff;
+      col = col.map((c, i) => c + p.hot[i] * hot * 0.8);
+      const lane = smooth(0.54, 0.80, dust.fbm(u * 1.4 + 4.1, v * 1.4 + 0.7, 5));
+      const absorb = 1 - 0.8 * lane;
+      const k = (y * w + x) * 4;
+      px[k] = Math.min(255, col[0] * absorb * 255);
+      px[k + 1] = Math.min(255, col[1] * absorb * 255);
+      px[k + 2] = Math.min(255, col[2] * absorb * 255);
+      px[k + 3] = Math.min(255, (density * 1.1 + fil * 0.9 + hot * 0.4) * absorb * 255);
+    }
+  }
+  g.putImageData(img, 0, 0);
+  return canvas;
+}
+
+function buildSky() {
+  const aspect = innerWidth / Math.max(1, innerHeight);
+  const w = 300, h = Math.max(120, Math.round(w / aspect));
+  layers = [
+    { canvas: buildLayer(11, w, h, 3.2, { cx: 0.62, cy: 0.42, spread: 0.12 }), drift: [0.006, 0.002], depth: 18, scale: 1.12, alpha: 1.0 },
+    { canvas: buildLayer(29, w, h, 5.0, { cx: 0.30, cy: 0.62, spread: 0.08 }), drift: [-0.004, 0.003], depth: 34, scale: 1.2, alpha: 0.75 },
+    { canvas: buildLayer(47, w, h, 7.5, { cx: 0.50, cy: 0.50, spread: 0.30 }), drift: [0.003, -0.002], depth: 52, scale: 1.28, alpha: 0.4 },
+  ];
+}
+
+function buildStars() {
+  const r = rng(7), count = Math.round((innerWidth * innerHeight) / 2600);
+  stars = Array.from({ length: count }, () => ({
+    x: r(), y: r(), depth: 0.2 + r() * 0.8, size: Math.pow(r(), 6) * 1.6 + 0.35,
+    phase: r() * Math.PI * 2, speed: 0.6 + r() * 2.2, tint: r(),
+  }));
+  // Bright stars stay in the side margins so their spikes never cross text.
+  beacons = Array.from({ length: 6 }, (_, i) => ({
+    x: i % 2 ? 0.86 + r() * 0.1 : 0.04 + r() * 0.1, y: 0.08 + r() * 0.84,
+    size: 1.5 + r() * 2.5, depth: 0.6 + r() * 0.4, phase: r() * 6,
+  }));
+}
+
+function resize() {
+  dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+  sky.width = Math.floor(innerWidth * dpr); sky.height = Math.floor(innerHeight * dpr);
+  buildStars(); buildSky();
+}
+
+function starColor(t) {
+  return t < 0.25 ? "200,215,255" : t < 0.7 ? "255,250,240" : t < 0.9 ? "255,225,190" : "255,190,170";
+}
+
+function drawFrame(time) {
+  const W = sky.width, H = sky.height, t = time / 1000;
+  pointer.x += (pointer.tx - pointer.x) * 0.04; pointer.y += (pointer.ty - pointer.y) * 0.04;
+  excitation += (excitationTarget - excitation) * 0.03;
+  ctx.globalCompositeOperation = "source-over";
+  ctx.fillStyle = "#04050d"; ctx.fillRect(0, 0, W, H);
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+
+  ctx.globalCompositeOperation = "lighter";
+  for (const layer of layers) {
+    const s = layer.scale + (drifting ? 0.02 * Math.sin(t * 0.05 + layer.depth) : 0);
+    const dw = W * s, dh = H * s;
+    const ox = (W - dw) / 2 + (drifting ? Math.sin(t * layer.drift[0] * 6) * W * 0.03 : 0) - pointer.x * layer.depth * dpr;
+    const oy = (H - dh) / 2 + (drifting ? Math.cos(t * layer.drift[1] * 6) * H * 0.03 : 0) - pointer.y * layer.depth * dpr;
+    ctx.globalAlpha = Math.min(1, layer.alpha * (0.92 + 0.35 * excitation));
+    ctx.drawImage(layer.canvas, ox, oy, dw, dh);
+  }
+  ctx.globalAlpha = 1;
+
+  for (const s of stars) {
+    const tw = drifting ? 0.55 + 0.45 * Math.sin(t * s.speed + s.phase) : 0.8;
+    const x = (s.x * W - pointer.x * 8 * s.depth * dpr + W) % W, y = (s.y * H - pointer.y * 8 * s.depth * dpr + H) % H;
+    ctx.fillStyle = `rgba(${starColor(s.tint)},${(0.35 + 0.65 * tw) * s.depth})`;
+    const r = s.size * dpr;
+    ctx.fillRect(x - r / 2, y - r / 2, r, r);
+  }
+
+  for (const b of beacons) {
+    const x = b.x * W - pointer.x * 14 * b.depth * dpr, y = b.y * H - pointer.y * 14 * b.depth * dpr;
+    const glow = (drifting ? 0.8 + 0.2 * Math.sin(t * 0.8 + b.phase) : 0.9) * (1 + 0.4 * excitation);
+    drawStar(x, y, b.size * dpr, glow);
+  }
+
+  births = births.filter(bh => t - bh.t0 < 3.2);
+  for (const bh of births) {
+    const age = (t - bh.t0) / 3.2, r = (20 + age * 220) * dpr;
+    const ring = ctx.createRadialGradient(bh.x, bh.y, r * 0.6, bh.x, bh.y, r);
+    ring.addColorStop(0, "rgba(255,255,255,0)");
+    ring.addColorStop(0.8, `rgba(${bh.color},${0.35 * (1 - age)})`);
+    ring.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = ring; ctx.beginPath(); ctx.arc(bh.x, bh.y, r, 0, Math.PI * 2); ctx.fill();
+    drawStar(bh.x, bh.y, 3 * dpr * (1 - age * 0.5), 1.4 * (1 - age));
+  }
+  ctx.globalCompositeOperation = "source-over";
+}
+
+function drawStar(x, y, size, glow) {
+  const halo = ctx.createRadialGradient(x, y, 0, x, y, size * 9);
+  halo.addColorStop(0, `rgba(255,255,255,${0.9 * glow})`);
+  halo.addColorStop(0.15, `rgba(210,225,255,${0.35 * glow})`);
+  halo.addColorStop(1, "rgba(120,150,255,0)");
+  ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(x, y, size * 9, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeStyle = `rgba(220,230,255,${0.35 * glow})`; ctx.lineWidth = Math.max(1, size * 0.35);
+  for (const [dx, dy] of [[1, 0], [0, 1]]) {           // diffraction spikes, as a reflecting telescope draws them
+    ctx.beginPath(); ctx.moveTo(x - dx * size * 16, y - dy * size * 16); ctx.lineTo(x + dx * size * 16, y + dy * size * 16); ctx.stroke();
+  }
+}
+
+function loop(time) { drawFrame(time); if (drifting || births.length || Math.abs(excitation - excitationTarget) > 0.01) requestAnimationFrame(loop); else idle = true; }
+let idle = false;
+function wake() { if (idle) { idle = false; requestAnimationFrame(loop); } }
+
+addEventListener("resize", () => { clearTimeout(resize.t); resize.t = setTimeout(() => { resize(); wake(); drawFrame(performance.now()); }, 200); });
+addEventListener("pointermove", e => { pointer.tx = (e.clientX / innerWidth - 0.5); pointer.ty = (e.clientY / innerHeight - 0.5); wake(); });
+sky.addEventListener("click", e => {
+  const colors = palette === "hubble" ? ["63,214,200", "255,180,84"] : ["255,92,138", "160,180,255"];
+  births.push({ x: e.clientX * dpr, y: e.clientY * dpr, t0: performance.now() / 1000, color: colors[births.length % 2] }); wake();
+});
+document.getElementById("palette").addEventListener("click", e => {
+  palette = palette === "hubble" ? "natural" : "hubble";
+  e.currentTarget.textContent = palette === "hubble" ? "Hubble palette" : "True colour";
+  e.currentTarget.setAttribute("aria-pressed", "true");
+  buildSky(); wake(); drawFrame(performance.now());
+});
+document.getElementById("motion").addEventListener("click", e => {
+  drifting = !drifting; e.currentTarget.setAttribute("aria-pressed", String(drifting)); wake();
+});
+document.getElementById("motion").setAttribute("aria-pressed", String(drifting));
+resize(); requestAnimationFrame(loop);
+
+/* ---------- Model picker ---------- */
+const $ = id => document.getElementById(id);
+let models = [], size = "29.4M", passes = 8;
+const examples = ["The Andromeda Galaxy is", "A neutron star forms when", "Jupiter is the fifth planet",
+  "The Hubble Space Telescope", "Saturn's rings are made of", "In 1969, the Apollo 11 mission", "The Crab Nebula"];
+
+function current() { return models.find(m => m.size === size && m.passes === passes); }
+function renderPickers() {
+  const sizes = [...new Set(models.map(m => m.size))];
+  $("sizes").innerHTML = sizes.map(s => {
+    const m = models.find(x => x.size === s);
+    return `<button class="seg" aria-pressed="${s === size}" data-size="${s}">${s}<small>${(m.parameters / 1e6).toFixed(1)} million weights</small></button>`;
+  }).join("");
+  const counts = models.filter(m => m.size === size).map(m => m.passes).sort((a, b) => a - b);
+  $("passes").innerHTML = counts.map(p => `<button class="seg" aria-pressed="${p === passes}" data-passes="${p}">${p}<small>${p === 1 ? "pass" : "passes"}</small></button>`).join("");
+  const m = current();
+  if (m && m.test_bpb) {
+    const best = Math.min(...models.map(x => x.test_bpb || 9)), worst = Math.max(...models.map(x => x.test_bpb || 0));
+    const quality = 100 * (worst - m.test_bpb) / Math.max(1e-9, worst - best);
+    $("meter").innerHTML = `<span>Test score <b>${m.test_bpb.toFixed(3)}</b> bits per byte</span>
+      <div class="bar" title="Relative to the other models: further right is better"><span style="width:${Math.max(6, quality)}%"></span></div>`;
+  } else $("meter").textContent = "";
+}
+$("sizes").addEventListener("click", e => {
+  const b = e.target.closest("[data-size]"); if (!b) return;
+  size = b.dataset.size;
+  const options = models.filter(m => m.size === size).map(m => m.passes);
+  if (!options.includes(passes)) passes = Math.max(...options);
+  renderPickers();
+});
+$("passes").addEventListener("click", e => {
+  const b = e.target.closest("[data-passes]"); if (!b) return;
+  passes = +b.dataset.passes; renderPickers();
+});
+fetch("/models").then(r => r.json()).then(list => {
+  models = list;
+  if (!current() && list.length) { size = list[0].size; passes = list[0].passes; }
+  renderPickers();
+});
+for (const text of examples) {
+  const b = document.createElement("button");
+  b.className = "chip"; b.textContent = text;
+  b.onclick = () => { $("prompt").value = text; $("prompt").focus(); };
+  $("chips").appendChild(b);
+}
+for (const id of ["temperature", "top_k", "max_new", "samples"]) {
+  const input = $(id), out = $(id + "-v");
+  const show = () => out.textContent = id === "temperature" ? (+input.value).toFixed(2) : input.value;
+  input.addEventListener("input", show); show();
+}
+
+/* ---------- Streaming generation ---------- */
+let controller = null;
+function escapeHtml(s) { return s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])); }
+
+async function ignite() {
+  if (controller) { controller.abort(); return; }
+  const m = current(); if (!m) return;
+  const prompt = $("prompt").value;
+  const body = {
+    model: m.id, prompt,
+    temperature: +$("temperature").value, top_k: +$("top_k").value, max_new: +$("max_new").value,
+    samples: +$("samples").value, greedy: $("greedy").checked, seed: Math.floor(Math.random() * 1e9),
+  };
+  controller = new AbortController();
+  $("go").textContent = "Stop"; $("go").classList.add("stop");
+  $("status").textContent = `${m.size}, ${m.passes} ${m.passes === 1 ? "pass" : "passes"}: warming up the model…`;
+  $("out").innerHTML = "";
+  excitationTarget = 1; wake();
+  const cards = {};
+  try {
+    const response = await fetch("/stream", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body), signal: controller.signal });
+    if (!response.ok) throw new Error((await response.json()).error || response.statusText);
+    const reader = response.body.getReader(), decoder = new TextDecoder();
+    let buffer = "";
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      let cut;
+      while ((cut = buffer.indexOf("\n\n")) >= 0) {
+        const line = buffer.slice(0, cut); buffer = buffer.slice(cut + 2);
+        if (line.startsWith("data: ")) handle(JSON.parse(line.slice(6)), cards, prompt, m);
+      }
+    }
+    $("status").textContent = "";
+  } catch (error) {
+    $("status").textContent = error.name === "AbortError" ? "Stopped." : "Error: " + error.message;
+  } finally {
+    for (const card of Object.values(cards)) card.cursor.remove();
+    controller = null; excitationTarget = 0; wake();
+    $("go").textContent = "Ignite"; $("go").classList.remove("stop");
+  }
+}
+
+function handle(event, cards, prompt, m) {
+  if (event.event === "start") {
+    const card = document.createElement("article");
+    card.className = "sample";
+    card.innerHTML = `<div class="sample-head"><span class="tag">Sample ${event.sample + 1} · ${m.size} · ${m.passes} ${m.passes === 1 ? "pass" : "passes"}</span>
+      <button class="copy">Copy</button></div><div class="text"><span class="prompt">${escapeHtml(prompt)}</span></div><div class="stats"></div>`;
+    const text = card.querySelector(".text"), cursor = document.createElement("span");
+    cursor.className = "cursor"; text.appendChild(cursor);
+    card.querySelector(".copy").onclick = () => navigator.clipboard.writeText(text.textContent);
+    $("out").appendChild(card);
+    cards[event.sample] = { card, text, cursor, started: performance.now(), pieces: 0 };
+    $("status").textContent = "Writing…";
+  } else if (event.event === "text") {
+    const c = cards[event.sample], span = document.createElement("span");
+    span.className = "tok"; span.textContent = event.text;
+    c.text.insertBefore(span, c.cursor); c.pieces++;
+  } else if (event.event === "end") {
+    const c = cards[event.sample], seconds = (performance.now() - c.started) / 1000;
+    c.cursor.remove();
+    c.card.querySelector(".stats").textContent = `${event.tokens} tokens in ${seconds.toFixed(1)} s · ${(event.tokens / Math.max(seconds, 0.01)).toFixed(0)} tokens per second`;
+  }
+}
+$("go").addEventListener("click", ignite);
+$("prompt").addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); ignite(); } });
+</script>
+</body>
+</html>

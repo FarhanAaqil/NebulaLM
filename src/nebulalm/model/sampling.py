@@ -6,6 +6,7 @@ new tokens, stop at <eos>. Output is model text, not a factual source.
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 from pathlib import Path
 
 import torch
@@ -25,7 +26,7 @@ def load_run(run: Path, device: str) -> tuple[NebulaLM, Path]:
 
 
 @torch.no_grad()
-def generate(
+def iter_generate(
     model: NebulaLM,
     ids: list[int],
     eos_id: int,
@@ -36,13 +37,15 @@ def generate(
     greedy: bool = False,
     generator: torch.Generator | None = None,
     device: str = "cpu",
-) -> list[int]:
-    """New token ids after `ids`; stops at eos or max_new. The prompt is trimmed to fit the context."""
+) -> Iterator[int]:
+    """Yield new token ids after `ids` one at a time; stops at eos or max_new.
+
+    The prompt is trimmed from the left so prompt plus continuation fits the context.
+    """
     context = model.shape.context_length
     max_new = max(1, min(max_new, context - 1))
     ids = list(ids)[-(context - max_new):] if ids else []
     sequence = torch.tensor([ids or [eos_id]], device=device)
-    out: list[int] = []
     for _ in range(max_new):
         logits = model(sequence)[0, -1].float()
         if greedy:
@@ -52,7 +55,32 @@ def generate(
             probs = torch.softmax(values, dim=-1)
             token = int(indices[torch.multinomial(probs, 1, generator=generator)])
         if token == eos_id:
-            break
-        out.append(token)
+            return
+        yield token
         sequence = torch.cat([sequence, torch.tensor([[token]], device=device)], dim=1)
-    return out
+
+
+def generate(model: NebulaLM, ids: list[int], eos_id: int, **options) -> list[int]:
+    """All new token ids at once; same options as iter_generate."""
+    return list(iter_generate(model, ids, eos_id, **options))
+
+
+def text_deltas(tokens: Iterator[int], decode) -> Iterator[str]:
+    """Turn a token stream into text pieces, holding back a piece until its UTF-8 bytes are complete.
+
+    Byte-level BPE can split one character (for example ☉) across tokens; decoding
+    the partial bytes gives U+FFFD, so that piece waits for the next token.
+    """
+    seen: list[int] = []
+    sent = ""
+    for token in tokens:
+        seen.append(token)
+        text = decode(seen)
+        if text.endswith("�"):
+            continue
+        if text.startswith(sent):
+            yield text[len(sent):]
+        sent = text
+    final = decode(seen)
+    if final.startswith(sent) and final != sent:
+        yield final[len(sent):]
