@@ -22,6 +22,17 @@ def test_greedy_is_deterministic_and_long_prompts_are_trimmed_to_fit():
     assert first == second
 
 
+def test_text_deltas_hold_back_a_split_character_until_it_is_complete():
+    from nebulalm.model.sampling import text_deltas
+
+    encoded = "Sun ☉ mass".encode("utf-8")
+    pieces = [bytes([b]) for b in encoded]  # one byte per "token"
+    decode = lambda ids: b"".join(pieces[i] for i in ids).decode("utf-8", errors="replace")
+    deltas = list(text_deltas(iter(range(len(pieces))), decode))
+    assert "".join(deltas) == "Sun ☉ mass"
+    assert all("�" not in piece for piece in deltas)
+
+
 def test_an_empty_prompt_starts_from_the_document_boundary():
     model = NebulaLM(SHAPE, seed=1).eval()
     assert isinstance(generate(model, [], eos_id=1, max_new=3, greedy=True), list)

@@ -24,7 +24,7 @@ python scripts/web_ui.py                         # opens http://localhost:7860
 python scripts/generate.py --run m0-29m-e8 --prompt "The Andromeda Galaxy is" --samples 3
 ```
 
-The web interface lets you pick any of the twelve M0 models (three sizes, four pass counts), shows each one's measured test bits per byte, and samples continuations with adjustable temperature, top-k, and length. It runs only on localhost and uses the standard library. The models write fluent but often wrong astronomy; treat the output as a demonstration, not a source.
+The web interface draws a live nebula in the browser (Hubble or true-colour palette, drifting with the pointer; click the sky to light a star), lets you pick any of the twelve M0 models (three sizes, four pass counts) with its measured test bits per byte, and streams the continuation token by token with adjustable temperature, top-k, length, and sample count. It runs only on localhost and uses the standard library. The models write fluent but often wrong astronomy; treat the output as a demonstration, not a source.
 
 ## Hardware
 
